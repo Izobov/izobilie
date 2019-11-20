@@ -2,5 +2,24 @@
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  height: 100vh;
+
+  grid-template-areas: 
+    "header header"
+    "sidebar main" 
+    "footer footer"
+  ;
+
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows: 60px 1fr 60px;
 }
 
+.main {
+  grid-area: main;
+ 
+}
+
+.footer {
+  grid-area: footer;
+}

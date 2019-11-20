@@ -1,0 +1,4 @@
+.aside {
+   background-color: rgb(255, 240, 221);
+    grid-area: sidebar;
+}

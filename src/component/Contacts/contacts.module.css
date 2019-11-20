@@ -1,0 +1,22 @@
+.map {
+    width:450px;
+    height:450px; 
+   border: none;
+   margin-right: 10px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+strong {
+    margin-right: 5px;
+}

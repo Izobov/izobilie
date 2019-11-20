@@ -1,12 +1,37 @@
 .header {
-    background-image: url('../../img/background/backgroundHeader2.jpg');
+    background-image: url('../../img/background/header2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 10px;
     align-items: center;
+    grid-area: header;
+}
+
+
+.searchWrapper {
+   
+    max-width: 200px;
+    width: 100%;
+    position: relative;
+}
+.searchWrapper img {
+    width: 15px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    
+}
+
+.search {
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    width: 100%;
+    border: none; 
+    max-width: 200px;
 }
 
 .navbar {

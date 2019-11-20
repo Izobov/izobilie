@@ -1,0 +1,64 @@
+.card {
+    background-color: gray;
+    padding: 10px;
+   max-width: 100%
+}
+
+.wrapper {
+    display: flex;
+    margin-bottom: 10px;
+    
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.description {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+
+}
+
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+ 
+    justify-content: space-between;
+    
+
+}
+.info {
+    display: flex;
+    flex-grow: 1;
+}
+
+.characteristic {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 70%;
+    justify-content: space-between;
+}
+
+.value {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 40%;
+    height: 70%;
+}
+
+button {
+  
+}
+
+input {
+    max-width: 50px;
+}
