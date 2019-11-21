@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './product.module.css'
+import { useState } from 'react'
 
 
 
@@ -8,6 +9,7 @@ import s from './product.module.css'
 
 const Products = (props) => {
 
+    const [inputValue, setValue] = useState(0)
 
     return <div className={s.card}>
         <div className={s.wrapper}>
@@ -32,8 +34,8 @@ const Products = (props) => {
             <div className={s.buttons}>
                 <strong>{props.price}</strong>
                 <button>Подробнее</button>
-                <input type="number" />
-                <button>В корзину</button>
+                <input type="number" value={inputValue} onChange={(e) => { setValue(e.target.value) }} />
+                <button onClick={() => { props.pushInBasket(props.name, props.img, props.price, inputValue, props.product_id) }}>В корзину</button>
             </div>
         </div>
 

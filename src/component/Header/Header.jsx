@@ -21,6 +21,7 @@ const Header = (props) => {
 
         <NavLink className={s.basket} to='/basket'>
             <img src={basket} alt="" />
+            <div className={s.count}>{props.countOfProducts}</div>
         </NavLink>
     </header>
 }

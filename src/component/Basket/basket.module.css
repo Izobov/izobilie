@@ -66,3 +66,7 @@ button {
 input {
     max-width: 50px;
 }
+
+.none {
+    display: none;
+}

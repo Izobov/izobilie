@@ -8,7 +8,7 @@ import s from './category.module.css'
 
 const Category = (props) => {
 
-    return <div className={s.card} onClick={() => { props.onClick(props.category_id) }}>
+    return <div className={s.card} onClick={() => { props.onCategoryClick(props.category_id, props.name) }}>
         <img src={props.img} alt="" />
         <h2>{props.name}</h2>
 

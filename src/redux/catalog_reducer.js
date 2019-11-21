@@ -12,7 +12,7 @@ let SET_CURRENT_CATEGORY = "SET_CURRENT_CATEGORY"
 let InitialState = {
     catalog: [],
     currentCatalog: '',
-    curentCategory: '',
+    currentCategory: '',
     categories: [],
     products: [],
 
@@ -29,12 +29,12 @@ const catalog_reducer = (state = InitialState, action) => {
             return {
                 ...state,
                 currentCatalog: action.name,
-                curentCategory: ''
+                currentCategory: ''
             }
         case SET_CURRENT_CATEGORY:
             return {
                 ...state,
-                curentCategory: action.name
+                currentCategory: action.name
             }
 
         case SET_CATEGORIES:

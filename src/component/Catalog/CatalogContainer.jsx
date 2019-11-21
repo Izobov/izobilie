@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Catalog from './Catalog';
 import { setProducts, setCurentCategory } from '../../redux/catalog_reducer';
+import { setBasketProducts } from '../../redux/basket_reducer';
 
 
 
@@ -10,7 +11,9 @@ class CatalogContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.onCategoryClick = this.onCategoryClick.bind(this)
+        this.onCategoryClick = this.onCategoryClick.bind(this);
+
+        this.pushInBasket = this.pushInBasket.bind(this)
     }
 
     onCategoryClick(id, name) {
@@ -18,9 +21,19 @@ class CatalogContainer extends React.Component {
         this.props.setProducts(id)
     }
 
+    pushInBasket(name, img, price, count, product_id) {
+        let total = count * price
+
+        let product = { name, img, price, count, total, product_id };
+        this.props.setBasketProducts(product)
+        // product.push(name, img, price)
+        console.log(product)
+
+    }
+
     render() {
 
-        return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} />
+        return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} pushInBasket={this.pushInBasket} />
     }
 }
 
@@ -35,4 +48,4 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { setProducts, setCurentCategory })(CatalogContainer)
+export default connect(mapStateToProps, { setProducts, setCurentCategory, setBasketProducts })(CatalogContainer)

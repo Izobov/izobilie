@@ -47,6 +47,22 @@
 }
 
 .basket img {
-    width: 25px;
+    width: 30px;
+}
+
+.basket {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+.count {
+    border-radius: 50%;
+    background-color: red;
+    font-size: 0.7rem;
+    width: 20px;
+    position: absolute;
+    left: -15%;
+    top: 35%;
 }
 

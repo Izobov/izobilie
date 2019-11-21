@@ -1,11 +1,10 @@
 import { CatalogAPI } from "../api/api"
 
 
-let SET_CATALOG = "SET_CATALOG"
-let SET_CATEGORIES = "SET_CATEGORIES"
-let SET_PRODUCTS = "SET_PRODUCTS"
-let SET_CURRENT_CATALOG = "SET_CURRENT_CATALOG"
-let SET_CURRENT_CATEGORY = "SET_CURRENT_CATEGORY"
+
+let SET_BASKET_PRODUCTS = "SET_BASKET_PRODUCTS"
+let CHANGE_VALUE = "CHANGE_VALUE"
+
 
 
 
@@ -16,35 +15,45 @@ let InitialState = {
 
 const basket_reducer = (state = InitialState, action) => {
     switch (action.type) {
-        case SET_CATALOG:
-            return {
-                ...state,
-                catalog: action.catalog
-            }
-        case SET_CURRENT_CATALOG:
-            return {
-                ...state,
-                currentCatalog: action.name,
-                curentCategory: ''
-            }
-        case SET_CURRENT_CATEGORY:
-            return {
-                ...state,
-                curentCategory: action.name
+        case SET_BASKET_PRODUCTS:
+
+            let filter = state.products.filter(i => {
+                return i.product_id === action.products.product_id
+            })
+
+            if (filter.length === 0) {
+                alert("товар добавлен в корзину")
+                return {
+                    ...state,
+                    products: [...state.products, action.products]
+                }
+            } else {
+                alert("этот товар уже имеется в вашей корзине")
+                return {
+                    ...state
+                }
             }
 
-        case SET_CATEGORIES:
+        case CHANGE_VALUE:
 
-            return {
-                ...state,
-                categories: action.categories
+            let newArray = []
+            for (let i = 0; i < state.products.length; i++) {
+
+                if (state.products[i].product_id === action.product_id) {
+
+                    newArray.push(state.products[i] = {
+                        ...state.products[i],
+                        count: action.value
+                    })
+                } else {
+                    newArray.push(state.products[i])
+                }
 
             }
-        case SET_PRODUCTS:
+
             return {
                 ...state,
-                categories: [],
-                products: action.products
+                products: newArray
             }
 
         default: return state
@@ -52,44 +61,10 @@ const basket_reducer = (state = InitialState, action) => {
 }
 
 
-const setCatalog = (catalog) => ({ type: SET_CATALOG, catalog })
-const setCategoriesSuccess = (categories) => ({ type: SET_CATEGORIES, categories })
-const setProductsSuccess = (products) => ({ type: SET_PRODUCTS, products })
-export const setCurentCatalog = (name) => ({ type: SET_CURRENT_CATALOG, name })
-export const setCurentCategory = (name) => ({ type: SET_CURRENT_CATEGORY, name })
+export const setBasketProducts = (products) => ({ type: SET_BASKET_PRODUCTS, products })
+export const changeCount = (product_id, value) => ({ type: CHANGE_VALUE, product_id, value })
 
-export const setCatalogThunk = () => {
 
-    return (dispatch) => {
-        return CatalogAPI.getCatalog().then(response => {
 
-            dispatch(setCatalog(response))
-        })
-
-    }
-}
-
-export const setCategories = (id) => {
-    return (dispatch) => {
-
-        return CatalogAPI.getCategories(id).then(response => {
-            if (response.length !== 0) {
-                dispatch(setCategoriesSuccess(response))
-            } else {
-                CatalogAPI.unsuccessGetCategories(id).then(response => {
-                    dispatch(setProductsSuccess(response))
-                })
-            }
-        })
-    }
-}
-
-export const setProducts = (id) => {
-    return (dispatch) => {
-        return CatalogAPI.getProducts(id).then(response => {
-            dispatch(setProductsSuccess(response))
-        })
-    }
-}
 
 export default basket_reducer;
