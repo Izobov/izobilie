@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from './Sidebar';
 import { connect } from 'react-redux';
-import { setCatalogThunk } from '../../redux/catalog_reducer';
+import { setCatalogThunk, setCurentCatalog } from '../../redux/catalog_reducer';
 import { setCategories } from '../../redux/catalog_reducer';
 
 
@@ -18,8 +18,9 @@ class SidebarContainer extends React.Component {
         this.props.setCatalogThunk()
     }
 
-    onClick(id) {
+    onClick(id, name) {
         this.props.setCategories(id)
+        this.props.setCurentCatalog(name)
     }
 
     render() {
@@ -34,4 +35,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { setCatalogThunk, setCategories })(SidebarContainer)
+export default connect(mapStateToProps, { setCatalogThunk, setCategories, setCurentCatalog })(SidebarContainer)

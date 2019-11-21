@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from "react-router-dom"
+
 import s from './catalog.module.css'
 import Category from './Categories/Categories';
-import Product from './Product/Product';
+import Products from './Products/Products';
+
 
 
 
@@ -12,11 +13,17 @@ import Product from './Product/Product';
 const Catalog = (props) => {
 
 
-    let categoryElements = props.categories.map(item => <Category name={item.name} img={item.img} key={item.category_id} />)
-    return <main className={s.main}>
+    let productsElements = props.products.map(item => <Products color={item.color} img={item.img} material={item.material}
+        name={item.name} price={item.price} size={item.size} description={item.description} key={item.producrt_id} />)
+    let categoryElements = props.categories.map(item => <Category name={item.name} img={item.img} key={item.category_id} category_id={item.category_id} onClick={props.onCategoryClick} />)
 
-        {categoryElements}
-        {/* <Product /> */}
+    return <main>
+        <h2>{props.currentCatalog}</h2>
+        <h3>{props.currentCategory}</h3>
+        <div className={s.main}>
+            {categoryElements.length !== 0 ? categoryElements : productsElements}
+        </div>
+
 
     </main>
 }

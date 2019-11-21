@@ -10,15 +10,11 @@ let SET_CURRENT_CATEGORY = "SET_CURRENT_CATEGORY"
 
 
 let InitialState = {
-    catalog: [],
-    currentCatalog: '',
-    curentCategory: '',
-    categories: [],
     products: [],
 
 }
 
-const catalog_reducer = (state = InitialState, action) => {
+const basket_reducer = (state = InitialState, action) => {
     switch (action.type) {
         case SET_CATALOG:
             return {
@@ -96,4 +92,4 @@ export const setProducts = (id) => {
     }
 }
 
-export default catalog_reducer;
+export default basket_reducer;

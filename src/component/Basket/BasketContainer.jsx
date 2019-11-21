@@ -1,26 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Catalog from './Catalog';
+
 import { setProducts, setCurentCategory } from '../../redux/catalog_reducer';
+import Basket from './Basket';
 
 
 
-class CatalogContainer extends React.Component {
+class BasketContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.onCategoryClick = this.onCategoryClick.bind(this)
+        // this.onCategoryClick = this.onCategoryClick.bind(this)
     }
 
-    onCategoryClick(id, name) {
-        this.props.setCurentCategory(name)
-        this.props.setProducts(id)
-    }
 
     render() {
 
-        return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} />
+        return <Basket {...this.props} />
     }
 }
 
@@ -35,4 +32,4 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { setProducts, setCurentCategory })(CatalogContainer)
+export default connect(mapStateToProps, { setProducts, setCurentCategory })(BasketContainer)

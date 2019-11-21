@@ -15,9 +15,15 @@ export const CatalogAPI = {
 
             return response.data
         })
+    },
+
+    unsuccessGetCategories(id) {
+        return instance.get(`catalog/product/${id}`).then(response => { return response.data })
+    },
+
+    getProducts(id) {
+        return instance.get(`products/${id}`).then(response => { return response.data })
     }
-
-
 
 
 

@@ -19,7 +19,7 @@ const Header = (props) => {
             <NavLink to='/contacts'> Контакты</NavLink>
         </div>
 
-        <NavLink className={s.basket} to='/'>
+        <NavLink className={s.basket} to='/basket'>
             <img src={basket} alt="" />
         </NavLink>
     </header>

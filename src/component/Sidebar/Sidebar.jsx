@@ -8,8 +8,8 @@ import s from './sidebar.module.css'
 
 
 const Sidebar = (props) => {
-    let catalogItems = props.catalog.map((i) => <li>
-        <NavLink to='/catalog' key={i.catalog_id} onClick={() => { props.onClick(i.catalog_id) }}>
+    let catalogItems = props.catalog.map((i) => <li key={i.catalog_id}>
+        <NavLink to='/catalog' onClick={() => { props.onClick(i.catalog_id, i.name) }}>
             {i.name}
         </NavLink>
     </li>)

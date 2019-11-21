@@ -6,14 +6,14 @@ import s from './product.module.css'
 
 
 
-const Product = (props) => {
+const Products = (props) => {
 
 
     return <div className={s.card}>
         <div className={s.wrapper}>
-            <img src="https://picsum.photos/200/200" alt="" />
+            <img src={props.img} alt="" />
             <div className={s.description} >
-                <h2>Название Продукта</h2>
+                <h2>{props.name}</h2>
                 <div className={s.info}>
                     <div className={s.characteristic}>
                         <span>Размер:</span>
@@ -21,16 +21,16 @@ const Product = (props) => {
                         <span>Материал:</span>
                     </div>
                     <div className={s.value}>
-                        <span>(44*32)мм</span>
-                        <span>Золото</span>
-                        <span>Сталь</span>
+                        <span>{props.size}</span>
+                        <span>{props.color}</span>
+                        <span>{props.material}</span>
                     </div>
                 </div>
 
 
             </div>
             <div className={s.buttons}>
-                <strong>20 руб</strong>
+                <strong>{props.price}</strong>
                 <button>Подробнее</button>
                 <input type="number" />
                 <button>В корзину</button>
@@ -41,4 +41,4 @@ const Product = (props) => {
     </div>
 }
 
-export default Product;
+export default Products;
