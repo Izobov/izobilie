@@ -1,0 +1,50 @@
+.window {
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    background-color: #fff;
+    max-width: 30%;
+    width: 100%;
+}
+
+.title {
+    border-bottom: 1px solid black;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    background-color: red;
+    border-radius: 20px;
+}
+
+.footer {
+ display: flex;
+ justify-content: center;
+}
+
+.cancel {
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-right: 10%;
+}
+
+.submit {
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    
+}

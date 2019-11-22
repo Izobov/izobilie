@@ -4,6 +4,7 @@
   margin: 0 auto;
   display: grid;
   height: 100vh;
+  z-index: 1;
 
   grid-template-areas: 
     "header header"

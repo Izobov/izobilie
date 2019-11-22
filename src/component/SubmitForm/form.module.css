@@ -1,0 +1,30 @@
+
+form {
+    width: 100%;
+}
+.name {
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+    width: 100%;
+
+
+}
+
+.phone {
+    width: 100%;
+    padding: 15px;
+}
+
+.submitWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submit{
+    padding: 10px 5px;
+    border: 1px solid black;
+}
+.btn {
+    display: none;
+}

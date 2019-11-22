@@ -4,12 +4,15 @@ import { CatalogAPI } from "../api/api"
 
 let SET_BASKET_PRODUCTS = "SET_BASKET_PRODUCTS"
 let CHANGE_VALUE = "CHANGE_VALUE"
+let TOGGLE_MODAL = "TOGGLE_MODAL"
+
 
 
 
 
 let InitialState = {
     products: [],
+    showModal: true,
 
 }
 
@@ -22,15 +25,17 @@ const basket_reducer = (state = InitialState, action) => {
             })
 
             if (filter.length === 0) {
-                alert("товар добавлен в корзину")
+                alert('товар добавлен в корзину')
                 return {
                     ...state,
-                    products: [...state.products, action.products]
+                    products: [...state.products, action.products],
+
                 }
             } else {
                 alert("этот товар уже имеется в вашей корзине")
                 return {
-                    ...state
+                    ...state,
+
                 }
             }
 
@@ -56,6 +61,14 @@ const basket_reducer = (state = InitialState, action) => {
                 products: newArray
             }
 
+        case TOGGLE_MODAL:
+            return {
+                ...state,
+                showModal: action.boolean,
+            }
+
+
+
         default: return state
     }
 }
@@ -63,6 +76,7 @@ const basket_reducer = (state = InitialState, action) => {
 
 export const setBasketProducts = (products) => ({ type: SET_BASKET_PRODUCTS, products })
 export const changeCount = (product_id, value) => ({ type: CHANGE_VALUE, product_id, value })
+export const modal = (boolean) => ({ type: TOGGLE_MODAL, boolean })
 
 
 

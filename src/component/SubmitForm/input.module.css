@@ -1,0 +1,18 @@
+.input.error input {
+    border: 1px solid red;
+}
+
+.input span {
+    color: red;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    
+}
+.input input {
+   min-width: 150px;
+}
+

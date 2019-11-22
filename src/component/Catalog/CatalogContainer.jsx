@@ -26,8 +26,7 @@ class CatalogContainer extends React.Component {
 
         let product = { name, img, price, count, total, product_id };
         this.props.setBasketProducts(product)
-        // product.push(name, img, price)
-        console.log(product)
+
 
     }
 

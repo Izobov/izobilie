@@ -22,6 +22,7 @@ const Catalog = (props) => {
         <h3>{props.currentCategory}</h3>
         <div className={s.main}>
             {categoryElements.length !== 0 ? categoryElements : productsElements}
+
         </div>
 
 
