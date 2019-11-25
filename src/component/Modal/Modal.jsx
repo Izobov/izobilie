@@ -25,7 +25,7 @@ const Modal = (props) => {
             <div className={s.footer}>
                 {props.ok &&
 
-                    <div onClick={props.submit} className={s.submit}>{props.ok}</div>
+                    <div onClick={props.Close} className={s.submit}>{props.ok}</div>
                 }
 
 

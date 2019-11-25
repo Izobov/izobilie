@@ -1,10 +1,12 @@
-import { CatalogAPI } from "../api/api"
+import { OrderAPI } from "../api/api"
+
 
 
 
 let SET_BASKET_PRODUCTS = "SET_BASKET_PRODUCTS"
 let CHANGE_VALUE = "CHANGE_VALUE"
 let TOGGLE_MODAL = "TOGGLE_MODAL"
+let SET_ORDER_ID = "SET_ORDER_ID"
 
 
 
@@ -12,7 +14,8 @@ let TOGGLE_MODAL = "TOGGLE_MODAL"
 
 let InitialState = {
     products: [],
-    showModal: true,
+    showModal: false,
+    response: false,
 
 }
 
@@ -67,6 +70,12 @@ const basket_reducer = (state = InitialState, action) => {
                 showModal: action.boolean,
             }
 
+        case SET_ORDER_ID:
+            return {
+                ...state,
+                response: action.res
+            }
+
 
 
         default: return state
@@ -77,6 +86,19 @@ const basket_reducer = (state = InitialState, action) => {
 export const setBasketProducts = (products) => ({ type: SET_BASKET_PRODUCTS, products })
 export const changeCount = (product_id, value) => ({ type: CHANGE_VALUE, product_id, value })
 export const modal = (boolean) => ({ type: TOGGLE_MODAL, boolean })
+const setRes = (res) => ({ type: SET_ORDER_ID, res })
+
+
+export const sendOrder = (name, secondName, products, phone, total) => {
+    return (dispatch) => {
+
+        return OrderAPI.addOrder(name, secondName, products, phone, total).then(response => {
+            if (response.status === 200) {
+                return dispatch(setRes(response.data.insertId))
+            } return dispatch(setRes(response.status))
+        })
+    }
+}
 
 
 

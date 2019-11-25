@@ -25,6 +25,7 @@ function App() {
       </main>
 
       <footer className='footer'></footer>
+
     </div>
   );
 }

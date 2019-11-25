@@ -27,6 +27,15 @@ export const CatalogAPI = {
 
 
 
+
+}
+
+
+export const OrderAPI = {
+    addOrder(name, secondName, products, phone, total) {
+
+        return instance.post(`orders`, { name, secondName, products, phone, total }).then(response => { return response })
+    }
 }
 // savePhoto(file, data) {
 

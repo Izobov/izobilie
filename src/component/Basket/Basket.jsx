@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './basket.module.css'
-import { useState } from 'react'
 import Portal from '../Portal/Portal';
 import Modal from '../Modal/Modal';
 import SubmitForm from '../SubmitForm/SubmitForm';
@@ -13,14 +12,12 @@ import SubmitForm from '../SubmitForm/SubmitForm';
 
 const Basket = (props) => {
 
-
-    // const [openModal, setModal] = useState(false)
     let totalOrder = 0;
 
     const onSubmit = (form) => {
-        debugger;
+
         props.onSubmit(form.FirstName, form.SecondName, form.phone, totalOrder)
-        props.onClick(false)
+        // props.onClick(false)
 
     }
 
@@ -53,19 +50,38 @@ const Basket = (props) => {
                 <button onClick={() => { props.onClick(true) }} >Оформить заказ</button>
             </div>
 
-            {props.showModal &&
-                <Portal>
+            {props.showModal &&                                                     // Сначала выскочит форма для заполнения
+                < Portal >
                     <Modal title='test' Close={() => { props.onClick(false) }}>
                         <div>
                             <SubmitForm onSubmit={onSubmit} />
                         </div>
 
                     </Modal>
+                </Portal>                                 // По клику отправить форму на сервер
+
+            }
+            {props.showModal && props.response && // После ответа сервера выскочит еще одно модальное окно с информацией
+
+                < Portal >
+                    <Modal title='Спасибо за заказ!' Close={() => { props.onClick(false) }} ok="Ok" >
+
+                        {props.response !== 500 ? <div>
+                            Ваш заказ успешно размещен! Пожалуйста запомните номер вашего заказа: №{props.response}!
+               <div> Вы можете забрать ваш заказ по адресу: ул Уручанская 19, павильон №224</div>  {/*Если пришел положительный ответ, выдаст клиенту номер его заказа */}
+                        </div>
+                            : <div>
+                                Извините на сервере возникла ошибка! Попробуйте чуть позже! {/*Если пришел отрицательный ответ, выдаст клиенту ошибку*/}
+                                <div>Либо наберите нас по телефону: 8029 329-89-85</div>
+                            </div>}
+                    </Modal>
                 </Portal>
             }
 
 
-        </div>
+
+
+        </div >
     } else {
         return <div className={s.wrapper}>
             <h4>Корзина пуста</h4>
