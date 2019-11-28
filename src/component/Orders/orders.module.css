@@ -1,0 +1,37 @@
+.card {
+    background-color: gray;
+    padding: 10px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrapper{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons{
+    align-self: flex-end;
+    display: flex;
+    padding: 10px;
+}
+
+.success {
+    padding: 2px 5px;
+    background-color: green;
+    color: wheat;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.lose {
+    padding: 2px 5px;
+    background-color: red;
+    color: wheat;
+    border-radius: 10px;
+    
+}
+
+

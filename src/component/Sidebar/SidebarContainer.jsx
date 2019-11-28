@@ -32,6 +32,7 @@ class SidebarContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         catalog: state.catalog.catalog,
+        isAuth: state.auth.isAuth
     }
 }
 

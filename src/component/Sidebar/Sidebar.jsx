@@ -16,11 +16,18 @@ const Sidebar = (props) => {
 
 
     return <aside className={s.aside}>
-        <ul>
-            Каталог
-            {catalogItems}
 
-        </ul>
+        <h2>
+
+            Каталог
+        </h2>
+        {catalogItems}
+        {props.isAuth && <div>
+            <input type="text" placeholder='название раздела' />
+            <div className={s.button}>Добавить раздел</div>
+        </div>}
+
+
 
 
     </aside>

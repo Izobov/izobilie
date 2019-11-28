@@ -35,7 +35,19 @@ export const OrderAPI = {
     addOrder(name, secondName, products, phone, total) {
 
         return instance.post(`orders`, { name, secondName, products, phone, total }).then(response => { return response })
+    },
+
+    getOrders() {
+        return instance.get('orders').then(response => { return response })
+    },
+
+    updateOrder(value, id) {
+
+        return instance.put('orders', { value: value, id: id }).then(response => {
+            return response
+        })
     }
+
 }
 // savePhoto(file, data) {
 

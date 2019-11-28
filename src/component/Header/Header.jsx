@@ -17,7 +17,10 @@ const Header = (props) => {
         <div className={s.navbar}>
             <NavLink to='/about'>О нас</NavLink>
             <NavLink to='/contacts'> Контакты</NavLink>
+            {props.isAuth && <NavLink to='/orders'>Заказы</NavLink>}
         </div>
+
+        {props.isAuth && <div className={s.btn} onClick={props.onClick}> Выйти</div>}
 
         <NavLink className={s.basket} to='/basket'>
             <img src={basket} alt="" />
