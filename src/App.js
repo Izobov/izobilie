@@ -18,12 +18,15 @@ function App() {
       <HeaderContainer />
       <SidebarContainer />
       <main className="main">
-        <Route path='/about' render={() => <About />} />
-        <Route path='/contacts' render={() => <Contacts />} />
-        <Route path='/catalog' render={() => <CatalogContainer />} />
-        <Route path='/basket' render={() => <BasketContainer />} />
-        <Route path='/login' render={() => <Login />} />
-        <Route path='/orders' render={() => <OrdersContainer />} />
+        <div className='title'></div>
+        <div className='content'>
+          <Route path='/about' render={() => <About />} />
+          <Route path='/contacts' render={() => <Contacts />} />
+          <Route path='/catalog' render={() => <CatalogContainer />} />
+          <Route path='/basket' render={() => <BasketContainer />} />
+          <Route path='/login' render={() => <Login />} />
+          <Route path='/orders' render={() => <OrdersContainer />} />
+        </div>
 
 
 

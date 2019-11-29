@@ -41,7 +41,8 @@ let mapStateToProps = (state) => {
         categories: state.catalog.categories,
         products: state.catalog.products,
         currentCatalog: state.catalog.currentCatalog,
-        currentCategory: state.catalog.currentCategory
+        currentCategory: state.catalog.currentCategory,
+        isAuth: state.auth.isAuth
     }
 }
 

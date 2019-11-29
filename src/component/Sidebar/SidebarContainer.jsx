@@ -3,6 +3,7 @@ import Sidebar from './Sidebar';
 import { connect } from 'react-redux';
 import { setCatalogThunk, setCurentCatalog } from '../../redux/catalog_reducer';
 import { setCategories } from '../../redux/catalog_reducer';
+import { CatalogAPI } from '../../api/api';
 
 
 
@@ -11,6 +12,7 @@ class SidebarContainer extends React.Component {
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
     componentDidMount() {
@@ -23,9 +25,14 @@ class SidebarContainer extends React.Component {
         this.props.setCurentCatalog(name)
     }
 
+    onSubmit(name) {
+        CatalogAPI.addCatalog(name)
+
+    }
+
     render() {
 
-        return <Sidebar catalog={this.props.catalog} onClick={this.onClick} />
+        return <Sidebar {...this.props} onClick={this.onClick} onSubmit={this.onSubmit} />
     }
 }
 

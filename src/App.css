@@ -18,9 +18,34 @@
 
 .main {
   grid-area: main;
+  position: relative;
+
+  
  
 }
 
 .footer {
   grid-area: footer;
 }
+
+.title {
+  background-image: url('./img/background/title3.jpg');
+  background-repeat: repeat;
+  background-size: contain;
+ max-width: 100%;
+  padding: 20px;
+  
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+h2 {
+  color: rgb(101, 73, 49);
+  
+}
+

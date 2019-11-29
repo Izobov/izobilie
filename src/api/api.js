@@ -10,6 +10,10 @@ export const CatalogAPI = {
         return instance.get('catalog').then(response => { return response.data })
     },
 
+    addCatalog(name) {
+        return instance.post('catalog', { name }).then(response => { return response })
+    },
+
     getCategories(id) {
         return instance.get(`categories/${id}`).then(response => {
 
@@ -49,6 +53,8 @@ export const OrderAPI = {
     }
 
 }
+
+
 // savePhoto(file, data) {
 
 

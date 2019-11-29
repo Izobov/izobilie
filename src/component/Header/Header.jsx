@@ -3,11 +3,12 @@ import { NavLink } from "react-router-dom"
 import s from './header.module.css'
 import basket from '../../img/icons/basket.png'
 import search from '../../img/icons/search.png'
+import logo from '../../img/logo/izobilie4.png'
 
 const Header = (props) => {
     return <header className={s.header}>
         <div className={s.logo}>
-            Лого
+            <img src={logo} alt="" />
         </div>
         <div className={s.searchWrapper}>
 

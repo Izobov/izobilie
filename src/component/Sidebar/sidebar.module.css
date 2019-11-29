@@ -1,4 +1,23 @@
 .aside {
-   background-color: rgb(255, 240, 221);
+   background-color: rgb(233, 216, 184);
     grid-area: sidebar;
+    /* background-image: url('../../img/background/aside5.JPG'); */
+    background: linear-gradient(rgb(250, 235, 207), rgb(138, 100, 36));
+    background-repeat: repeat;
+    /* height: 100vh; */
 }
+
+.item {
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.item a {
+    text-decoration: none;
+    color: rgb(112, 86, 61);
+}
+.item:hover>a {
+    text-decoration: none;
+    color: rgb(119, 119, 119)
+}
+

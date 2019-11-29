@@ -96,4 +96,6 @@ export const setProducts = (id) => {
     }
 }
 
+
+
 export default catalog_reducer;

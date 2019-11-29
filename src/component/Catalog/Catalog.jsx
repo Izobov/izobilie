@@ -18,10 +18,18 @@ const Catalog = (props) => {
     let categoryElements = props.categories.map(item => <Category name={item.name} img={item.img} key={item.category_id} category_id={item.category_id} onCategoryClick={props.onCategoryClick} />)
 
     return <main>
-        <h2>{props.currentCatalog}</h2>
-        <h3>{props.currentCategory}</h3>
+        {props.currentCategory ? <h2>{props.currentCategory}</h2> : <h2>{props.currentCatalog}</h2>}
+
         <div className={s.main}>
             {categoryElements.length !== 0 ? categoryElements : productsElements}
+            {props.isAuth && <div>
+                <div className={s.newItem}>
+
+                </div>
+                <div className={s.newItem}>
+
+                </div>
+            </div>}
 
         </div>
 
