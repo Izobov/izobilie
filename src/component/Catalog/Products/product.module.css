@@ -60,6 +60,16 @@ button {
   
 }
 
-input {
+.buttons input {
     max-width: 50px;
+}
+.redactorName {
+    display: flex;
+    align-items: center;
+    
+}
+
+.redactorName h2 {
+    margin: 0%;
+    margin-right: 17%;
 }
