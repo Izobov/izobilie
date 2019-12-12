@@ -11,8 +11,11 @@ const Login = (props) => {
     const [nameValue, setNameValue] = useState()
     const [passwordValue, setPasswordValue] = useState()
 
-    const onClick = () => {
+    const onSubmit = () => {
+
         props.Auth(nameValue, passwordValue)
+
+
     }
 
     if (props.isAuth) { return <Redirect to='/' /> }
@@ -26,7 +29,7 @@ const Login = (props) => {
                 <span className={s.span}>Пароль:</span>
                 <input className={s.input} type="password" placeholder='пароль' value={passwordValue} onChange={(e) => { setPasswordValue(e.target.value) }} />
                 <span className={s.error}>{props.error ? props.error : ''}</span>
-                <div className={s.btn} onClick={onClick}> Войти</div>
+                <div className={s.btn} onClick={onSubmit}> Войти</div>
             </form>
 
         </div>
@@ -34,6 +37,7 @@ const Login = (props) => {
 }
 
 let mapStateToProps = (state) => {
+
     return {
         isAuth: state.auth.isAuth,
         error: state.auth.error

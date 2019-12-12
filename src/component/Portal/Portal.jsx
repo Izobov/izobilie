@@ -9,8 +9,8 @@ class Portal extends React.Component {
     }
 
     render() {
-        const { children } = this.props
-        return ReactDOM.createPortal(children, this.el)
+
+        return ReactDOM.createPortal(this.props.children, this.el)
     }
 }
 

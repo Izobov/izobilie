@@ -1,13 +1,12 @@
 .card {
-    background-color: gray;
+   max-width: 100%;
     padding: 10px;
-    max-width: 100%;
-    width: 100%;
     margin-top: 10px;
 }
 
 .wrapper {
     display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
     
 }
@@ -29,7 +28,7 @@ h2 {
 
 .buttons {
     display: flex;
-    flex-direction: column;
+    margin-top: 10px;
  
     justify-content: space-between;
     
@@ -57,22 +56,22 @@ h2 {
     height: 70%;
 }
 
-button {
-  
-}
+
+
 
 .buttons input {
     max-width: 50px;
 }
 .redactorName {
     display: flex;
+    flex-direction: column;
     align-items: center;
     
 }
 
 .redactorName h2 {
     margin: 0%;
-    margin-right: 17%;
+    margin-right: 5%;
 }
 .wrapper img {
     max-width: 200px;

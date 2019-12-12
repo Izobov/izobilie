@@ -46,7 +46,7 @@ export const updateOrders = (value, id) => {
     return (dispatch) => {
         OrderAPI.updateOrder(value, id).then(response => {
             if (response.status === 200) {
-                dispatch()
+                dispatch(getOrders())
             }
         })
     }

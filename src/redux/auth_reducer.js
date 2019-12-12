@@ -18,6 +18,7 @@ const auth_reducer = (state = InitialState, action) => {
     switch (action.type) {
         case AUTH:
 
+
             let filter = state.logins.filter(i => {
                 return i.name === action.name && i.password === action.password
             })

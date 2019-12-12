@@ -24,6 +24,7 @@ const Sidebar = (props) => {
 
     let catalogItems = props.catalog.map((i) => <div key={i.catalog_id} className={s.item}>
         <NavLink to='/catalog' onClick={() => { props.onClick(i.catalog_id, i.name) }}>
+            {props.isAuth && i.catalog_id}
             {i.name}
         </NavLink>
     </div>)

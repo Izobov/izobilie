@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Catalog from './Catalog';
-import { setProducts, setCurentCategory } from '../../redux/catalog_reducer';
+import { setProducts, setCurentCategory, updateProducts, addCategory } from '../../redux/catalog_reducer';
 import { setBasketProducts } from '../../redux/basket_reducer';
 
 
@@ -11,9 +11,30 @@ class CatalogContainer extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = { img: '' };
         this.onCategoryClick = this.onCategoryClick.bind(this);
 
+        this.onProductsSubmit = this.onProductsSubmit.bind(this)
         this.pushInBasket = this.pushInBasket.bind(this)
+        this.SetImg = this.SetImg.bind(this)
+        this.onAddCategorySubmit = this.onAddCategorySubmit.bind(this)
+    }
+
+    SetImg(img) {
+        if (this.state.img !== img) {
+            this.setState({ img: img })
+        }
+    }
+
+    onProductsSubmit(values) {
+
+        this.props.updateProducts(this.state.img, values);
+
+
+    }
+    onAddCategorySubmit(values) {
+
+        this.props.addCategory(this.state.img, values)
     }
 
     onCategoryClick(id, name) {
@@ -32,7 +53,8 @@ class CatalogContainer extends React.Component {
 
     render() {
 
-        return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} pushInBasket={this.pushInBasket} />
+        return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} pushInBasket={this.pushInBasket} onProductsSubmit={this.onProductsSubmit}
+            SetImg={this.SetImg} onAddCategorySubmit={this.onAddCategorySubmit} />
     }
 }
 
@@ -48,4 +70,5 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { setProducts, setCurentCategory, setBasketProducts })(CatalogContainer)
+
+export default connect(mapStateToProps, { addCategory, setProducts, setCurentCategory, setBasketProducts, updateProducts })(CatalogContainer)

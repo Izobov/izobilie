@@ -1,4 +1,4 @@
-import { CatalogAPI } from "../api/api"
+import { CatalogAPI, ProductAPI, CategoryAPI } from "../api/api"
 
 
 let SET_CATALOG = "SET_CATALOG"
@@ -96,6 +96,28 @@ export const setProducts = (id) => {
     }
 }
 
+export const updateProducts = (file, data) => {
+    return (dispatch) => {
+        return ProductAPI.updateProducts(file, data).then(response => {
+
+            if (response.status === 200) {
+
+                dispatch(setProducts(data.category))
+            }
+        })
+    }
+}
+
+export const addCategory = (file, data) => {
+
+    return (dispatch) => {
+        return CategoryAPI.addCategory(file, data).then(response => {
+            if (response.status === 200) {
+                dispatch(setCategories(data.catalog_id))
+            }
+        })
+    }
+}
 
 
 export default catalog_reducer;

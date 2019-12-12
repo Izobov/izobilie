@@ -12,6 +12,7 @@ import SubmitForm from '../SubmitForm/SubmitForm';
 
 const Basket = (props) => {
 
+
     let totalOrder = 0;
 
     const onSubmit = (form) => {

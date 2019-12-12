@@ -26,12 +26,30 @@ export const CatalogAPI = {
     },
 
     getProducts(id) {
+
+
         return instance.get(`products/${id}`).then(response => { return response.data })
     }
 
 
 
 
+}
+
+export const CategoryAPI = {
+    addCategory(file, data) {
+
+        let formData = new FormData();
+        formData.append("name", data.name);
+        formData.append("catalog_id", data.catalog_id);
+        formData.append("file", file)
+
+        return instance.post(`categories`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    }
 }
 
 
@@ -51,6 +69,32 @@ export const OrderAPI = {
             return response
         })
     }
+
+}
+
+
+export const ProductAPI = {
+
+    updateProducts(file, data) {
+        let id = data.product_id
+        let formData = new FormData();
+
+        formData.append("file", file)
+        formData.append("name", data.name)
+        formData.append("catalog_id", data.catalog)
+        formData.append("color", data.color)
+        formData.append("material", data.material)
+        formData.append("price", data.price)
+        formData.append("size", data.size)
+        formData.append("category_id", data.category)
+
+
+        return instance.put(`products/${id}`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => { return response })
+    },
 
 }
 

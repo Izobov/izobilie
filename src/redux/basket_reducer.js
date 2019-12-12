@@ -7,6 +7,7 @@ let SET_BASKET_PRODUCTS = "SET_BASKET_PRODUCTS"
 let CHANGE_VALUE = "CHANGE_VALUE"
 let TOGGLE_MODAL = "TOGGLE_MODAL"
 let SET_ORDER_ID = "SET_ORDER_ID"
+let CLEAN_BASKET = "CLEAN_BASKET"
 
 
 
@@ -28,7 +29,6 @@ const basket_reducer = (state = InitialState, action) => {
             })
 
             if (filter.length === 0) {
-                alert('товар добавлен в корзину')
                 return {
                     ...state,
                     products: [...state.products, action.products],
@@ -76,6 +76,11 @@ const basket_reducer = (state = InitialState, action) => {
                 response: action.res
             }
 
+        case CLEAN_BASKET:
+            return {
+                ...state,
+                products: []
+            }
 
 
         default: return state
@@ -87,6 +92,7 @@ export const setBasketProducts = (products) => ({ type: SET_BASKET_PRODUCTS, pro
 export const changeCount = (product_id, value) => ({ type: CHANGE_VALUE, product_id, value })
 export const modal = (boolean) => ({ type: TOGGLE_MODAL, boolean })
 const setRes = (res) => ({ type: SET_ORDER_ID, res })
+const cleanBasket = () => ({ type: CLEAN_BASKET })
 
 
 export const sendOrder = (name, secondName, products, phone, total) => {
@@ -94,7 +100,8 @@ export const sendOrder = (name, secondName, products, phone, total) => {
 
         return OrderAPI.addOrder(name, secondName, products, phone, total).then(response => {
             if (response.status === 200) {
-                return dispatch(setRes(response.data.insertId))
+                dispatch(setRes(response.data.insertId));
+                dispatch(cleanBasket())
             } return dispatch(setRes(response.status))
         })
     }

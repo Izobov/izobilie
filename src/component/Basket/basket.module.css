@@ -24,3 +24,7 @@ h4{
 .none {
     display: none;
 }
+
+img {
+    max-width: 200px;
+}

@@ -35,6 +35,7 @@ class BasketContainer extends React.Component {
 
     onClick(boolean) {
         this.props.modal(boolean)
+
     }
 
     render() {
