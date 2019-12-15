@@ -119,5 +119,15 @@ export const addCategory = (file, data) => {
     }
 }
 
+export const addProduct = (file, data) => {
+
+    return (dispatch) => {
+        return ProductAPI.addProduct(file, data).then(response => {
+            if (response.status === 200) {
+                dispatch(setProducts(data.category_id))
+            }
+        })
+    }
+}
 
 export default catalog_reducer;

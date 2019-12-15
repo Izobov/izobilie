@@ -53,6 +53,8 @@ export const CategoryAPI = {
 }
 
 
+
+
 export const OrderAPI = {
     addOrder(name, secondName, products, phone, total) {
 
@@ -95,6 +97,25 @@ export const ProductAPI = {
             }
         }).then(response => { return response })
     },
+
+    addProduct(file, data) {
+        let formData = new FormData();
+
+        formData.append("file", file)
+        formData.append("name", data.name)
+        formData.append("catalog_id", data.catalog)
+        formData.append("color", data.color)
+        formData.append("material", data.material)
+        formData.append("price", data.price)
+        formData.append("size", data.size)
+        formData.append("category_id", data.category)
+
+        return instance.post(`products`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => { return response })
+    }
 
 }
 

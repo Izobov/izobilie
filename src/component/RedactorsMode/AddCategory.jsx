@@ -15,13 +15,13 @@ const AddCategory = (props) => {
                     <div className={s.redactorName}>
                         <h2>Название:</h2>
                         <Field component='input' type='text' name='name' />
-                    </div>
-                    <div>
+
+
                         <span>Выберите картинку:</span>
                         <input type="file" onChange={e => setImg(e.target.files[0])} />
-                    </div>
-                    <div>
-                        <Field component='input' type='text' name='catalog_id' />
+
+                        <span>Раздел</span>
+                        <Field component='input' type='number' name='catalog_id' />
                     </div>
                 </div>
                 <div className={s.buttons}>
