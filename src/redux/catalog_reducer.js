@@ -1,4 +1,4 @@
-import { CatalogAPI, ProductAPI, CategoryAPI } from "../api/api"
+import { CatalogAPI, ProductAPI, CategoryAPI, SearchAPI } from "../api/api"
 
 
 let SET_CATALOG = "SET_CATALOG"
@@ -119,12 +119,53 @@ export const addCategory = (file, data) => {
     }
 }
 
+export const updateCategory = (file, data) => {
+    return (dispatch) => {
+        return CategoryAPI.updateCategory(file, data).then(response => {
+            if (response.status === 200) {
+                dispatch(setCategories(data.catalog_id))
+            }
+        })
+    }
+}
+
+export const deleteCategory = (id, catalog_id) => {
+    return (dispatch) => {
+        return CategoryAPI.deleteCategory(id).then(response => {
+            if (response.status === 200) {
+                dispatch(setCategories(catalog_id))
+            }
+        })
+    }
+}
+
 export const addProduct = (file, data) => {
 
     return (dispatch) => {
         return ProductAPI.addProduct(file, data).then(response => {
             if (response.status === 200) {
                 dispatch(setProducts(data.category_id))
+            }
+        })
+    }
+}
+
+export const deleteProduct = (id, category_id) => {
+    return dispatch => {
+        return ProductAPI.deleteProduct(id).then(response => {
+            if (response.status === 200) {
+                dispatch(setProducts(category_id))
+            }
+        })
+    }
+}
+
+export const Search = (search) => {
+    return dispatch => {
+        return SearchAPI.getSearch(search).then(response => {
+            if (response.status === 200) {
+                dispatch(setCategoriesSuccess([]))
+                dispatch(setProductsSuccess(response.data))
             }
         })
     }

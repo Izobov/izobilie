@@ -49,7 +49,7 @@ const Redactor = (props) => {
                     </div>
 
 
-                    <div onClick={props.Cancel}>Отменить</div>
+                    <div onClick={() => props.Cancel(false)}>Отменить</div>
                     <label htmlFor="submit" onClick={() => props.SetImg(img)}>
                         <div> Сохранить</div>
                     </label>

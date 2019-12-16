@@ -16,7 +16,7 @@ const Modal = (props) => {
         <div className={s.wrapper}>
             <div className={s.title}>
                 <h3>{props.title}</h3>
-                <div onClick={props.Close} className={s.close}>Закрыть</div>
+                <div onClick={() => props.Close(false)} className={s.close}>Закрыть</div>
             </div>
             <div className={s.body}>
                 {props.children}
@@ -25,7 +25,7 @@ const Modal = (props) => {
             <div className={s.footer}>
                 {props.ok &&
 
-                    <div onClick={props.Close} className={s.submit}>{props.ok}</div>
+                    <div onClick={() => props.Close(false)} className={s.submit}>{props.ok}</div>
                 }
 
 

@@ -4,6 +4,12 @@ const instance = axios.create({
     baseURL: 'http://localhost:3230/',
 })
 
+export const SearchAPI = {
+    getSearch(search) {
+        return instance.post(`search`, { search }).then(response => { return response })
+    }
+}
+
 export const CatalogAPI = {
     getCatalog() {
 
@@ -49,7 +55,31 @@ export const CategoryAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         })
+    },
+
+    updateCategory(file, data) {
+        let id = data.category_id
+        let formData = new FormData();
+
+        formData.append("file", file)
+        formData.append("name", data.name)
+        formData.append("catalog_id", data.catalog_id)
+
+
+        return instance.put(`categories/${id}`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => { return response })
+    },
+
+    deleteCategory(id) {
+        return instance.delete(`categories/${id}`).then(response => {
+            return response
+        })
     }
+
+
 }
 
 
@@ -115,8 +145,13 @@ export const ProductAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         }).then(response => { return response })
-    }
+    },
 
+    deleteProduct(id) {
+        return instance.delete(`products/${id}`).then(response => {
+            return response
+        })
+    }
 }
 
 

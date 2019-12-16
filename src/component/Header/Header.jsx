@@ -12,8 +12,8 @@ const Header = (props) => {
         </div>
         <div className={s.searchWrapper}>
 
-            <input type="text" className={s.search} placeholder="поиск..." />
-            <img src={search} alt="" />
+            <input type="text" className={s.search} placeholder="поиск..." onChange={(e) => props.onChange(e.target.value)} onKeyDown={(e) => props.onKeyDown(e.keyCode)} />
+            <img src={search} alt="" onClick={() => props.onKeyDown(13)} />
         </div>
         <div className={s.navbar}>
             <NavLink to='/about'>О нас</NavLink>

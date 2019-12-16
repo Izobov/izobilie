@@ -92,7 +92,7 @@ export const setBasketProducts = (products) => ({ type: SET_BASKET_PRODUCTS, pro
 export const changeCount = (product_id, value) => ({ type: CHANGE_VALUE, product_id, value })
 export const modal = (boolean) => ({ type: TOGGLE_MODAL, boolean })
 const setRes = (res) => ({ type: SET_ORDER_ID, res })
-const cleanBasket = () => ({ type: CLEAN_BASKET })
+export const cleanBasket = () => ({ type: CLEAN_BASKET })
 
 
 export const sendOrder = (name, secondName, products, phone, total) => {
@@ -101,7 +101,6 @@ export const sendOrder = (name, secondName, products, phone, total) => {
         return OrderAPI.addOrder(name, secondName, products, phone, total).then(response => {
             if (response.status === 200) {
                 dispatch(setRes(response.data.insertId));
-                dispatch(cleanBasket())
             } return dispatch(setRes(response.status))
         })
     }

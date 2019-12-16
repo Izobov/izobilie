@@ -53,7 +53,7 @@ const Basket = (props) => {
 
             {props.showModal &&                                                     // Сначала выскочит форма для заполнения
                 < Portal >
-                    <Modal title='test' Close={() => { props.onClick(false) }}>
+                    <Modal title='test' Close={props.onClick}>
                         <div>
                             <SubmitForm onSubmit={onSubmit} />
                         </div>
@@ -65,7 +65,7 @@ const Basket = (props) => {
             {props.showModal && props.response && // После ответа сервера выскочит еще одно модальное окно с информацией
 
                 < Portal >
-                    <Modal title='Спасибо за заказ!' Close={() => { props.onClick(false) }} ok="Ok" >
+                    <Modal title='Спасибо за заказ!' Close={props.Close} ok="Ok" >
 
                         {props.response !== 500 ? <div>
                             Ваш заказ успешно размещен! Пожалуйста запомните номер вашего заказа: №{props.response}!

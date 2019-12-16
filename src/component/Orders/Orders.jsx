@@ -28,7 +28,7 @@ const Orders = (props) => {
                     </div>
                     <div>{item.products.map(i => <div>
                         <span> Продукт: {i.name}</span>
-                        <span> Колличество: {i.count}</span>
+                        <span> Количество: {i.count}</span>
                         <span>x</span>
                         <span>{i.price} руб </span>
 

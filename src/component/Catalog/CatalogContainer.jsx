@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Catalog from './Catalog';
-import { setProducts, setCurentCategory, updateProducts, addCategory, addProduct } from '../../redux/catalog_reducer';
+import { setProducts, setCurentCategory, updateProducts, addCategory, addProduct, updateCategory, deleteCategory, deleteProduct } from '../../redux/catalog_reducer';
 import { setBasketProducts } from '../../redux/basket_reducer';
 
 
@@ -18,6 +18,9 @@ class CatalogContainer extends React.Component {
         this.SetImg = this.SetImg.bind(this)
         this.onAddCategorySubmit = this.onAddCategorySubmit.bind(this)
         this.onAddProductSubmit = this.onAddProductSubmit.bind(this)
+        this.onUpdateCategorySubmit = this.onUpdateCategorySubmit.bind(this)
+        this.deleteCategory = this.deleteCategory.bind(this)
+        this.deleteProduct = this.deleteProduct.bind(this)
     }
 
     SetImg(img) {
@@ -25,10 +28,22 @@ class CatalogContainer extends React.Component {
             this.setState({ img: img })
         }
     }
+    deleteProduct(id, category_id) {
+        this.props.deleteProduct(id, category_id)
+    }
+
+    deleteCategory(id, catalog_id) {
+        this.props.deleteCategory(id, catalog_id)
+    }
 
     onProductsSubmit(values) {
-
+        debugger
         this.props.updateProducts(this.state.img, values);
+    }
+
+    onUpdateCategorySubmit(values) {
+        debugger
+        this.props.updateCategory(this.state.img, values)
     }
 
     onAddCategorySubmit(values) {
@@ -59,8 +74,10 @@ class CatalogContainer extends React.Component {
 
     render() {
 
-        return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} pushInBasket={this.pushInBasket} onProductsSubmit={this.onProductsSubmit}
-            SetImg={this.SetImg} onAddCategorySubmit={this.onAddCategorySubmit} onAddProductSubmit={this.onAddProductSubmit} />
+        return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} pushInBasket={this.pushInBasket}
+            onProductsSubmit={this.onProductsSubmit} onUpdateCategorySubmit={this.onUpdateCategorySubmit}
+            SetImg={this.SetImg} onAddCategorySubmit={this.onAddCategorySubmit}
+            onAddProductSubmit={this.onAddProductSubmit} deleteCategory={this.deleteCategory} deleteProduct={this.deleteProduct} />
     }
 }
 
@@ -77,4 +94,8 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { addProduct, addCategory, setProducts, setCurentCategory, setBasketProducts, updateProducts })(CatalogContainer)
+export default connect(mapStateToProps, {
+    addProduct, addCategory, setProducts, setCurentCategory,
+    setBasketProducts, updateProducts, updateCategory,
+    deleteCategory, deleteProduct
+})(CatalogContainer)

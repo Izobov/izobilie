@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Basket from './Basket';
-import { changeCount, modal, sendOrder } from '../../redux/basket_reducer';
+import { changeCount, modal, sendOrder, cleanBasket } from '../../redux/basket_reducer';
 
 
 
@@ -16,6 +16,7 @@ class BasketContainer extends React.Component {
         this.onChange = this.onChange.bind(this)
         this.onClick = this.onClick.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
+        this.Close = this.Close.bind(this)
     }
 
     onChange(product_id, e) {
@@ -28,6 +29,9 @@ class BasketContainer extends React.Component {
 
     }
 
+    Close() {
+        this.props.cleanBasket()
+    }
 
     shouldComponentUpdate(nextProps, nextState) {
         return this.props !== nextProps
@@ -40,7 +44,7 @@ class BasketContainer extends React.Component {
 
     render() {
 
-        return <Basket {...this.props} onChange={this.onChange} onSubmit={this.onSubmit} onClick={this.onClick} />
+        return <Basket {...this.props} onChange={this.onChange} onSubmit={this.onSubmit} onClick={this.onClick} Close={this.Close} />
     }
 }
 
@@ -54,4 +58,4 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { changeCount, modal, sendOrder })(BasketContainer)
+export default connect(mapStateToProps, { cleanBasket, changeCount, modal, sendOrder })(BasketContainer)

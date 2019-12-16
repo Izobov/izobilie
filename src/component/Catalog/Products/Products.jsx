@@ -12,15 +12,17 @@ const Products = (props) => {
 
     const [inputValue, setValue] = useState(0);
     const [redactorMode, setRedactorMode] = useState(false)
-    const onCancel = () => {
+    const onSubmit = (values) => {
+        props.onSubmit(values);
         setRedactorMode(false)
     }
+
     if (redactorMode) {
         return <RedactorProduct initialValues={{
             name: props.name, size: props.size, color: props.color,
             material: props.material, price: props.price, catalog: props.catalog_id, category: props.category_id,
             product_id: props.product_id, img: props.img
-        }} {...props} Cancel={onCancel} />
+        }} Cancel={setRedactorMode} onSubmit={onSubmit} SetImg={props.SetImg} img={props.img} />
     } else {
 
         return <div className={s.card}>
@@ -51,7 +53,7 @@ const Products = (props) => {
                     <strong>{props.price}руб</strong>
 
                     <input type="number" value={inputValue} className={s.countInput} onChange={(e) => { setValue(e.target.value) }} min="0" />
-                    {props.isAuth && <div className={s.delete}>Удалить</div>}
+                    {props.isAuth && <div className={s.delete} onClick={() => props.deleteProduct(props.product_id, props.category_id)}>Удалить</div>}
                     {props.isAuth ? <div onClick={() => setRedactorMode(true)}>Редактировать</div>
 
                         : <button onClick={() => { props.pushInBasket(props.name, props.img, props.price, inputValue, props.product_id) }}>В корзину</button>

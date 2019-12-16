@@ -29,9 +29,9 @@ const Catalog = (props) => {
 
     let productsElements = props.products.map(item => <Products color={item.color} img={item.img} material={item.material}
         name={item.name} price={item.price} size={item.size} description={item.description} key={item.product_id} pushInBasket={props.pushInBasket} product_id={item.product_id} isAuth={props.isAuth}
-        catalog_id={item.catalog_id} category_id={item.category_id} onSubmit={props.onProductsSubmit} SetImg={props.SetImg} />)
-    let categoryElements = props.categories.map(item => <Category name={item.name} img={item.img} key={item.category_id} category_id={item.category_id} onCategoryClick={props.onCategoryClick}
-        isAuth={props.isAuth} />)
+        catalog_id={item.catalog_id} category_id={item.category_id} onSubmit={props.onProductsSubmit} SetImg={props.SetImg} deleteProduct={props.deleteProduct} />)
+    let categoryElements = props.categories.map(item => <Category name={item.name} SetImg={props.SetImg} img={item.img} key={item.category_id} category_id={item.category_id} onCategoryClick={props.onCategoryClick}
+        isAuth={props.isAuth} catalog_id={item.catalog_id} onSubmit={props.onUpdateCategorySubmit} deleteCategory={props.deleteCategory} />)
 
     return <main>
         {props.currentCategory ? <h2>{props.currentCategory}</h2> : <h2>{props.currentCatalog}</h2>}

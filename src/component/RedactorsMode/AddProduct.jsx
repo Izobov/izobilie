@@ -54,5 +54,5 @@ const AddProduct = (props) => {
 
 
 export default reduxForm({
-    form: 'ProductRedactor',
+    form: 'AddProduct',
 })(AddProduct)
