@@ -34,8 +34,14 @@ const Catalog = (props) => {
         isAuth={props.isAuth} catalog_id={item.catalog_id} onSubmit={props.onUpdateCategorySubmit} deleteCategory={props.deleteCategory} />)
 
     return <main>
-        {props.currentCategory ? <h2>{props.currentCategory}</h2> : <h2>{props.currentCatalog}</h2>}
 
+        <div className='title_text'>
+
+            <h2 >
+
+                {props.currentCategory ? props.currentCategory : props.currentCatalog}
+            </h2>
+        </div>
         <div className={s.main}>
             {props.isAuth && <>
                 <div className={s.newItem} >
@@ -61,7 +67,7 @@ const Catalog = (props) => {
         </div>
 
 
-    </main>
+    </main >
 }
 
 export default Catalog;

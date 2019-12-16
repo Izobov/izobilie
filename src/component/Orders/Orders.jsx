@@ -9,11 +9,16 @@ import s from './orders.module.css'
 
 const Orders = (props) => {
     if (!props.orders) {
-        return <h2>Нет заказов</h2>
+        return <div className='title_text'>
+            <h2>Нет заказов</h2>
+        </div>
     } else {
 
         return <div>
-            <h2>Активные заказы</h2>
+            <div className='title_text'>
+
+                <h2>Активные заказы</h2>
+            </div>
             {props.orders.map(item => <div className={s.wrapper}>
                 <div className={s.card}>
                     <div className={s.id}>

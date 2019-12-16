@@ -2,7 +2,9 @@ import React from 'react'
 
 const About = (props) => {
     return <div>
-        <h2>О нас</h2>
+        <div className='title_text'>
+            <h2 > О нас</h2>
+        </div>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur omnis id non. Est harum illum exercitationem quam sed fugiat minima adipisci ad aliquam dolorum eligendi, recusandae ducimus, dicta sunt nostrum!
         Facere esse id, voluptatem fugit vero alias ipsum eius ipsa. Quaerat veniam deserunt vel quas officia tempora aperiam labore. Delectus hic non voluptatum ab quod suscipit officiis autem dignissimos recusandae!
         Sit consequatur totam doloribus, assumenda officia dolores recusandae omnis voluptates ipsa voluptas deserunt aspernatur nisi voluptatibus libero nobis debitis corporis dolor nostrum commodi? Laudantium sit deleniti quisquam vero, at qui.

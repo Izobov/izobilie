@@ -25,6 +25,10 @@ const Basket = (props) => {
     if (props.products.length !== 0) {
 
         return <div>
+            <div className='title_text'>
+
+                <h2 > Корзина</h2>
+            </div>
 
             {props.products.map(i => <div className={s.card} key={Math.random()}>
 

@@ -20,7 +20,21 @@ const Header = (props) => {
             <NavLink to='/contacts'> Контакты</NavLink>
             {props.isAuth && <NavLink to='/orders'>Заказы</NavLink>}
         </div>
-
+        <div className={s.info}>
+            <span>вт-вс: 8:00-16:00 </span>
+            <span> пн: выходной</span>
+        </div>
+        <div className={s.contacts}>
+            <span>
+                +375(29) 655-99-38
+            </span>
+            <span>
+                +375(29) 329-89-85
+            </span>
+            <span>
+                +375(29)
+            </span>
+        </div>
         {props.isAuth && <div className={s.btn} onClick={props.onClick}> Выйти</div>}
 
         <NavLink className={s.basket} to='/basket'>

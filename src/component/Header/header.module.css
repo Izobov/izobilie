@@ -97,3 +97,20 @@
     color: rgb(119, 119, 119)
 }
 
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    font-size: 0.8rem;
+}
+span {
+    color:rgb(112, 86, 61) ;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    font-size: 0.8rem;
+}
+
