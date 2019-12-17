@@ -1,5 +1,6 @@
 import React from 'react';
-import s from './modal.module.css'
+import s from './modal.module.css';
+import close from '../../img/icons/cancel.png';
 
 
 
@@ -16,7 +17,7 @@ const Modal = (props) => {
         <div className={s.wrapper}>
             <div className={s.title}>
                 <h3>{props.title}</h3>
-                <div onClick={() => props.Close(false)} className={s.close}>Закрыть</div>
+                <div onClick={() => props.Close(false)} className={s.close}><img src={close} alt='' /></div>
             </div>
             <div className={s.body}>
                 {props.children}

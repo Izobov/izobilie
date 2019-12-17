@@ -1,11 +1,12 @@
 .card {
-    background-color: gray;
+   
     padding: 10px;
     max-width: 100%;
     /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom:1px solid rgb(101, 73, 49);;
 }
 
 .wrapper {
@@ -27,4 +28,23 @@ h4{
 
 img {
     max-width: 200px;
+}
+
+
+.orderButton {
+    background-color: rgb(139, 138, 138);
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+    border-radius: 10px;
+    max-width: 150px;
+    transition: .5s ease;
+    margin:  5px auto;
+}
+
+
+
+.orderButton:hover {
+    background-color: unset;
+    border: 1px solid rgb(139, 138, 138);
+    cursor: pointer;
 }

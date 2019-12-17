@@ -18,16 +18,28 @@
 }
 
 .title {
-    border-bottom: 1px solid black;
-    position: relative;
+    border-bottom: 1px solid rgb(101, 73, 49);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
 }
 
-.close {
-    position: absolute;
-    right: 5%;
-    top: 5%;
-    background-color: red;
-    border-radius: 20px;
+h3 {
+   color: rgb(101, 73, 49);
+}
+
+.close img{
+    max-width: 30px;
+    transition: 1.5s ease-in-out;
+    transform: rotate(0deg);
+    
+}
+
+.close img:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+    
 }
 
 .footer {
@@ -42,9 +54,17 @@
     margin-right: 10%;
 }
 
-.submit {
-    padding: 10px 5px;
-    border-radius: 5px;
-    border: 1px solid black;
-    
+.submit{
+    background-color: rgb(139, 138, 138);
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+    border-radius: 10px;
+    max-width: 150px;
+    transition: .5s ease;
+    margin:  5px auto;
+}
+.submit:hover {
+    background-color: unset;
+    border: 1px solid rgb(139, 138, 138);
+    cursor: pointer;
 }

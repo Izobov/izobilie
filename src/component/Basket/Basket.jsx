@@ -51,13 +51,13 @@ const Basket = (props) => {
                 <span>Общая стоимость:</span>
                 <span>{totalOrder}</span>
             </div>
-            <div>
-                <button onClick={() => { props.onClick(true) }} >Оформить заказ</button>
-            </div>
+
+            <div onClick={() => { props.onClick(true) }} className={s.orderButton} >Оформить заказ!</div>
+
 
             {props.showModal &&                                                     // Сначала выскочит форма для заполнения
                 < Portal >
-                    <Modal title='test' Close={props.onClick}>
+                    <Modal title='Пожалуйста заполните форму!' Close={props.onClick}>
                         <div>
                             <SubmitForm onSubmit={onSubmit} />
                         </div>

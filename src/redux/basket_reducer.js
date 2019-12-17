@@ -101,7 +101,7 @@ export const sendOrder = (name, secondName, products, phone, total) => {
         return OrderAPI.addOrder(name, secondName, products, phone, total).then(response => {
             if (response.status === 200) {
                 dispatch(setRes(response.data.insertId));
-            } return dispatch(setRes(response.status))
+            }
         })
     }
 }

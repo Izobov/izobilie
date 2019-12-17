@@ -9,6 +9,7 @@ import BasketContainer from './component/Basket/BasketContainer';
 import HeaderContainer from './component/Header/HeaderContainer';
 import Login from './component/Login/Login';
 import OrdersContainer from './component/Orders/OrdersContainer';
+import Footer from './component/Footer/Footer';
 
 
 function App() {
@@ -36,9 +37,7 @@ function App() {
 
       </main>
 
-      <footer className='footer'>
-        dadasd
-      </footer>
+      <Footer />
     </div>
 
   );

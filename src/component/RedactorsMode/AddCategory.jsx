@@ -26,9 +26,9 @@ const AddCategory = (props) => {
                 </div>
                 <div className={s.buttons}>
 
-                    <div onClick={() => props.Cancel(false)}>Отменить</div>
+                    <div onClick={() => props.Cancel(false)} className={s.cancel}>Отменить</div>
                     <label htmlFor="submit" onClick={() => props.SetImg(img)}>
-                        <div> Сохранить</div>
+                        <div className={s.addButton}> Сохранить</div>
                     </label>
                     <button id='submit' className={s.submit}></button>
                 </div>

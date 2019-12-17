@@ -1,12 +1,14 @@
 
 form {
     width: 100%;
+    box-sizing: border-box;
 }
 .name {
     display: flex;
     padding: 15px;
     justify-content: space-between;
     width: 100%;
+    box-sizing: border-box;
 
 
 }
@@ -14,6 +16,7 @@ form {
 .phone {
     width: 100%;
     padding: 15px;
+    box-sizing: border-box;
 }
 
 .submitWrapper{
@@ -21,10 +24,30 @@ form {
     align-items: center;
     justify-content: center;
 }
-.submit{
-    padding: 10px 5px;
-    border: 1px solid black;
+
+.submitWrapper label {
+   max-width: 160px;
+   height: 40px;
 }
+.submit{
+    background-color: rgb(139, 138, 138);
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+    border-radius: 10px;
+    max-width: 150px;
+    transition: .5s ease;
+    margin:  5px auto;
+}
+.submit:hover {
+    background-color: unset;
+    border: 1px solid rgb(139, 138, 138);
+    cursor: pointer;
+}
+
 .btn {
     display: none;
+}
+
+.body {
+      color:  rgb(112, 86, 61);
 }

@@ -15,8 +15,8 @@ const Form = (props) => {
             <Field component={Input} placeholder='Введите номер вашего телефона' name={'phone'} validate={[required]} />
         </div>
         <div className={s.submitWrapper}>
-            <label htmlFor="btn" className={s.submit}>
-                <div> Оформить</div>
+            <label htmlFor="btn" >
+                <div className={s.submit}> Оформить</div>
             </label>
             <button id='btn' className={s.btn}> </button>
         </div>

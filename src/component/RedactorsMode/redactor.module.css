@@ -29,7 +29,7 @@ h2 {
 .buttons {
     display: flex;
     margin-top: 10px;
-    padding: 10px;
+    padding: 3px;
  
     justify-content: space-between;
     
@@ -62,7 +62,34 @@ h2 {
     width: 100px;
 }
 
+.cancel {
+    background-color: rgb(214, 106, 106);
+    max-width: 80px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+}
+.cancel:hover {
+    background-color: unset;
+    border: 1px solid rgb(214, 106, 106);
+    cursor: pointer;
+}
 
+.addButton {
+    background-color: rgb(116, 163, 116);
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+    border-radius: 10px;
+    max-width: 80px;
+    transition: .5s ease;
+}
+
+.addButton:hover {
+    background-color: unset;
+    border: 1px solid rgb(116, 163, 116);
+    cursor: pointer;
+}
 
 
 .buttons input {

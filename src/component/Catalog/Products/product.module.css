@@ -1,9 +1,9 @@
 .card {
-    background-color: gray;
-    padding: 10px;
     max-width: 100%;
     width: 100%;
+    padding-top: 5px;
     margin-top: 10px;
+    border-top:  1px solid rgb(101, 73, 49);
     box-sizing: border-box;
 }
 
@@ -31,7 +31,7 @@ h2 {
 .buttons {
     display: flex;
     flex-direction: column;
- 
+    align-items: center;
     justify-content: space-between;
     
 
@@ -81,4 +81,43 @@ button {
 
 .submit {
     display: none;
+}
+.delete {
+    background-color: rgb(214, 106, 106);
+    max-width: 130px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+}
+.delete:hover {
+    background-color: unset;
+    border: 1px solid rgb(214, 106, 106);
+    cursor: pointer;
+}
+
+.addButton {
+    background-color: rgb(139, 138, 138);
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+    border-radius: 10px;
+    max-width: 130px;
+    transition: .5s ease;
+}
+
+.addButtonWrapper {
+    width: 140px;
+    height: 50px;
+}
+
+.addButton:hover {
+    background-color: unset;
+    border: 1px solid rgb(139, 138, 138);
+    cursor: pointer;
+}
+.active {
+    padding: 3px 5px;
+    border: 1px solid rgb(139, 138, 138);
+    background-color: unset;
+    border-radius: 10px;
 }

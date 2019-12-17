@@ -32,6 +32,10 @@ margin-right: 0;
     /* padding: 10px; */
 }
 
+.newItem :hover{
+    cursor: pointer;
+}
+
 .newItem h2 {
     color:rgb(101, 73, 49, .5);
 }

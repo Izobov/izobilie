@@ -17,6 +17,15 @@ const Products = (props) => {
         setRedactorMode(false)
     }
 
+    const [touched, setTouched] = useState(false);
+    const OnAddButtonClick = () => {
+        setTouched(true);
+        props.pushInBasket(props.name, props.img, props.price, inputValue, props.product_id)
+
+    }
+
+
+
     if (redactorMode) {
         return <RedactorProduct initialValues={{
             name: props.name, size: props.size, color: props.color,
@@ -54,10 +63,14 @@ const Products = (props) => {
 
                     <input type="number" value={inputValue} className={s.countInput} onChange={(e) => { setValue(e.target.value) }} min="0" />
                     {props.isAuth && <div className={s.delete} onClick={() => props.deleteProduct(props.product_id, props.category_id)}>Удалить</div>}
-                    {props.isAuth ? <div onClick={() => setRedactorMode(true)}>Редактировать</div>
+                    <div className={s.addButtonWrapper}>
+                        {props.isAuth ? <div className={touched ? s.active : s.addButton} onClick={() => setRedactorMode(true)}>Редактировать</div>
 
-                        : <button onClick={() => { props.pushInBasket(props.name, props.img, props.price, inputValue, props.product_id) }}>В корзину</button>
-                    }
+                            : <div className={touched ? s.active : s.addButton} onClick={() => OnAddButtonClick()}>{touched ? <span>В корзине!</span> : <span>В корзину</span>}</div>
+                        }
+
+                    </div>
+
                 </div>
             </div>
 
