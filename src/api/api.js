@@ -58,6 +58,7 @@ export const CategoryAPI = {
     },
 
     updateCategory(file, data) {
+
         let id = data.category_id
         let formData = new FormData();
 
@@ -155,18 +156,3 @@ export const ProductAPI = {
 }
 
 
-// savePhoto(file, data) {
-
-
-//     var formData = new FormData();
-//     formData.append("file", file);
-//     formData.append("name", data.name);
-
-//     console.log(formData.getAll("file"))
-
-//     return axios.post('http://localhost:3230/categories', formData, {
-//         headers: {
-//             'Content-Type': 'multipart/form-data'
-//         }
-//     })
-// }

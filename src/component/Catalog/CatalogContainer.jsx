@@ -24,6 +24,7 @@ class CatalogContainer extends React.Component {
     }
 
     SetImg(img) {
+
         if (this.state.img !== img) {
             this.setState({ img: img })
         }

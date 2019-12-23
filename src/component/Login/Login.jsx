@@ -29,7 +29,7 @@ const Login = (props) => {
                 <span className={s.span}>Пароль:</span>
                 <input className={s.input} type="password" placeholder='пароль' value={passwordValue} onChange={(e) => { setPasswordValue(e.target.value) }} />
                 <span className={s.error}>{props.error ? props.error : ''}</span>
-                <div className={s.btn} onClick={onSubmit}> Войти</div>
+                <div className={s.submit} onClick={onSubmit}> Войти</div>
             </form>
 
         </div>

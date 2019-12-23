@@ -7,7 +7,7 @@ import { useState } from 'react'
 const UpdateCategory = (props) => {
 
 
-    const [img, setImg] = useState(props.img)
+    const [img, setImg] = useState(props.initialValues.img)
     props.SetImg(img)
 
     return <form onSubmit={props.handleSubmit}  >

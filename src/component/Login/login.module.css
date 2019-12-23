@@ -10,7 +10,7 @@
 
 .loginWrapper {
     padding: 15px;
-    border: 1px solid black;
+    border: 1px solid rgb(101, 73, 49);
     width: 30%;
 }
 
@@ -28,10 +28,19 @@ form {
 align-self: flex-start;
 }
 
-.btn {
-    padding: 2px 5px;
-    border: 1px solid black;
-    margin-top: 15px;
+.submit{
+    background-color: rgb(139, 138, 138);
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+    border-radius: 10px;
+    max-width: 150px;
+    transition: .5s ease;
+    margin:  5px auto;
+}
+.submit:hover {
+    background-color: unset;
+    border: 1px solid rgb(139, 138, 138);
+    cursor: pointer;
 }
 
 .error {

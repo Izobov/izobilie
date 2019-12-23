@@ -21,3 +21,41 @@
     color: rgb(119, 119, 119)
 }
 
+.cancel {
+    background-color: rgb(214, 106, 106);
+    max-width: 150px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+.cancel:hover {
+    background-color: unset;
+    border: 1px solid rgb(214, 106, 106);
+    cursor: pointer;
+}
+
+.submit {
+    background-color: rgb(116, 163, 116);
+    padding: 3px 5px;
+    color:rgb(101, 73, 49);
+    border-radius: 10px;
+    max-width: 150px;
+    transition: .5s ease;
+    margin-top: 10px;
+}
+
+.submit:hover {
+    background-color: unset;
+    border: 1px solid rgb(116, 163, 116);
+    cursor: pointer;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+

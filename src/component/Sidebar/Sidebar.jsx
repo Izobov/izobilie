@@ -13,9 +13,6 @@ const Sidebar = (props) => {
     let [redactorMode, setRedactorMode] = useState(false);
     let [inputValue, setInputValue] = useState()
 
-    let createNewItem = () => {
-        setRedactorMode(true)
-    };
 
     let submit = () => {
         setRedactorMode(false)
@@ -37,13 +34,15 @@ const Sidebar = (props) => {
             Каталог
         </h2>
         {catalogItems}
-        {props.isAuth && <div>
+        {props.isAuth && <div className={s.wrapper}>
             {redactorMode ? <div>
                 <input type="text" placeholder='название раздела' value={inputValue} onChange={(e) => { setInputValue(e.target.value) }} />
-                <div className={s.button} onClick={() => { submit() }}>Отправить</div>
+                <div className={s.submit} onClick={() => { submit() }}>Отправить</div>
             </div>
-                : <div className={s.button} onClick={() => { createNewItem() }}>Создать раздел</div>
+                : <div className={s.submit} onClick={() => { setRedactorMode(true) }}>Создать раздел</div>
             }
+            {redactorMode && <div className={s.cancel} onClick={() => setRedactorMode(false)}> Отмена </div>}
+
         </div>}
 
 
