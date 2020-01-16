@@ -31,9 +31,6 @@ const Header = (props) => {
             <span>
                 +375(29) 329-89-85
             </span>
-            <span>
-                +375(29)
-            </span>
         </div>
         {props.isAuth && <div className={s.btn} onClick={props.onClick}> Выйти</div>}
 
