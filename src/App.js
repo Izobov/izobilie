@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Route } from 'react-router-dom'
+import {
+  Route
+} from 'react-router-dom'
 import About from './component/About/About';
 import Contacts from './component/Contacts/Contacts';
 import SidebarContainer from './component/Sidebar/SidebarContainer';
@@ -15,21 +17,42 @@ import Footer from './component/Footer/Footer';
 function App() {
   return (
 
-    <div className="App">
+    <div className="App" >
       <HeaderContainer />
-      <main className="main">
+      < main className="main" >
         <SidebarContainer />
-        <div className="content_wrapper">
-          <div className='title'>
+        <div className="content_wrapper" >
+          <div className='title' >
 
           </div>
-          <div className='content'>
-            <Route path='/about' render={() => <About />} />
-            <Route path='/contacts' render={() => <Contacts />} />
-            <Route path='/catalog' render={() => <CatalogContainer />} />
-            <Route path='/basket' render={() => <BasketContainer />} />
-            <Route path='/login' render={() => <Login />} />
-            <Route path='/orders' render={() => <OrdersContainer />} />
+          <div className='content' >
+            <Route path='/about'
+              render={
+                () => < About />
+              }
+            />
+            <Route path='/contacts'
+              render={
+                () => < Contacts />
+              }
+            />
+            <Route path='/catalog'
+              render={
+                () => < CatalogContainer />
+              }
+            />
+            <Route path='/basket'
+              render={
+                () => < BasketContainer />
+              } />
+            <Route path='/login'
+              render={
+                () => < Login />
+              } />
+            <Route path='/orders'
+              render={
+                () => < OrdersContainer />
+              } />
           </div>
         </div>
 
@@ -37,8 +60,8 @@ function App() {
 
       </main>
 
-      <Footer />
-    </div>
+      {
+      /* <Footer /> */} </div>
 
   );
 }

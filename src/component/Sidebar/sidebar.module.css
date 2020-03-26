@@ -1,24 +1,81 @@
-.aside {
-   background-color: rgb(233, 216, 184);
-    grid-area: sidebar;
-    /* background-image: url('../../img/background/aside5.JPG'); */
-    background: linear-gradient(rgb(250, 235, 207), rgb(138, 100, 36));
+.asideShow {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     background-repeat: repeat;
-    /* height: 100vh; */
+    height: 100vh;
+    max-width: 310px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow:5px 1px 10px rgb(119, 119, 119);
+    transition:  1s ease;
 }
+
+.aside{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-repeat: repeat;
+    height: 100vh;
+    max-width: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow:5px 1px 10px rgb(119, 119, 119);
+    /* transition-property: width; */
+    transition: 1s ease;
+}
+
+.logo {
+    width: 60%;
+    max-width: 100%;
+    
+}
+.logo2 {
+   max-width:  70%;
+   /* transform: rotate(0deg); */
+   transition: 1s ease-out;
+   margin: auto;
+}
+.logo2:hover{
+    cursor: pointer;
+    transform: rotate(360deg);
+} 
 
 .item {
-    padding: 5px;
+    padding: 2%;
     margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.item a {
+a {
     text-decoration: none;
     color: rgb(112, 86, 61);
 }
+
+a img {
+    margin-right: 5%;
+}
+
+.icon {
+    margin: auto;
+}
+.item:hover{
+    cursor: pointer;
+    background: linear-gradient(rgb(250, 235, 207), rgb(138, 100, 36));
+}
+
 .item:hover>a {
     text-decoration: none;
-    color: rgb(119, 119, 119)
+    color: white;
+  
 }
 
 .cancel {
@@ -27,10 +84,11 @@
     width: 100%;
     border-radius: 10px;
     padding: 3px 5px;
-    color:rgb(101, 73, 49);
+    color: rgb(101, 73, 49);
     margin: 10px 0;
     box-sizing: border-box;
 }
+
 .cancel:hover {
     background-color: unset;
     border: 1px solid rgb(214, 106, 106);
@@ -40,7 +98,7 @@
 .submit {
     background-color: rgb(116, 163, 116);
     padding: 3px 5px;
-    color:rgb(101, 73, 49);
+    color: rgb(101, 73, 49);
     border-radius: 10px;
     max-width: 150px;
     transition: .5s ease;
@@ -59,3 +117,16 @@
     flex-direction: column;
 }
 
+.logoWrapper {
+    padding: 2%;
+    box-shadow:0 1px 3px rgb(119, 119, 119);
+    max-height: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.h2 {
+    margin: 2% auto;
+    height: 32px;
+}

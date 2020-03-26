@@ -1,4 +1,13 @@
-import { CatalogAPI, ProductAPI, CategoryAPI, SearchAPI } from "../api/api"
+import {
+    CatalogAPI,
+    ProductAPI,
+    CategoryAPI,
+    SearchAPI
+} from "../api/api"
+import {
+    CategoryAPIStitch,
+    DBconnect
+} from "../api/stitch"
 
 
 let SET_CATALOG = "SET_CATALOG"
@@ -25,50 +34,74 @@ const catalog_reducer = (state = InitialState, action) => {
                 ...state,
                 catalog: action.catalog
             }
-        case SET_CURRENT_CATALOG:
-            return {
-                ...state,
-                currentCatalog: action.name,
-                currentCategory: ''
-            }
-        case SET_CURRENT_CATEGORY:
-            return {
-                ...state,
-                currentCategory: action.name
-            }
+            case SET_CURRENT_CATALOG:
+                return {
+                    ...state,
+                    currentCatalog: action.name,
+                        currentCategory: ''
+                }
+                case SET_CURRENT_CATEGORY:
+                    return {
+                        ...state,
+                        currentCategory: action.name
+                    }
 
-        case SET_CATEGORIES:
+                    case SET_CATEGORIES:
 
-            return {
-                ...state,
-                categories: action.categories
+                        return {
+                            ...state,
+                            categories: action.categories
 
-            }
-        case SET_PRODUCTS:
-            return {
-                ...state,
-                categories: [],
-                products: action.products
-            }
+                        }
+                        case SET_PRODUCTS:
+                            return {
+                                ...state,
+                                categories: [],
+                                    products: action.products
+                            }
 
-        default: return state
+                            default:
+                                return state
     }
 }
 
 
-const setCatalog = (catalog) => ({ type: SET_CATALOG, catalog })
-const setCategoriesSuccess = (categories) => ({ type: SET_CATEGORIES, categories })
-const setProductsSuccess = (products) => ({ type: SET_PRODUCTS, products })
-export const setCurentCatalog = (name) => ({ type: SET_CURRENT_CATALOG, name })
-export const setCurentCategory = (name) => ({ type: SET_CURRENT_CATEGORY, name })
+const setCatalog = (catalog) => ({
+    type: SET_CATALOG,
+    catalog
+})
+const setCategoriesSuccess = (categories) => ({
+    type: SET_CATEGORIES,
+    categories
+})
+const setProductsSuccess = (products) => ({
+    type: SET_PRODUCTS,
+    products
+})
+export const setCurentCatalog = (name) => ({
+    type: SET_CURRENT_CATALOG,
+    name
+})
+export const setCurentCategory = (name) => ({
+    type: SET_CURRENT_CATEGORY,
+    name
+})
 
 export const setCatalogThunk = () => {
 
     return (dispatch) => {
-        return CatalogAPI.getCatalog().then(response => {
+        DBconnect().then(res => {
 
-            dispatch(setCatalog(response))
+
+            CategoryAPIStitch.getCategory().then(res => {
+                dispatch(setCatalog(res))
+            })
         })
+
+        //  CatalogAPI.getCatalog().then(response => {
+
+        //     dispatch(setCatalog(response))
+        // })
 
     }
 }

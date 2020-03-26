@@ -1,10 +1,8 @@
 .App {
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  
   display: flex;
   flex-direction: column;
-min-height:100vh ;
+  min-height: 100vh;
   z-index: 1;
 
   /* grid-template-areas: 
@@ -18,30 +16,28 @@ min-height:100vh ;
 }
 
 .main {
-  grid-area: main;
   position: relative;
-  background-color: rgb(220,196, 152);
   height: 100%;
   display: flex;
   flex-grow: 1;
 
-  
- 
+
+
 }
 
 .footer {
   height: 60px;
 }
 
-.title {
+/* .title {
   background-image: url('./img/background/title3.jpg');
   background-repeat: repeat;
   background-size: contain;
- max-width: 100%;
+  max-width: 100%;
   padding: 20px;
   position: relative;
-  
-}
+
+} */
 
 .title_text {
   width: 100%;
@@ -56,7 +52,7 @@ min-height:100vh ;
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;
-  
+
 }
 
 .content_wrapper {
@@ -69,6 +65,5 @@ min-height:100vh ;
 h2 {
   color: rgb(101, 73, 49);
   /* color: red; */
-  
-}
 
+}
