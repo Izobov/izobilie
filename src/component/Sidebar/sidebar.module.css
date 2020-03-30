@@ -108,3 +108,7 @@ a img {
     margin: 2% auto;
     height: 32px;
 }
+
+.icon {
+    max-width: 50px;
+}

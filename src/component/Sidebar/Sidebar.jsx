@@ -25,7 +25,7 @@ const Sidebar = props => {
         props.onClick(i.name);
       }}
     >
-      <img src={img} alt="" className={!show && s.icon} />
+      <img src={img} alt="" className={s.icon} />
       {props.isAuth && i.catalog_id}
       {i.name}
     </NavLink>

@@ -7,9 +7,12 @@ import logo from '../../img/logo/izobilie4.png'
 
 const Header = (props) => {
     return <header className={s.header}>
-        <div className={s.logo}>
-            <img src={logo} alt="" />
-        </div>
+        <NavLink to='/'>
+
+            <div className={s.logo}>
+                <img src={logo} alt="" />
+            </div>
+        </NavLink>
         {/* <div className={s.searchWrapper}>
 
             <input type="text" className={s.search} placeholder="поиск..." onChange={(e) => props.onChange(e.target.value)} onKeyDown={(e) => props.onKeyDown(e.keyCode)} />

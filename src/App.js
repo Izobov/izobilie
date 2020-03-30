@@ -29,7 +29,7 @@ function App() {
 
           <div className='content' >
 
-            <Route path='/'
+            <Route path='/' exact
               render={
                 () => <HomePage />
               }
