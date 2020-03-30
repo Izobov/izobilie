@@ -9,7 +9,8 @@ import logo2 from '../../img/logo/izobilie.png';
 const Sidebar = props => {
   let [redactorMode, setRedactorMode] = useState(false);
   let [inputValue, setInputValue] = useState();
-  let [show, setShow] = useState(true)
+  let [show, setShow] = useState(false)
+  let [file, setFile] = useState(false)
 
   let submit = () => {
     setRedactorMode(false);
@@ -21,70 +22,69 @@ const Sidebar = props => {
     <NavLink className={s.item} key={i.catalog_id}
       to="/catalog"
       onClick={() => {
-        setShow(!show)
-        props.onClick(i.catalog_id, i.name);
+        props.onClick(i.name);
       }}
     >
       <img src={img} alt="" className={!show && s.icon} />
       {props.isAuth && i.catalog_id}
-      {show && i.name}
+      {i.name}
     </NavLink>
 
   ));
 
   return (
-    <aside className={s.asideShow} className={show ? s.asideShow : s.aside}>
+    <aside className={s.aside}  >
       <div className={s.logoWrapper}>
-        {show ?
-          <img src={logo} alt="" className={s.logo} /> :
-          <img src={logo2} className={s.logo2} />
-        }
+        <h2 className={s.h2}>Каталог</h2>
       </div>
 
-      <h2 className={s.h2}>{show ? "Каталог" : " "}</h2>
 
 
       {catalogItems}
-      {props.isAuth && (
-        <div className={s.wrapper}>
-          {redactorMode ? (
-            <div>
-              <input
-                type="text"
-                placeholder="название раздела"
-                value={inputValue}
-                onChange={e => {
-                  setInputValue(e.target.value);
-                }}
-              />
-              <div
-                className={s.submit}
-                onClick={() => {
-                  submit();
-                }}
-              >
-                Отправить
+
+
+      {
+        props.isAuth && (
+          <div className={s.wrapper}>
+            {redactorMode ? (
+              <div>
+                <input
+                  type="text"
+                  placeholder="название раздела"
+                  value={inputValue}
+                  onChange={e => {
+                    setInputValue(e.target.value);
+                  }}
+                />
+                <div
+                  className={s.submit}
+                  onClick={() => {
+                    submit();
+                  }}
+                >
+                  Отправить
               </div>
-            </div>
-          ) : (
-              <div
-                className={s.submit}
-                onClick={() => {
-                  setRedactorMode(true);
-                }}
-              >
-                Создать раздел
+              </div>
+            ) : (
+                <div
+                  className={s.submit}
+                  onClick={() => {
+                    setRedactorMode(true);
+                  }}
+                >
+                  Создать раздел
+                </div>
+              )}
+            {redactorMode && (
+              <div className={s.cancel} onClick={() => setRedactorMode(false)}>
+                {" "}
+              Отмена{" "}
               </div>
             )}
-          {redactorMode && (
-            <div className={s.cancel} onClick={() => setRedactorMode(false)}>
-              {" "}
-              Отмена{" "}
-            </div>
-          )}
-        </div>
-      )}
-    </aside>
+          </div>
+        )
+      }
+    </aside >
   );
 };
 

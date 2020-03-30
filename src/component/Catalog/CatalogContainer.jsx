@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Catalog from './Catalog';
-import { setProducts, setCurentCategory, updateProducts, addCategory, addProduct, updateCategory, deleteCategory, deleteProduct } from '../../redux/catalog_reducer';
+import { setProductsThunk, setCurentCategory, updateProducts, addCategory, addProduct, updateCategory, deleteCategory, deleteProduct } from '../../redux/catalog_reducer';
 import { setBasketProducts } from '../../redux/basket_reducer';
 
 
@@ -79,6 +79,7 @@ class CatalogContainer extends React.Component {
             onProductsSubmit={this.onProductsSubmit} onUpdateCategorySubmit={this.onUpdateCategorySubmit}
             SetImg={this.SetImg} onAddCategorySubmit={this.onAddCategorySubmit}
             onAddProductSubmit={this.onAddProductSubmit} deleteCategory={this.deleteCategory} deleteProduct={this.deleteProduct} />
+
     }
 }
 
@@ -96,7 +97,7 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {
-    addProduct, addCategory, setProducts, setCurentCategory,
+    addProduct, addCategory, setProductsThunk, setCurentCategory,
     setBasketProducts, updateProducts, updateCategory,
     deleteCategory, deleteProduct
 })(CatalogContainer)

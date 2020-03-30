@@ -1,51 +1,25 @@
-.asideShow {
+.aside {
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-repeat: repeat;
     height: 100vh;
-    max-width: 310px;
-    width: 100%;
+    width: 12%;
     position: fixed;
     top: 0;
     z-index: 100;
     box-shadow:5px 1px 10px rgb(119, 119, 119);
-    transition:  1s ease;
+   transition: 1s ease;
 }
+ 
 
-.aside{
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-repeat: repeat;
-    height: 100vh;
-    max-width: 100px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    box-shadow:5px 1px 10px rgb(119, 119, 119);
-    /* transition-property: width; */
-    transition: 1s ease;
-}
-
-.logo {
-    width: 60%;
-    max-width: 100%;
-    
-}
-.logo2 {
-   max-width:  70%;
-   /* transform: rotate(0deg); */
-   transition: 1s ease-out;
-   margin: auto;
-}
-.logo2:hover{
-    cursor: pointer;
-    transform: rotate(360deg);
+.aside:hover  {
+    width: 18%;
 } 
+
+
+
 
 .item {
     padding: 2%;
@@ -53,20 +27,23 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    position: relative;
 }
-
+.item:first-of-type{
+    margin-top: 0;
+}
 a {
     text-decoration: none;
     color: rgb(112, 86, 61);
+    /* transition: 1.5s ease .5s; */
 }
 
 a img {
     margin-right: 5%;
 }
 
-.icon {
-    margin: auto;
-}
+
 .item:hover{
     cursor: pointer;
     background: linear-gradient(rgb(250, 235, 207), rgb(138, 100, 36));
@@ -122,6 +99,7 @@ a img {
     box-shadow:0 1px 3px rgb(119, 119, 119);
     max-height: 10%;
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
 }

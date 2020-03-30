@@ -12,9 +12,13 @@ import HeaderContainer from './component/Header/HeaderContainer';
 import Login from './component/Login/Login';
 import OrdersContainer from './component/Orders/OrdersContainer';
 import Footer from './component/Footer/Footer';
+import HomePage from './component/HomePage/HomePage';
+
 
 
 function App() {
+
+
   return (
 
     <div className="App" >
@@ -22,10 +26,15 @@ function App() {
       < main className="main" >
         <SidebarContainer />
         <div className="content_wrapper" >
-          <div className='title' >
 
-          </div>
           <div className='content' >
+
+            <Route path='/'
+              render={
+                () => <HomePage />
+              }
+            />
+
             <Route path='/about'
               render={
                 () => < About />

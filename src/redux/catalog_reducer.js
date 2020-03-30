@@ -6,7 +6,8 @@ import {
 } from "../api/api"
 import {
     CategoryAPIStitch,
-    DBconnect
+    DBconnect,
+    ProductAPIStitch
 } from "../api/stitch"
 
 
@@ -34,34 +35,34 @@ const catalog_reducer = (state = InitialState, action) => {
                 ...state,
                 catalog: action.catalog
             }
-            case SET_CURRENT_CATALOG:
-                return {
-                    ...state,
-                    currentCatalog: action.name,
-                        currentCategory: ''
-                }
-                case SET_CURRENT_CATEGORY:
-                    return {
-                        ...state,
-                        currentCategory: action.name
-                    }
+        case SET_CURRENT_CATALOG:
+            return {
+                ...state,
+                currentCatalog: action.name,
+                currentCategory: ''
+            }
+        case SET_CURRENT_CATEGORY:
+            return {
+                ...state,
+                currentCategory: action.name
+            }
 
-                    case SET_CATEGORIES:
+        case SET_CATEGORIES:
 
-                        return {
-                            ...state,
-                            categories: action.categories
+            return {
+                ...state,
+                categories: action.categories
 
-                        }
-                        case SET_PRODUCTS:
-                            return {
-                                ...state,
-                                categories: [],
-                                    products: action.products
-                            }
+            }
+        case SET_PRODUCTS:
+            return {
+                ...state,
+                categories: [],
+                products: action.products
+            }
 
-                            default:
-                                return state
+        default:
+            return state
     }
 }
 
@@ -90,13 +91,16 @@ export const setCurentCategory = (name) => ({
 export const setCatalogThunk = () => {
 
     return (dispatch) => {
-        DBconnect().then(res => {
 
+        DBconnect().then(res => {
 
             CategoryAPIStitch.getCategory().then(res => {
                 dispatch(setCatalog(res))
             })
         })
+
+
+
 
         //  CatalogAPI.getCatalog().then(response => {
 
@@ -120,22 +124,27 @@ export const setCategories = (id) => {
         })
     }
 }
+// asdassssssssssasdasd
 
-export const setProducts = (id) => {
+
+export const setProductsThunk = (name) => {
     return (dispatch) => {
-        return CatalogAPI.getProducts(id).then(response => {
+
+        return ProductAPIStitch.getProducts(name).then(response => {
             dispatch(setProductsSuccess(response))
         })
     }
 }
 
+
+//asddddddddddddddasdddd
 export const updateProducts = (file, data) => {
     return (dispatch) => {
         return ProductAPI.updateProducts(file, data).then(response => {
 
             if (response.status === 200) {
 
-                dispatch(setProducts(data.category))
+                dispatch(setProductsThunk(data.category))
             }
         })
     }
@@ -177,7 +186,7 @@ export const addProduct = (file, data) => {
     return (dispatch) => {
         return ProductAPI.addProduct(file, data).then(response => {
             if (response.status === 200) {
-                dispatch(setProducts(data.category_id))
+                dispatch(setProductsThunk(data.category_id))
             }
         })
     }
@@ -187,7 +196,7 @@ export const deleteProduct = (id, category_id) => {
     return dispatch => {
         return ProductAPI.deleteProduct(id).then(response => {
             if (response.status === 200) {
-                dispatch(setProducts(category_id))
+                dispatch(setProductsThunk(category_id))
             }
         })
     }

@@ -35,13 +35,14 @@ const Catalog = (props) => {
 
     return <main>
 
-        <div className='title_text'>
 
-            <h2 >
 
-                {props.currentCategory ? props.currentCategory : props.currentCatalog}
-            </h2>
-        </div>
+        <h2 >
+
+            {props.currentCategory ? props.currentCategory : props.currentCatalog}
+        </h2>
+
+
         <div className={s.main}>
             {props.isAuth && <>
                 <div className={s.newItem} >
