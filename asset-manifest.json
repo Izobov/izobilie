@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/izobilie/static/css/main.94e03002.chunk.css",
-    "main.js": "/izobilie/static/js/main.43f24e8b.chunk.js",
-    "main.js.map": "/izobilie/static/js/main.43f24e8b.chunk.js.map",
+    "main.js": "/izobilie/static/js/main.386e7f6f.chunk.js",
+    "main.js.map": "/izobilie/static/js/main.386e7f6f.chunk.js.map",
     "runtime-main.js": "/izobilie/static/js/runtime-main.24ebddd7.js",
     "runtime-main.js.map": "/izobilie/static/js/runtime-main.24ebddd7.js.map",
     "static/css/2.0988ea1f.chunk.css": "/izobilie/static/css/2.0988ea1f.chunk.css",
     "static/js/2.4bbb456a.chunk.js": "/izobilie/static/js/2.4bbb456a.chunk.js",
     "static/js/2.4bbb456a.chunk.js.map": "/izobilie/static/js/2.4bbb456a.chunk.js.map",
     "index.html": "/izobilie/index.html",
-    "precache-manifest.5ec2afc71da9c8d4a38b9908b38d93b7.js": "/izobilie/precache-manifest.5ec2afc71da9c8d4a38b9908b38d93b7.js",
+    "precache-manifest.44f458455388887fc2e3038373f07ad6.js": "/izobilie/precache-manifest.44f458455388887fc2e3038373f07ad6.js",
     "service-worker.js": "/izobilie/service-worker.js",
     "static/css/2.0988ea1f.chunk.css.map": "/izobilie/static/css/2.0988ea1f.chunk.css.map",
     "static/css/main.94e03002.chunk.css.map": "/izobilie/static/css/main.94e03002.chunk.css.map",
@@ -32,6 +32,6 @@
     "static/css/2.0988ea1f.chunk.css",
     "static/js/2.4bbb456a.chunk.js",
     "static/css/main.94e03002.chunk.css",
-    "static/js/main.43f24e8b.chunk.js"
+    "static/js/main.386e7f6f.chunk.js"
   ]
 }
