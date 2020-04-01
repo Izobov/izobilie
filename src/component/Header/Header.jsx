@@ -7,7 +7,7 @@ import logo from '../../img/logo/izobilie4.png'
 
 const Header = (props) => {
     return <header className={s.header}>
-        <NavLink to='/'>
+        <NavLink to=''>
 
             <div className={s.logo}>
                 <img src={logo} alt="" />
@@ -27,7 +27,7 @@ const Header = (props) => {
             </span>
         </div>
         <div className={s.navbar}>
-            <NavLink to='/main'> Главная</NavLink>
+            <NavLink to=''> Главная</NavLink>
             <NavLink to='/about'>О нас</NavLink>
             <NavLink to='/contacts'> Доставка и оплата</NavLink>
             {props.isAuth && <NavLink to='/orders'>Заказы</NavLink>}
