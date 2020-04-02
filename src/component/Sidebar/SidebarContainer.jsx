@@ -18,9 +18,9 @@ class SidebarContainer extends React.Component {
     this.props.setCatalogThunk();
   }
 
-  onClick(id, name) {
-    this.props.setProductsThunk(name);
-    this.props.setCurentCatalog(name);
+  onClick(params) {
+    this.props.setProductsThunk(params);
+    this.props.setCurentCatalog(params.name);
   }
 
   onSubmit(name) {

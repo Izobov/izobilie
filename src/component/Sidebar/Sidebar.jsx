@@ -9,8 +9,7 @@ import logo2 from '../../img/logo/izobilie.png';
 const Sidebar = props => {
   let [redactorMode, setRedactorMode] = useState(false);
   let [inputValue, setInputValue] = useState();
-  let [show, setShow] = useState(false)
-  let [file, setFile] = useState(false)
+
 
   let submit = () => {
     setRedactorMode(false);
@@ -20,9 +19,9 @@ const Sidebar = props => {
   let catalogItems = props.catalog.map(i => (
 
     <NavLink className={s.item} key={i.catalog_id}
-      to="/catalog"
+      to="/products"
       onClick={() => {
-        props.onClick(i.name);
+        props.onClick({ categoryId: i.name });
       }}
     >
       <img src={img} alt="" className={s.icon} />

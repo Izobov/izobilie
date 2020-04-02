@@ -127,10 +127,10 @@ export const setCategories = (id) => {
 // asdassssssssssasdasd
 
 
-export const setProductsThunk = (name) => {
+export const setProductsThunk = (params) => {
     return (dispatch) => {
 
-        return ProductAPIStitch.getProducts(name).then(response => {
+        return ProductAPIStitch.getProducts(params).then(response => {
             dispatch(setProductsSuccess(response))
         })
     }

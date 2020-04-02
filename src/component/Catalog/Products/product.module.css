@@ -1,4 +1,145 @@
-.card {
+
+.wrapper {
+    width: 200px;
+    height: 350px;
+    position: relative;
+    /* background-color: grey; */
+    margin-right: 5%;
+    margin-bottom: 5%;
+    perspective: 500px;
+    
+}
+ .wrapper:hover> .cardFront{
+    transform: rotateY(180deg);
+} 
+.wrapper:hover> .cardBack{
+    transform: rotateY(360deg);
+} 
+/* .wrapper:hover>.cardHover{
+    opacity: 1;
+} */
+.cardHover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 46, 46, 0.507);
+    box-shadow: 0 0 10px grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    
+}
+.cardFront {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    display: flex;
+    flex-direction: column;
+    transition: 1s ease;
+    backface-visibility: hidden;
+    box-shadow: 0 0 5px grey;
+}
+.cardFront img {
+    height: 200px;
+}
+.cardBack {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 10px grey;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(46, 46, 46, 0.507);
+
+    justify-content: center;
+    align-items: center;
+    /* background-color: grey; */
+    transform:rotateY(180deg);
+    transition: 1s ease;
+    backface-visibility: hidden;
+
+}
+.wrapper:hover>.card{
+    cursor: pointer;
+    z-index: 2;
+    opacity: 1;
+}
+
+
+.price {
+    font-weight: 600;
+    color: rgb(184, 36, 36);
+}
+
+.input {
+    appearance: textfield;
+    /* border-radius: 5px; */
+    width: 20%;
+    margin: 0 2%;
+    border: none;
+    border-bottom: .5px solid grey;
+    text-align: center;
+}
+
+
+
+.inputWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.plusButton, .minusButton {
+    width: 25px;
+    height: 25px;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plusButton:hover, .minusButton:hover {
+    cursor: pointer;
+}
+
+.plusButton {
+    background-color:#8bc34a;
+}
+.minusButton {
+    background-color: #f44336;
+}
+
+.add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #309fd0;
+    border-radius: 5px;
+    color: white;
+    width: 40%;
+    height: 30px;
+    margin-top: 15%;
+}
+.add:hover {
+    cursor: pointer;
+    background-color: #2889b3;
+}
+
+
+
+
+
+
+/* .card {
     max-width: 100%;
     width: 100%;
     padding-top: 5px;
@@ -120,4 +261,4 @@ button {
     border: 1px solid rgb(139, 138, 138);
     background-color: unset;
     border-radius: 10px;
-}
+} */

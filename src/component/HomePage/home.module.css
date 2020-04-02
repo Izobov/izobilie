@@ -18,10 +18,15 @@
     margin-bottom: 5%;
 }
 
+
 .instInfo {
     display: flex;
     align-items: center;
     margin-left: 5%;
+}
+
+.instInfo a:hover{
+    color: rgb(139, 138, 138);
 }
 .icon{
     max-width: 50px;

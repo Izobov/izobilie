@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+
 import s from "./home.module.css";
-import { useState } from "react";
+
 import Slider from './Slider'
 import inst from "../../img/icons/instagram.svg"
 
@@ -20,7 +20,7 @@ const HomePage = props => {
 
                 <img src={inst} alt="" className={s.icon} />
                 <h2>
-                    Следите за нами в инстаграмм  <a href="https://www.instagram.com/invites/contact/?i=1576hqix.." target>&#64;izo_bilie. </a>
+                    Следите за нами в инстаграмм  <a href="https://instagram.com/izo_bilie?igshid=1dgjw8axpv66a" target="_blank">&#64;izo_bilie. </a>
                 </h2>
             </div>
             <div className={s.instImg}>

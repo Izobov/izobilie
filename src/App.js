@@ -6,7 +6,7 @@ import {
 import About from './component/About/About';
 import Contacts from './component/Contacts/Contacts';
 import SidebarContainer from './component/Sidebar/SidebarContainer';
-import CatalogContainer from './component/Catalog/CatalogContainer';
+import ProductsContainer from './component/Catalog/ProductsContainer';
 import BasketContainer from './component/Basket/BasketContainer';
 import HeaderContainer from './component/Header/HeaderContainer';
 import Login from './component/Login/Login';
@@ -45,9 +45,9 @@ function App() {
                 () => < Contacts />
               }
             />
-            <Route path='/catalog'
+            <Route path='/products'
               render={
-                () => < CatalogContainer />
+                () => < ProductsContainer />
               }
             />
             <Route path='/basket'

@@ -49,8 +49,8 @@ export const CategoryAPIStitch = {
 
 export const ProductAPIStitch = {
 
-    getProducts(name) {
-        return products.find({ categoryId: name }).asArray().then(res => { return res })
+    getProducts(params) {
+        return products.find(params).asArray().then(res => { return res })
     }
 }
 
