@@ -13,7 +13,7 @@
     top: 0;
     z-index: 100;
     box-shadow:5px 1px 10px rgb(119, 119, 119);
-   transition: 1s ease;
+   transition: 0.5s ease;
    box-sizing: border-box;
 }
 .showSidebar{
@@ -66,7 +66,7 @@
     transform: translate(0);
     background-color: #f3f3f0;
     opacity: 1;
-    width: 100%;
+    /* width: 100%; */
     border-top-right-radius: 0;
     
 }
@@ -152,6 +152,13 @@
     border-top-right-radius: 15px;
     
 }
+.showSidebar .name {
+    border-top-right-radius: 0;
+}
+
+.showSidebar .name{
+    background: none ;
+}
 
 .arrow {
     font-size: 1.2rem;
@@ -168,8 +175,9 @@
 }
 .name:hover +.sections span, .sections:hover>span{
     position: relative;
-    max-height: 52px;
+    min-height: 52px;
     padding: 5px;
+    
 }
 .sections:hover{
     border-radius: 0;
@@ -201,8 +209,32 @@
     transition: 1s;
     max-height:0px;
     overflow: hidden;
-    transition: 1s ease-out;
+    transition: "height" 1s ease-out;
+    /* display: flex; */
+    align-items: center;
+    
 }
 
+.sections span:hover {
+    transition: 0s;
+    background-color: #f3f3f0;
+}
 
+.showSidebar .sections {
+    top: 0;
+    right: -140px;
+    opacity: 0;
+}
 
+.showSidebar .name:hover +.sections  {
+    top: 0;
+    opacity: 1;
+    border-top-right-radius: 15px;
+}
+
+.showSidebar .sections span:first-child{
+    border-top: none;
+}
+.sections:hover {
+    opacity: 1;
+}
