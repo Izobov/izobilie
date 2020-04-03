@@ -9,15 +9,15 @@
     perspective: 500px;
     
 }
- .wrapper:hover> .cardFront{
+ /* .wrapper:hover> .cardFront{
     transform: rotateY(180deg);
 } 
 .wrapper:hover> .cardBack{
     transform: rotateY(360deg);
-} 
-/* .wrapper:hover>.cardHover{
+}  */
+.wrapper:hover>.cardHover{
     opacity: 1;
-} */
+}
 .cardHover {
     position: absolute;
     top: 0;

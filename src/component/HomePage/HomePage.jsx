@@ -12,8 +12,16 @@ const HomePage = props => {
     return <div >
 
         <Slider />
-        <div>
+        <div className={s.top}>
             <h2>Топ продаж</h2>
+            <div className={s.cardsWrapper}>
+
+                <div className={s.testCards}></div>
+                <div className={s.testCards}></div>
+                <div className={s.testCards}></div>
+                <div className={s.testCards}></div>
+                <div className={s.testCards}></div>
+            </div>
         </div >
         <div className={s.inst}>
             <div className={s.instInfo}>

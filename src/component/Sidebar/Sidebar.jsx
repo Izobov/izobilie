@@ -2,13 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./sidebar.module.css";
 import { useState } from "react";
-import img from "../../img/icons/kitchen.png";
-import logo from '../../img/logo/izobilie.png';
-import logo2 from '../../img/logo/izobilie.png';
+
 
 const Sidebar = props => {
+
   let [redactorMode, setRedactorMode] = useState(false);
   let [inputValue, setInputValue] = useState();
+  let [showSidebar, setShowSidebar] = useState(false)
 
 
   let submit = () => {
@@ -17,27 +17,47 @@ const Sidebar = props => {
   };
 
   let catalogItems = props.catalog.map(i => (
+    <div>
 
-    <NavLink className={s.item} key={i.catalog_id}
-      to="/products"
-      onClick={() => {
-        props.onClick({ categoryId: i.name });
-      }}
-    >
-      <img src={img} alt="" className={s.icon} />
-      {props.isAuth && i.catalog_id}
-      {i.name}
-    </NavLink>
 
+      <NavLink className={s.item} key={i.catalog_id}
+        to="/products"
+        onClick={() => {
+          props.onClick({ categoryId: i.name });
+        }}
+      >
+        <img src={i.img} alt="" className={s.icon} />
+        {props.isAuth && i.catalog_id}
+        <div className={s.categoryName}>
+
+          <span className={s.name}>
+            {i.name}
+
+            {i.sections.length && !showSidebar ? <span className={s.arrow}>  &#8594; </span> : ''}
+          </span>
+          {i.sections.length > 0 && <div className={s.sections}>
+            {i.sections.map(item =>
+
+              <span onClick={(e) => {
+                e.stopPropagation()
+                props.onClick({ sectionId: item.name })
+              }} >{item.name}</span>
+            )}
+          </div>
+          }
+
+        </div>
+      </NavLink>
+    </div >
   ));
 
   return (
-    <aside className={s.aside}  >
-      <div className={s.logoWrapper}>
-        <h2 className={s.h2}>Каталог</h2>
+    <aside className={showSidebar ? `${s.aside} ${s.showSidebar}` : s.aside}  >
+
+
+      <div className={showSidebar ? `${s.hamburger} ${s.active} ` : s.hamburger} onClick={() => setShowSidebar(!showSidebar)} >
+        <span className={s.line} ></span>
       </div>
-
-
 
       {catalogItems}
 

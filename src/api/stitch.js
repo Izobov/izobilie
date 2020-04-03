@@ -50,7 +50,11 @@ export const CategoryAPIStitch = {
 export const ProductAPIStitch = {
 
     getProducts(params) {
-        return products.find(params).asArray().then(res => { return res })
+        debugger
+        return products.find(params).asArray().then(res => {
+            debugger
+            return res
+        })
     }
 }
 

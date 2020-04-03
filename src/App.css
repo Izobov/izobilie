@@ -36,14 +36,14 @@
 .content_wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 88%;
+  max-width: 97%;
   width: 100%;
   position: relative;
-  margin-left: 12%;
+  margin-left: 3%;
 }
 
-h2 {
+/* h2 {
   color: rgb(101, 73, 49);
 
-}
+} */
 
