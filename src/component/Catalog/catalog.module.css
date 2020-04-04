@@ -5,7 +5,7 @@
     padding: 30px;
     width: 100%;
     padding: 70px 10%;
-    background-color: #f3f3f0;
+    /* background-color: #f3f3f0; */
     
    
 }
@@ -46,8 +46,8 @@ h2 {
 
 .title h3 {
     font-size: 1.5rem;
-    color: #f3f3f0;
-    /* color: #8f725a; */
+   
+    color: #8f725a;
 }
 
 /* .title {

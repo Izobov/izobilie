@@ -10,7 +10,8 @@ class BasketContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            modal: false,
+            total: 0
         }
         // this.onCategoryClick = this.onCategoryClick.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -19,9 +20,10 @@ class BasketContainer extends React.Component {
         this.Close = this.Close.bind(this)
     }
 
-    onChange(product_id, e) {
 
-        this.props.changeCount(product_id, e.target.valueAsNumber)
+    onChange(product, e) {
+
+        this.props.changeCount(product, e)
     }
 
     onSubmit(name, secondname, phone, total) {
@@ -34,7 +36,8 @@ class BasketContainer extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props !== nextProps
+
+        return this.props.products !== nextProps.products
     }
 
     onClick(boolean) {

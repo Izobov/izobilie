@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import s from './catalog.module.css'
-import Category from './Categories/Categories';
 import Products from './Products/Products';
 import AddCategory from '../RedactorsMode/AddCategory';
 import AddProduct from '../RedactorsMode/AddProduct';
@@ -33,7 +32,7 @@ const Catalog = (props) => {
         <div className={s.header}>
 
             <h2 >
-                {props.currentSection ? props.currentCategory : ''}
+                {props.currentCategory}
 
             </h2>
 
@@ -42,7 +41,7 @@ const Catalog = (props) => {
         <div className={s.title}>
 
 
-            <h3>{props.currentSection || props.currentCategory}</h3>
+            <h3>{props.currentSection}</h3>
         </div>
         <div className={s.main}>
             {props.isAuth && <>

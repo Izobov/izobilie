@@ -25,6 +25,7 @@ function App() {
       <HeaderContainer />
       < main className="main" >
         <SidebarContainer />
+        <BasketContainer />
         <div className="content_wrapper" >
 
           <div className='content' >

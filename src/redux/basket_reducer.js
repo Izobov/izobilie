@@ -14,7 +14,7 @@ let CLEAN_BASKET = "CLEAN_BASKET"
 
 
 let InitialState = {
-    products: [],
+    products: [{ name: "Шпингалет", price: 23.23, count: 1, size: "23x23" }],
     showModal: false,
     response: false,
 
@@ -23,6 +23,7 @@ let InitialState = {
 const basket_reducer = (state = InitialState, action) => {
     switch (action.type) {
         case SET_BASKET_PRODUCTS:
+
 
             let filter = state.products.filter(i => {
                 return i === action.products
@@ -44,25 +45,32 @@ const basket_reducer = (state = InitialState, action) => {
 
         case CHANGE_VALUE:
 
-            let newArray = []
-            for (let i = 0; i < state.products.length; i++) {
-
-                if (state.products[i].product_id === action.product_id) {
-
-                    newArray.push(state.products[i] = {
-                        ...state.products[i],
-                        count: action.value
-                    })
-                } else {
-                    newArray.push(state.products[i])
-                }
-
-            }
-
+            let prod = state.products.filter(i => i === action.product)
+            prod.count = action.value
             return {
                 ...state,
-                products: newArray
+                products: [...state.products]
             }
+
+        // let newArray = []
+        // for (let i = 0; i < state.products.length; i++) {
+
+        //     if (state.products[i] === action.product) {
+
+        //         newArray.push(state.products[i] = {
+        //             ...state.products[i],
+        //             count: action.value
+        //         })
+        //     } else {
+        //         newArray.push(state.products[i])
+        //     }
+
+        // }
+
+        // return {
+        //     ...state,
+        //     products: newArray
+        // }
 
         case TOGGLE_MODAL:
             return {
@@ -89,7 +97,7 @@ const basket_reducer = (state = InitialState, action) => {
 
 
 export const setBasketProducts = (products) => ({ type: SET_BASKET_PRODUCTS, products })
-export const changeCount = (product_id, value) => ({ type: CHANGE_VALUE, product_id, value })
+export const changeCount = (product, value) => ({ type: CHANGE_VALUE, product, value })
 export const modal = (boolean) => ({ type: TOGGLE_MODAL, boolean })
 const setRes = (res) => ({ type: SET_ORDER_ID, res })
 export const cleanBasket = () => ({ type: CLEAN_BASKET })

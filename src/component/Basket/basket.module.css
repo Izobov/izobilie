@@ -1,32 +1,114 @@
 .card {
    
-    padding: 10px;
+    padding: 30px 10px;
     max-width: 100%;
     /* width: 100%; */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    border-bottom:1px solid rgb(101, 73, 49);;
+    /* padding-top: 20px; */
+    border: 1px dashed gray;
+    border-left: none;
+    border-right: none;
+
+}
+
+
+.card:hover {
+    background-color: #A6ADA6;
+    cursor: default;
+}
+.card:hover> .inputWrapper>.inputButton{
+    display: flex;
+}
+
+.elementsWrapper {
+    overflow: auto;
+    max-height: 80%;
 }
 
 .wrapper {
     display: flex;
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    max-height: 95%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #f3f3f0;
+    box-shadow:5px 1px 10px rgb(119, 119, 119);
+    padding-top: 20px;
+    transition: 1s ease;
     
 }
 
-h4{
-    color: grey;
-    font-size: 24px;
+::-webkit-scrollbar {
+    width: 12px;
 }
-.none {
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+    border: none;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background:#b9b9b99c ;
+    height: 20px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info h3 {
+    font-size: 1.2rem;
+    font-weight: 550;
+    margin: 0;
+    color: rgb(87, 87, 87);
+}
+
+.info span {
+    font-size: 0.9rem;
+    color: #585858;
+    /* color: gray; */
+}
+.price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(87, 87, 87);
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+}
+input {
+    appearance: textfield;
+    border: none;
+    background: none;
+    width: 30px;
+    text-align: center;
+    color: #585858;
+    font-size: 1rem;
+}
+.inputButton {
+    width: 25px;
+    height: 25px;
+    font-weight: 400;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     display: none;
+    color: #585858;
+    font-size: 1.5rem;
 }
-
-
+.inputButton:hover {
+    cursor: pointer;
+}
 
 
 .orderButton {

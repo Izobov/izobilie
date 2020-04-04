@@ -15,7 +15,7 @@ const Products = (props) => {
     const [redactorMode, setRedactorMode] = useState(false)
 
 
-    let isInBasket = !!props.basket.find(el => el === product)
+    let isInBasket = !!props.basket.find(el => el._id === product._id)
 
 
     // const onSubmit = (values) => {

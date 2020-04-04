@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import s from './basket.module.css'
 import Portal from '../Portal/Portal';
 import Modal from '../Modal/Modal';
 import SubmitForm from '../SubmitForm/SubmitForm';
+import BasketProduct from './BasketProduct';
+
 
 
 
@@ -12,8 +14,11 @@ import SubmitForm from '../SubmitForm/SubmitForm';
 
 const Basket = (props) => {
 
+    let [showBasket, setShowBasket] = useState(!!props.products.length)
 
-    let totalOrder = 0;
+    let totalOrder = 0
+
+
 
     const onSubmit = (form) => {
 
@@ -21,36 +26,26 @@ const Basket = (props) => {
         // props.onClick(false)
 
     }
+    let productsElements = props.products.map(item => {
+        totalOrder += item.count * item.price
+        return <BasketProduct product={item} onChange={props.onChange} />
+    })
 
     if (props.products.length !== 0) {
 
-        return <div>
-            <div className='title_text'>
+        return <div className={s.wrapper}>
+            <div >
 
                 <h2 > Корзина</h2>
             </div>
 
-            {props.products.map(i => <div className={s.card} key={Math.random()}>
-
-                <img src={i.img} alt="" />
-                <h3>{i.name}</h3>
-                <input type="number" min='0' value={i.count} onChange={(e) => { props.onChange(i.product_id, e) }} />
-                <span>Цена:</span>
-                <span>{i.price}</span>
-                <span>Стоимость:</span>
-                <span>{i.price * i.count}</span>
-                <div className={s.none}>
-
-                    {totalOrder += i.price * i.count}
-                </div>
-
+            <div className={s.elementsWrapper}>
+                {productsElements}
             </div>
-            )}
 
-            <div>
-                <span>Общая стоимость:</span>
-                <span>{totalOrder}</span>
-            </div>
+
+            <span> Общая стоимость: {totalOrder} BYN</span>
+
 
             <div onClick={() => { props.onClick(true) }} className={s.orderButton} >Оформить заказ!</div>
 
