@@ -23,7 +23,7 @@ const Sidebar = props => {
       <NavLink className={s.item} key={i.catalog_id}
         to="/products"
         onClick={() => {
-          props.onClick({ categoryId: i.name });
+          props.onClick({ categoryId: i.name }, i.name);
         }}
       >
         <img src={i.img} alt="" className={s.icon} />
@@ -40,7 +40,7 @@ const Sidebar = props => {
 
               <span onClick={(e) => {
                 e.stopPropagation()
-                props.onClick({ sectionId: item.name })
+                props.onClick({ sectionId: item.name }, i.name)
               }} >{item.name}</span>
             )}
           </div>

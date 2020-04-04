@@ -50,9 +50,9 @@ export const CategoryAPIStitch = {
 export const ProductAPIStitch = {
 
     getProducts(params) {
-        debugger
+
         return products.find(params).asArray().then(res => {
-            debugger
+
             return res
         })
     }

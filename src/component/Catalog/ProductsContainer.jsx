@@ -38,12 +38,12 @@ class CatalogContainer extends React.Component {
     }
 
     onProductsSubmit(values) {
-        debugger
+
         this.props.updateProducts(this.state.img, values);
     }
 
     onUpdateCategorySubmit(values) {
-        debugger
+
         this.props.updateCategory(this.state.img, values)
     }
 
@@ -64,10 +64,9 @@ class CatalogContainer extends React.Component {
         this.props.setProducts(id)
     }
 
-    pushInBasket(name, img, price, count, product_id) {
-        let total = count * price
+    pushInBasket(product, count) {
 
-        let product = { name, img, price, count, total, product_id };
+        product.count = count;
         this.props.setBasketProducts(product)
 
 
@@ -87,9 +86,10 @@ let mapStateToProps = (state) => {
     return {
         categories: state.catalog.categories,
         products: state.catalog.products,
-        currentCatalog: state.catalog.currentCatalog,
+        currentSection: state.catalog.currentSection,
         currentCategory: state.catalog.currentCategory,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        basket: state.basket.products
     }
 }
 

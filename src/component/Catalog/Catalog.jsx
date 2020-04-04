@@ -27,22 +27,23 @@ const Catalog = (props) => {
     }
 
 
-    let productsElements = props.products.map(item => <Products color={item.color} img={item.img} material={item.material}
-        name={item.name} price={item.price} size={item.size} description={item.description} key={item.product_id} pushInBasket={props.pushInBasket} product_id={item.product_id} isAuth={props.isAuth}
-        catalog_id={item.catalog_id} category_id={item.category_id} onSubmit={props.onProductsSubmit} SetImg={props.SetImg} deleteProduct={props.deleteProduct} />)
-    let categoryElements = props.categories.map(item => <Category name={item.name} SetImg={props.SetImg} img={item.img} key={item.category_id} category_id={item.category_id} onCategoryClick={props.onCategoryClick}
-        isAuth={props.isAuth} catalog_id={item.catalog_id} onSubmit={props.onUpdateCategorySubmit} deleteCategory={props.deleteCategory} />)
+    let productsElements = props.products.map(item => <Products product={item} key={item.product_id} pushInBasket={props.pushInBasket} isAuth={props.isAuth}
+        onSubmit={props.onProductsSubmit} SetImg={props.SetImg} deleteProduct={props.deleteProduct} basket={props.basket} />)
+    return <main className={s.wrapper}>
+        <div className={s.header}>
 
-    return <main>
+            <h2 >
+                {props.currentSection ? props.currentCategory : ''}
+
+            </h2>
+
+        </div>
+
+        <div className={s.title}>
 
 
-
-        <h2 >
-
-            {props.currentCategory ? props.currentCategory : props.currentCatalog}
-        </h2>
-
-
+            <h3>{props.currentSection || props.currentCategory}</h3>
+        </div>
         <div className={s.main}>
             {props.isAuth && <>
                 <div className={s.newItem} >
@@ -63,7 +64,7 @@ const Catalog = (props) => {
                     }
                 </div>
             </>}
-            {categoryElements.length !== 0 ? categoryElements : productsElements}
+            {productsElements}
 
         </div>
 

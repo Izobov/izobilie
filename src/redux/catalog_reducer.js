@@ -14,15 +14,15 @@ import {
 let SET_CATALOG = "SET_CATALOG"
 let SET_CATEGORIES = "SET_CATEGORIES"
 let SET_PRODUCTS = "SET_PRODUCTS"
-let SET_CURRENT_CATALOG = "SET_CURRENT_CATALOG"
+let SET_CURRENT_SECTION = "SET_CURRENT_SECTION"
 let SET_CURRENT_CATEGORY = "SET_CURRENT_CATEGORY"
 
 
 
 let InitialState = {
     catalog: [],
-    currentCatalog: '',
     currentCategory: '',
+    currentSection: '',
     categories: [],
     products: [],
 
@@ -35,16 +35,16 @@ const catalog_reducer = (state = InitialState, action) => {
                 ...state,
                 catalog: action.catalog
             }
-        case SET_CURRENT_CATALOG:
+        case SET_CURRENT_SECTION:
             return {
                 ...state,
-                currentCatalog: action.name,
-                currentCategory: ''
+                currentSection: action.name,
             }
         case SET_CURRENT_CATEGORY:
             return {
                 ...state,
-                currentCategory: action.name
+                currentCategory: action.name,
+                currentSection: ''
             }
 
         case SET_CATEGORIES:
@@ -79,8 +79,8 @@ const setProductsSuccess = (products) => ({
     type: SET_PRODUCTS,
     products
 })
-export const setCurentCatalog = (name) => ({
-    type: SET_CURRENT_CATALOG,
+export const setCurentSection = (name) => ({
+    type: SET_CURRENT_SECTION,
     name
 })
 export const setCurentCategory = (name) => ({

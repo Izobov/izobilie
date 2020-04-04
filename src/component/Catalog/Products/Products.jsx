@@ -10,18 +10,23 @@ import RedactorProduct from './RedactorMode/RedactorProduct';
 
 const Products = (props) => {
 
-
+    let product = props.product
     const [inputValue, setValue] = useState(0);
     const [redactorMode, setRedactorMode] = useState(false)
+
+
+    let isInBasket = !!props.basket.find(el => el === product)
+
+
     // const onSubmit = (values) => {
     //     props.onSubmit(values);
     //     setRedactorMode(false)
     // }
 
-    // const [touched, setTouched] = useState(false);
+    const [touched, setTouched] = useState(false);
     // const OnAddButtonClick = () => {
-    //     setTouched(true);
-    //     props.pushInBasket(props.name, props.img, props.price, inputValue, props.product_id)
+    //     // setTouched(true);
+    //     props.pushInBasket(product)
 
     // }
 
@@ -42,29 +47,32 @@ const Products = (props) => {
         return <div className={s.wrapper}>
 
             <div className={s.cardFront}>
-                <img src={props.img} alt="" />
-                <h2>{props.name}</h2>
-                <span>Размер:{props.size}</span>
-                <span>Цвет:{props.color}</span>
-                <span className={s.price}>{props.price}руб</span>
-            </div>
-            <div className={s.cardBack}>
-                <div className={s.inputWrapper}>
-                    <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
+                <img src={product.img} alt="" />
+                <div className={s.info}>
 
-                    <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
-                    <div className={s.minusButton} onClick={() => decrment()} > -</div>
+                    <h2>{product.name}</h2>
+                    <span>Размер:{product.size}</span>
+                    <span>Цвет:{product.color}</span>
+                    <span className={s.price}>{product.price}руб</span>
                 </div>
-                <div className={s.add}>В корзину</div>
             </div>
+            {/* <div className={s.cardBack}>
+                <div className={s.inputWrapper}>
+
+                    <div className={s.minusButton} onClick={() => decrment()} > -</div>
+                    <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
+                    <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
+                </div>
+                <button className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => props.pushInBasket(product, inputValue)}>{isInBasket ? "Товар в корзине" : "В корзину"}</button>
+            </div> */}
             <div className={s.cardHover}>
                 <div className={s.inputWrapper}>
-                    <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
 
-                    <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
                     <div className={s.minusButton} onClick={() => decrment()} > -</div>
+                    <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
+                    <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
                 </div>
-                <div className={s.add}>В корзину</div>
+                <button className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => props.pushInBasket(product, inputValue)}>{isInBasket ? "Товар в корзине" : "В корзину"}</button>
             </div>
         </div>
 

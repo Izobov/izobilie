@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
-import { setCatalogThunk, setCurentCatalog } from "../../redux/catalog_reducer";
+import { setCatalogThunk, setCurentCategory, setCurentSection } from "../../redux/catalog_reducer";
 import { setProductsThunk } from "../../redux/catalog_reducer";
 import { CatalogAPI } from "../../api/api";
 import { upload } from "../../api/stitch";
@@ -18,9 +18,14 @@ class SidebarContainer extends React.Component {
     this.props.setCatalogThunk();
   }
 
-  onClick(params) {
+  onClick(params, name) {
+
     this.props.setProductsThunk(params);
-    this.props.setCurentCatalog(params.name);
+    this.props.setCurentCategory(name);
+    if (params.sectionId) {
+
+      this.props.setCurentSection(params.sectionId)
+    }
   }
 
   onSubmit(name) {
@@ -54,6 +59,8 @@ let mapStateToProps = state => {
 export default connect(mapStateToProps, {
   setCatalogThunk,
   setProductsThunk,
-  setCurentCatalog,
+  setCurentCategory,
+  setCurentSection,
+
   upload
 })(SidebarContainer);

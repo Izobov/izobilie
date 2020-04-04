@@ -25,7 +25,7 @@ const basket_reducer = (state = InitialState, action) => {
         case SET_BASKET_PRODUCTS:
 
             let filter = state.products.filter(i => {
-                return i.product_id === action.products.product_id
+                return i === action.products
             })
 
             if (filter.length === 0) {
