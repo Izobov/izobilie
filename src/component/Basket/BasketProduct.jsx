@@ -10,12 +10,18 @@ import s from './basket.module.css'
 
 const BasketProduct = (props) => {
 
+    let [deleted, setDeleted] = useState(false)
+    function Delete(product) {
+        setDeleted(true)
+        props.deleteProduct(product)
+    }
+
     let product = props.product
 
 
-    return <div className>
-
-        <div className={s.card} key={product._id}>
+    return <div className={s.cardWrapper}>
+        <div className={deleted ? `${s.card} ${s.deleted} ` : s.card} key={product._id}>
+            <span className={s.deleteIcon} onClick={() => Delete(product)}>&#10006;</span>
 
             <div className={s.info}>
                 <h3>{product.name}</h3>
@@ -34,7 +40,7 @@ const BasketProduct = (props) => {
             </div>
 
 
-            <span className={s.price}>{product.price * product.count} BYN</span>
+            <span className={s.price}>{+(product.price * product.count).toFixed(2)} BYN</span>
 
 
         </div>

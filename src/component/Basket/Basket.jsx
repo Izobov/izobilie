@@ -14,6 +14,7 @@ import BasketProduct from './BasketProduct';
 
 const Basket = (props) => {
 
+
     let [showBasket, setShowBasket] = useState(!!props.products.length)
 
     let totalOrder = 0
@@ -27,8 +28,8 @@ const Basket = (props) => {
 
     }
     let productsElements = props.products.map(item => {
-        totalOrder += item.count * item.price
-        return <BasketProduct product={item} onChange={props.onChange} />
+        totalOrder += +(item.count * item.price).toFixed(2)
+        return <BasketProduct product={item} onChange={props.onChange} deleteProduct={props.deleteProduct} key={item._id} />
     })
 
     if (props.products.length !== 0) {
@@ -44,7 +45,7 @@ const Basket = (props) => {
             </div>
 
 
-            <span> Общая стоимость: {totalOrder} BYN</span>
+            <span> Общая стоимость: {totalOrder.toFixed(2)} BYN</span>
 
 
             <div onClick={() => { props.onClick(true) }} className={s.orderButton} >Оформить заказ!</div>

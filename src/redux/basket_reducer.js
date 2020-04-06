@@ -8,6 +8,7 @@ let CHANGE_VALUE = "CHANGE_VALUE"
 let TOGGLE_MODAL = "TOGGLE_MODAL"
 let SET_ORDER_ID = "SET_ORDER_ID"
 let CLEAN_BASKET = "CLEAN_BASKET"
+let DELETE_PRODUCT = "DELETE_PRODUCT"
 
 
 
@@ -52,25 +53,6 @@ const basket_reducer = (state = InitialState, action) => {
                 products: [...state.products]
             }
 
-        // let newArray = []
-        // for (let i = 0; i < state.products.length; i++) {
-
-        //     if (state.products[i] === action.product) {
-
-        //         newArray.push(state.products[i] = {
-        //             ...state.products[i],
-        //             count: action.value
-        //         })
-        //     } else {
-        //         newArray.push(state.products[i])
-        //     }
-
-        // }
-
-        // return {
-        //     ...state,
-        //     products: newArray
-        // }
 
         case TOGGLE_MODAL:
             return {
@@ -90,6 +72,12 @@ const basket_reducer = (state = InitialState, action) => {
                 products: []
             }
 
+        case DELETE_PRODUCT:
+
+            return {
+                ...state,
+                products: state.products.filter(item => item !== action.product)
+            }
 
         default: return state
     }
@@ -101,6 +89,7 @@ export const changeCount = (product, value) => ({ type: CHANGE_VALUE, product, v
 export const modal = (boolean) => ({ type: TOGGLE_MODAL, boolean })
 const setRes = (res) => ({ type: SET_ORDER_ID, res })
 export const cleanBasket = () => ({ type: CLEAN_BASKET })
+export const deleteProductFromBasket = (product) => ({ type: DELETE_PRODUCT, product })
 
 
 export const sendOrder = (name, secondName, products, phone, total) => {

@@ -72,7 +72,7 @@ const Products = (props) => {
                     <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
                     <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
                 </div>
-                <button className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => props.pushInBasket(product, inputValue)}>{isInBasket ? "Товар в корзине" : "В корзину"}</button>
+                <div className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => props.pushInBasket(product, inputValue)}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
             </div>
         </div>
 
