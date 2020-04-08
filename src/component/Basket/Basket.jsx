@@ -34,14 +34,14 @@ const Basket = (props) => {
         totalOrder += +(item.count * item.price).toFixed(2)
         return <BasketProduct product={item} onChange={props.onChange} deleteProduct={props.deleteProduct} key={item._id} />
     })
-
+    debugger
     return <>
         <div className={s.basketIcon} onClick={() => { setShowBasket(false) }} >
             <img src={basket} alt="" />
-            {/* <span className={s.basketCount} >{props.products.length}</span> */}
+            <span className={s.basketCount} >{props.products.length}</span>
 
         </div>
-        {props.products.length && <div className={s.wrapper}>
+        {props.products.length > 0 ? <div className={s.wrapper}>
             <div className={s.title}>
 
                 <h2 > Корзина</h2>
@@ -94,10 +94,11 @@ const Basket = (props) => {
             }
 
         </div >
-        }
-        {props.products.length || <div className={s.wrapper}>
-            <h4>Корзина пуста</h4>
-        </div>
+            :
+            <div className={s.wrapper}>
+                <h4>Корзина пуста</h4>
+            </div>
+
         }
     </>
 
