@@ -89,19 +89,23 @@
 }
 
 .btn {
-    color:  rgb(112, 86, 61);
-    padding: 2px 5px;
-    border: 1.5px solid  rgb(90, 69, 40);
-    transition: .5s ease-in-out ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ae998d;
+    /* background-color: #A6ADA6; */
+    border-radius: 5px;
+    color: white;
+    width: 5%;
+    height: 30px;
+    
+    /* margin-top: 15%; */
+    border: none
 }
-
 .btn:hover {
     cursor: pointer;
-    border-radius: 30%;
-    border: 1.5px solid  rgb(170, 168, 168);
-    color: rgb(119, 119, 119)
+    background-color: #A6ADA6;
 }
-
 
 
 .contacts {

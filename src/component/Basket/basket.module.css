@@ -72,14 +72,18 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 100;
+    z-index: 200;
     background-color: #f3f3f0;
     box-shadow:-5px 5px 10px rgb(119, 119, 119);
     padding-top: 20px;
-    transition: 1s ease;
-    /* transform: translate(160%); */
+    transition: 1.5s ease;
+    transform: translate(160%);
     
     
+}
+
+.show {
+    transform: translate(0);
 }
 
 .wrapper h4 {
@@ -141,7 +145,7 @@
     display: flex;
     align-items: center;
 }
-input {
+.inputWrapper input {
     appearance: textfield;
     border: none;
     background: none;
@@ -214,7 +218,7 @@ input {
     width: 30px;
     top:20px;
     right: 23%;
-    z-index: 1500;
+    z-index: 130;
 }
 .basketIcon img {
     max-width: 30px;
@@ -224,4 +228,59 @@ input {
     top:-5px;
     left: 13px;
     color: rgb(112, 86, 61);
+}
+
+.basketIcon:hover{
+    cursor: pointer;
+}
+.arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    margin-right: 5px;
+    margin-top: 10px;
+    align-self: end;
+    transition: 0.5s;
+    top: 1%;
+    left: 1%;
+    
+}
+.arrow:hover {
+    cursor: pointer;
+}
+
+.line,
+.line::before,
+.line::after {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 20px;
+    left: 50%;
+    margin-top: -1px;
+    margin-left: -10px;
+    background-color: rgb(112, 86, 61) ;
+}
+
+.line::before,
+.line::after {
+    content: '';
+    transition: 0.5s ease;
+}
+
+.line::before{
+    transform: rotate(-35deg);
+    width: 11px;
+    transform-origin: right top;
+    margin-left: -2px;
+    
+}
+
+.line::after {
+    transform: rotate(35deg);
+    width: 10px;
+    margin:0;
+    top: 0;
+    transform-origin: right top;
 }

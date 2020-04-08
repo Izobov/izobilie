@@ -30,10 +30,7 @@ const Header = (props) => {
 
         {props.isAuth && <div className={s.btn} onClick={props.onClick}> Выйти</div>}
 
-        <NavLink className={s.basket} to='/basket'>
-            <img src={basket} alt="" />
-            <div className={s.count}>{props.countOfProducts}</div>
-        </NavLink>
+
     </header>
 }
 

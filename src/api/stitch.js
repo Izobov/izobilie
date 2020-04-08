@@ -1,9 +1,7 @@
 import {
     Stitch,
     RemoteMongoClient,
-    AnonymousCredential,
-    StitchAppClient,
-    AwsServiceClientImpl
+    AnonymousCredential
 } from 'mongodb-stitch-browser-sdk';
 
 
@@ -14,6 +12,8 @@ const db = client
     .db("Izobilie");
 let category;
 let products;
+let orders;
+
 
 export const DBconnect = async () => {
     await client.auth
@@ -21,9 +21,9 @@ export const DBconnect = async () => {
         .then(user => {
             category = db.collection("category");
             products = db.collection("products");
+            orders = db.collection("orders")
         });
 }
-
 
 export const CategoryAPIStitch = {
 
@@ -58,25 +58,14 @@ export const ProductAPIStitch = {
     }
 }
 
-export function upload(file) {
 
-    // const aws = StitchClient.getServiceClient(AwsServiceClient.factory, "S3");
+export const OrdersAPI = {
 
-    // const aws = StitchAppClient.getServiceClient(AwsServiceClient.factory, "S3")
-
-
-
-    let reader = new FileReader()
-
-    console.log(reader)
-
-    reader.readAsBinaryString(file)
-    reader.onload = () => {
-        //  console.log(reader.result)
-        client.callFunction('connectS3', [reader.result]).then(res => console.log(res))
+    sendOrder(params) {
+        debugger
+        return orders.insertOne(params).then(res => {
+            debugger
+            return res
+        })
     }
-
-
-
-
 }

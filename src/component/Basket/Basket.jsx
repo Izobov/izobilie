@@ -15,10 +15,10 @@ import basket from '../../img/icons/basket.png'
 
 const Basket = (props) => {
 
-
-
-    let [showBasket, setShowBasket] = useState(!!props.products.length)
+    let [showBasket, setShowBasket] = useState(true)
     let [showModal, setShowModal] = useState(false)
+
+
 
     let totalOrder = 0
 
@@ -34,14 +34,25 @@ const Basket = (props) => {
         totalOrder += +(item.count * item.price).toFixed(2)
         return <BasketProduct product={item} onChange={props.onChange} deleteProduct={props.deleteProduct} key={item._id} />
     })
-    debugger
+
     return <>
-        <div className={s.basketIcon} onClick={() => { setShowBasket(false) }} >
+        <div className={s.basketIcon} onClick={() => {
+
+            setShowBasket(true)
+        }} >
             <img src={basket} alt="" />
             <span className={s.basketCount} >{props.products.length}</span>
 
         </div>
-        {props.products.length > 0 ? <div className={s.wrapper}>
+        {props.products.length > 0 ? <div className={showBasket ? `${s.wrapper}  ${s.show}` : s.wrapper}>
+
+            <div className={s.arrow} onClick={() => {
+
+                setShowBasket(false)
+            }}>
+                <span className={s.line}></span>
+            </div>
+
             <div className={s.title}>
 
                 <h2 > Корзина</h2>
@@ -65,7 +76,7 @@ const Basket = (props) => {
             <span className={s.clean} onClick={() => props.cleanBasket()}>Очистить корзину</span>
 
 
-            {showModal &&                                                     // Сначала выскочит форма для заполнения
+            {showModal && !props.response &&                                                     // Сначала выскочит форма для заполнения
                 < Portal >
                     <Modal title='Пожалуйста заполните форму!' Close={setShowModal}>
                         <div>
@@ -76,14 +87,17 @@ const Basket = (props) => {
                 </Portal>                                 // По клику отправить форму на сервер
 
             }
-            {props.showModal && props.response && // После ответа сервера выскочит еще одно модальное окно с информацией
+            {showModal && props.response && // После ответа сервера выскочит еще одно модальное окно с информацией
 
                 < Portal >
                     <Modal title='Спасибо за заказ!' Close={props.Close} ok="Ok" >
 
                         {props.response !== 500 ? <div>
-                            Ваш заказ успешно размещен! Пожалуйста запомните номер вашего заказа: №{props.response}!
-               <div> Вы можете забрать ваш заказ по адресу: ул Уручская 19, павильон №224</div>  {/*Если пришел положительный ответ, выдаст клиенту номер его заказа */}
+                            Ваш заказ успешно размещен!
+                            <div className={s.warning}>
+                                Пожалуйста запомните номер вашего заказа: <span className={s.id}> №{props.response}!</span>
+                            </div>
+                            <div> Вы можете забрать ваш заказ по адресу: ул Уручская 19, павильон №224</div>  {/*Если пришел положительный ответ, выдаст клиенту номер его заказа */}
                         </div>
                             : <div>
                                 Извините на сервере возникла ошибка! Попробуйте чуть позже! {/*Если пришел отрицательный ответ, выдаст клиенту ошибку*/}

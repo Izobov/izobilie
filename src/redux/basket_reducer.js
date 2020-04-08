@@ -1,4 +1,5 @@
 import { OrderAPI } from "../api/api"
+import { OrdersAPI } from "../api/stitch"
 
 
 
@@ -15,7 +16,7 @@ let DELETE_PRODUCT = "DELETE_PRODUCT"
 
 
 let InitialState = {
-    products: [{ name: "Шпингалет", price: 23.23, count: 1, size: "23x23", _id: [123, 17, 89, 36, 0, 1, 78, 90, 567, 89, 0, 32] }],
+    products: [],
     response: false,
 
 }
@@ -56,7 +57,7 @@ const basket_reducer = (state = InitialState, action) => {
         case SET_ORDER_ID:
             return {
                 ...state,
-                response: action.res
+                response: action.res.insertedId
             }
 
         case CLEAN_BASKET:
@@ -86,12 +87,25 @@ export const deleteProductFromBasket = (product) => ({ type: DELETE_PRODUCT, pro
 
 export const sendOrder = (name, secondName, products, phone, total) => {
     return (dispatch) => {
+        let params = {
+            name: name,
+            secondName: secondName,
+            products: products,
+            phone: phone,
+            total: total,
+            date: new Date(),
+            _id: Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000,
+        }
 
-        return OrderAPI.addOrder(name, secondName, products, phone, total).then(response => {
-            if (response.status === 200) {
-                dispatch(setRes(response.data.insertId));
-            }
+
+        return OrdersAPI.sendOrder(params).then(res => {
+            dispatch(setRes(res))
         })
+        // return OrderAPI.addOrder(params).then(response => {
+        //     if (response.status === 200) {
+        //         dispatch(setRes(response.data.insertId));
+        //     }
+        // })
     }
 }
 

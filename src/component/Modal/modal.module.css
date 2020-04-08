@@ -62,12 +62,28 @@ h3 {
     /* background-color: #A6ADA6; */
     border-radius: 5px;
     color: white;
-    width: 70%;
+    width: 30%;
     height: 30px;
-    margin-top: 15%;
+   margin: 15px;
     border: none
 }
 .submit:hover {
     cursor: pointer;
     background-color: #A6ADA6;
+}
+
+.body {
+    padding: 15px;
+}
+
+.body span{
+    font-size: 1.3rem;
+    color:#aa8a78 ;
+    font-weight: 600;
+}
+.body div {
+    color: rgb(87, 87, 87);
+}
+.body div div:first-child {
+    color: rgb(182, 65, 65);
 }

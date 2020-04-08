@@ -25,7 +25,7 @@ class BasketContainer extends React.Component {
     }
 
     onSubmit(name, secondname, phone, total) {
-        debugger
+
         this.props.sendOrder(name, secondname, this.props.products, phone, total)
 
     }

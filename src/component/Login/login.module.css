@@ -3,15 +3,25 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: auto auto;
     width: 100%;
     height: 100%;
+    min-height: 100vh;
 }
 
 
 .loginWrapper {
     padding: 15px;
-    border: 1px solid rgb(101, 73, 49);
+   background-color: #f3f3f0;
     width: 30%;
+    box-shadow: 1px 1px 10px grey;
+}
+.inputWrapper {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 form {
@@ -21,28 +31,33 @@ form {
 }
 
 .input{
-    max-width: 150px
+    max-width: 200px;
+    background: none;
+    border: 1px solid grey;
 }
 
 .span {
 align-self: flex-start;
 }
 
-.submit{
-    background-color: rgb(139, 138, 138);
-    padding: 3px 5px;
-    color:rgb(101, 73, 49);
-    border-radius: 10px;
-    max-width: 150px;
-    transition: .5s ease;
-    margin:  5px auto;
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ae998d;
+    /* background-color: #A6ADA6; */
+    border-radius: 5px;
+    color: white;
+    width: 30%;
+    height: 30px;
+    margin: 15px auto;
+    /* margin-top: 15%; */
+    border: none
 }
 .submit:hover {
-    background-color: unset;
-    border: 1px solid rgb(139, 138, 138);
     cursor: pointer;
+    background-color: #A6ADA6;
 }
-
 .error {
-    color: red
+    color: rgb(184, 36, 36)
 }
