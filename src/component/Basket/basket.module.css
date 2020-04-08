@@ -18,6 +18,9 @@
     transform: translate(0)
 
 }
+.card:last-child{
+    border-bottom: none;
+}
 
 .deleted {
     transition: 1s ease;
@@ -50,10 +53,21 @@
     max-height: 80%;
 }
 
+.total{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 1.2rem;
+    color:rgb(87, 87, 87);
+    font-weight: 600;
+    border-top:  1px dashed gray;;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
     width: 25%;
+    min-height: 20%;
     max-height: 95%;
     position: fixed;
     top: 0;
@@ -67,6 +81,10 @@
     
 }
 
+.wrapper h4 {
+    color: rgb(87, 87, 87);
+    margin: auto;
+}
 .cardWrapper{
     position: relative;
     width: 100%;
@@ -149,23 +167,42 @@ input {
 
 
 .orderButton {
-    background-color: rgb(139, 138, 138);
-    padding: 3px 5px;
-    color:rgb(101, 73, 49);
-    border-radius: 10px;
-    max-width: 150px;
-    transition: .5s ease;
-    margin:  5px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ae998d;
+    /* background-color: #A6ADA6; */
+    border-radius: 5px;
+    color: white;
+    width: 30%;
+    height: 30px;
+    margin: 15px auto;
+    /* margin-top: 15%; */
+    border: none
 }
-
-
-
 .orderButton:hover {
-    background-color: unset;
-    border: 1px solid rgb(139, 138, 138);
     cursor: pointer;
+    background-color: #A6ADA6;
 }
 
 .card:hover> .deleteIcon{
     opacity: 1;
+}
+
+.title {
+    text-align: center;
+
+}
+.title h2 {
+    color: rgb(87, 87, 87)
+}
+
+.clean {
+    text-align: center;
+    margin-bottom: 20px;
+    color:  rgb(112, 86, 61);
+}
+.clean:hover{
+    color: rgb(184, 36, 36);
+    cursor: pointer;
 }

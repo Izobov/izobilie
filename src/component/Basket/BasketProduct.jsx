@@ -34,7 +34,7 @@ const BasketProduct = (props) => {
             </div>
             <div className={s.inputWrapper}>
 
-                <div className={s.inputButton} onClick={() => { if (product.count > 0) { props.onChange(product, --product.count) } }} > -</div>
+                <div className={s.inputButton} onClick={() => { if (product.count > 1) { props.onChange(product, --product.count) } }} > -</div>
                 <input type="number" min='0' value={product.count} onChange={(e) => props.onChange(product, e.target.valueAsNumber)} />
                 <div className={s.inputButton} onClick={() => props.onChange(product, ++product.count)}>+</div>
             </div>

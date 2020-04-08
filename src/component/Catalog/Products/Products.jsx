@@ -15,7 +15,10 @@ const Products = (props) => {
     const [redactorMode, setRedactorMode] = useState(false)
 
 
-    let isInBasket = !!props.basket.find(el => el._id === product._id)
+    let isInBasket = !!props.basket.find(el => {
+        return el._id.toString() === product._id.toString()
+    })
+
 
 
     // const onSubmit = (values) => {
@@ -24,11 +27,7 @@ const Products = (props) => {
     // }
 
     const [touched, setTouched] = useState(false);
-    // const OnAddButtonClick = () => {
-    //     // setTouched(true);
-    //     props.pushInBasket(product)
 
-    // }
 
     let decrment = () => {
         if (inputValue > 0) {
@@ -72,7 +71,12 @@ const Products = (props) => {
                     <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
                     <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
                 </div>
-                <div className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => props.pushInBasket(product, inputValue)}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
+                <div className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => {
+                    if (inputValue === 0) {
+                        setValue(1)
+                    }
+                    props.pushInBasket(product, inputValue)
+                }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
             </div>
         </div>
 

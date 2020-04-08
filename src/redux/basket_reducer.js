@@ -15,7 +15,7 @@ let DELETE_PRODUCT = "DELETE_PRODUCT"
 
 
 let InitialState = {
-    products: [{ name: "Шпингалет", price: 23.23, count: 1, size: "23x23" }],
+    products: [{ name: "Шпингалет", price: 23.23, count: 1, size: "23x23", _id: [123, 17, 89, 36, 0, 1, 78, 90, 567, 89, 0, 32] }],
     showModal: false,
     response: false,
 

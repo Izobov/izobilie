@@ -15,6 +15,7 @@ import BasketProduct from './BasketProduct';
 const Basket = (props) => {
 
 
+
     let [showBasket, setShowBasket] = useState(!!props.products.length)
 
     let totalOrder = 0
@@ -35,7 +36,7 @@ const Basket = (props) => {
     if (props.products.length !== 0) {
 
         return <div className={s.wrapper}>
-            <div >
+            <div className={s.title}>
 
                 <h2 > Корзина</h2>
             </div>
@@ -44,11 +45,18 @@ const Basket = (props) => {
                 {productsElements}
             </div>
 
+            <div className={s.total}>
 
-            <span> Общая стоимость: {totalOrder.toFixed(2)} BYN</span>
+                <span> Общая стоимость: </span>
+                <span>
+                    {totalOrder.toFixed(2)} BYN
+
+                </span>
+            </div>
 
 
             <div onClick={() => { props.onClick(true) }} className={s.orderButton} >Оформить заказ!</div>
+            <span className={s.clean} onClick={() => props.cleanBasket()}>Очистить корзину</span>
 
 
             {props.showModal &&                                                     // Сначала выскочит форма для заполнения

@@ -65,8 +65,12 @@ class CatalogContainer extends React.Component {
     }
 
     pushInBasket(product, count) {
+        if (count > 0) {
+            product.count = count;
 
-        product.count = count;
+        } else {
+            product.count = 1
+        }
         this.props.setBasketProducts(product)
 
 
