@@ -17,7 +17,7 @@ const Modal = (props) => {
         <div className={s.wrapper}>
             <div className={s.title}>
                 <h3>{props.title}</h3>
-                <div onClick={() => props.Close(false)} className={s.close}><img src={close} alt='' /></div>
+                <div onClick={() => props.Close(false)} className={s.close}>&#10006;</div>
             </div>
             <div className={s.body}>
                 {props.children}

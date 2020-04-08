@@ -12,7 +12,7 @@ const Form = (props) => {
             <Field component={Input} placeholder='Фамилия' name={'SecondName'} validate={[required]} />
         </div>
         <div className={s.phone}>
-            <Field component={Input} placeholder='Введите номер вашего телефона' name={'phone'} validate={[required]} />
+            <Field component={Input} placeholder='Номер телефона' name={'phone'} validate={[required]} />
         </div>
         <div className={s.submitWrapper}>
             <label htmlFor="btn" >

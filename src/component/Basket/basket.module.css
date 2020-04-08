@@ -77,6 +77,7 @@
     box-shadow:-5px 5px 10px rgb(119, 119, 119);
     padding-top: 20px;
     transition: 1s ease;
+    /* transform: translate(160%); */
     
     
 }
@@ -205,4 +206,23 @@ input {
 .clean:hover{
     color: rgb(184, 36, 36);
     cursor: pointer;
+}
+
+.basketIcon {
+    position: fixed;
+    background-color: hotpink;
+    height: 30px;
+    width: 30px;
+    top:20px;
+    right: 23%;
+    z-index: 1500;
+}
+.basketIcon img {
+    max-width: 30px;
+}
+.basketCount {
+    position:absolute;
+    top:-5px;
+    left: 13px;
+    color: rgb(112, 86, 61);
 }

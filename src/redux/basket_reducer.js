@@ -16,7 +16,6 @@ let DELETE_PRODUCT = "DELETE_PRODUCT"
 
 let InitialState = {
     products: [{ name: "Шпингалет", price: 23.23, count: 1, size: "23x23", _id: [123, 17, 89, 36, 0, 1, 78, 90, 567, 89, 0, 32] }],
-    showModal: false,
     response: false,
 
 }
@@ -54,12 +53,6 @@ const basket_reducer = (state = InitialState, action) => {
             }
 
 
-        case TOGGLE_MODAL:
-            return {
-                ...state,
-                showModal: action.boolean,
-            }
-
         case SET_ORDER_ID:
             return {
                 ...state,
@@ -86,7 +79,6 @@ const basket_reducer = (state = InitialState, action) => {
 
 export const setBasketProducts = (products) => ({ type: SET_BASKET_PRODUCTS, products })
 export const changeCount = (product, value) => ({ type: CHANGE_VALUE, product, value })
-export const modal = (boolean) => ({ type: TOGGLE_MODAL, boolean })
 const setRes = (res) => ({ type: SET_ORDER_ID, res })
 export const cleanBasket = () => ({ type: CLEAN_BASKET })
 export const deleteProductFromBasket = (product) => ({ type: DELETE_PRODUCT, product })

@@ -4,6 +4,7 @@ import Portal from '../Portal/Portal';
 import Modal from '../Modal/Modal';
 import SubmitForm from '../SubmitForm/SubmitForm';
 import BasketProduct from './BasketProduct';
+import basket from '../../img/icons/basket.png'
 
 
 
@@ -17,6 +18,7 @@ const Basket = (props) => {
 
 
     let [showBasket, setShowBasket] = useState(!!props.products.length)
+    let [showModal, setShowModal] = useState(false)
 
     let totalOrder = 0
 
@@ -25,7 +27,7 @@ const Basket = (props) => {
     const onSubmit = (form) => {
 
         props.onSubmit(form.FirstName, form.SecondName, form.phone, totalOrder)
-        // props.onClick(false)
+
 
     }
     let productsElements = props.products.map(item => {
@@ -33,9 +35,13 @@ const Basket = (props) => {
         return <BasketProduct product={item} onChange={props.onChange} deleteProduct={props.deleteProduct} key={item._id} />
     })
 
-    if (props.products.length !== 0) {
+    return <>
+        <div className={s.basketIcon} onClick={() => { setShowBasket(false) }} >
+            <img src={basket} alt="" />
+            {/* <span className={s.basketCount} >{props.products.length}</span> */}
 
-        return <div className={s.wrapper}>
+        </div>
+        {props.products.length && <div className={s.wrapper}>
             <div className={s.title}>
 
                 <h2 > Корзина</h2>
@@ -55,13 +61,13 @@ const Basket = (props) => {
             </div>
 
 
-            <div onClick={() => { props.onClick(true) }} className={s.orderButton} >Оформить заказ!</div>
+            <div onClick={() => { setShowModal(true) }} className={s.orderButton} >Оформить заказ!</div>
             <span className={s.clean} onClick={() => props.cleanBasket()}>Очистить корзину</span>
 
 
-            {props.showModal &&                                                     // Сначала выскочит форма для заполнения
+            {showModal &&                                                     // Сначала выскочит форма для заполнения
                 < Portal >
-                    <Modal title='Пожалуйста заполните форму!' Close={props.onClick}>
+                    <Modal title='Пожалуйста заполните форму!' Close={setShowModal}>
                         <div>
                             <SubmitForm onSubmit={onSubmit} />
                         </div>
@@ -87,16 +93,13 @@ const Basket = (props) => {
                 </Portal>
             }
 
-
-
-
         </div >
-    } else {
-        return <div className={s.wrapper}>
+        }
+        {props.products.length || <div className={s.wrapper}>
             <h4>Корзина пуста</h4>
         </div>
-    }
-
+        }
+    </>
 
 }
 
