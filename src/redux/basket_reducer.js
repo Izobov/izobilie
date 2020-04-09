@@ -94,6 +94,7 @@ export const sendOrder = (name, secondName, products, phone, total) => {
             phone: phone,
             total: total,
             date: new Date(),
+            saleStatus: 1,
             _id: Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000,
         }
 

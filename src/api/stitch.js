@@ -3,6 +3,7 @@ import {
     RemoteMongoClient,
     AnonymousCredential
 } from 'mongodb-stitch-browser-sdk';
+import { getOrders, updateOrders } from '../redux/orders_reducer';
 
 
 let client = Stitch.initializeDefaultAppClient("izobilie-ponia");
@@ -16,6 +17,7 @@ let orders;
 
 
 export const DBconnect = async () => {
+
     await client.auth
         .loginWithCredential(new AnonymousCredential())
         .then(user => {
@@ -62,10 +64,41 @@ export const ProductAPIStitch = {
 export const OrdersAPI = {
 
     sendOrder(params) {
-        debugger
+
         return orders.insertOne(params).then(res => {
-            debugger
+
             return res
         })
+    },
+
+    getOrders() {
+
+        return orders.find({ saleStatus: 1 }).asArray().then(res => {
+            return res
+        })
+    },
+
+    updateOrders(order, status) {
+
+        let now = new Date()
+        if (status === 2) {
+            for (let i = 0; i < order.products.length; i++) {
+
+                let product = order.products[i]
+                products.findOneAndUpdate({ _id: product._id }, { $inc: { countOfSales: 1 } }).then(res => {
+
+                })
+            }
+        }
+        orders.updateOne({
+            _id: order._id,
+            date: order.date
+        },
+            { $set: { saleStatus: status, saleDate: now } }
+        ).then(res => {
+            return res
+
+        })
+
     }
 }

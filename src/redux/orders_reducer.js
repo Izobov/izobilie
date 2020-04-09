@@ -1,4 +1,5 @@
 import { OrderAPI } from "../api/api"
+import { OrdersAPI } from "../api/stitch"
 
 let SET_ORDERS = "SET_ORDERS"
 
@@ -9,7 +10,7 @@ let SET_ORDERS = "SET_ORDERS"
 
 
 let InitialState = {
-    orders: false,
+    orders: [],
 
 }
 
@@ -36,19 +37,17 @@ const setOrdersSuccess = (orders) => ({ type: SET_ORDERS, orders })
 
 export const getOrders = () => {
     return (dispatch) => {
-        OrderAPI.getOrders().then(response => {
-            dispatch(setOrdersSuccess(response.data))
+        OrdersAPI.getOrders().then(res => {
+            dispatch(setOrdersSuccess(res))
         })
     }
+
 }
 
-export const updateOrders = (value, id) => {
+export const updateOrders = (order, status) => {
     return (dispatch) => {
-        OrderAPI.updateOrder(value, id).then(response => {
-            if (response.status === 200) {
-                dispatch(getOrders())
-            }
-        })
+        OrdersAPI.updateOrders(order, status)
+
     }
 }
 

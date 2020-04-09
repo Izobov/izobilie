@@ -1,5 +1,5 @@
 .card {
-    background-color: gray;
+    background-color: #f3f3f0;
     padding: 10px;
     max-width: 100%;
     display: flex;
@@ -16,22 +16,89 @@
     align-self: flex-end;
     display: flex;
     padding: 10px;
+    width: 100%;
+    justify-content: flex-end;
 }
 
-.success {
-    padding: 2px 5px;
-    background-color: green;
-    color: wheat;
-    border-radius: 10px;
-    margin-right: 20px;
-}
+  
 
-.lose {
-    padding: 2px 5px;
-    background-color: red;
-    color: wheat;
-    border-radius: 10px;
+.ordersWrapper {
+    margin-top: 200px;
     
 }
 
+.title {
+    text-align: center;
+    margin-bottom: 100px;
+}
 
+.id {
+    font-size: 1.3rem;
+    color:#aa8a78 ;
+}
+.name {
+    color: #aa8a78;
+}
+
+.productWrapper {
+    margin-bottom: 15px;
+}
+.total, .phone {
+    color:  rgb(87, 87, 87);
+}
+ 
+ .btn, .active, .cancel,  .lose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ae998d;
+    /* background-color: #A6ADA6; */
+    border-radius: 5px;
+    color: white;
+    width: 10%;
+    height: 30px;
+    margin-left: 15px ;
+    flex-shrink: 0;
+    border: none;
+    z-index: 100;
+}
+.btn:hover, .active {
+    cursor: pointer;
+    background-color: #A6ADA6;
+}
+
+.cancel:hover, .lose {
+    cursor: pointer;
+    background-color: rgb(187, 111, 111);
+}
+
+
+.lose {
+    
+    margin-left: 20px;
+    background-color: rgb(187, 111, 111);
+    /* width: 60%; */
+    
+   }
+  
+.filtersWrapper {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f3f3f0;
+    margin-bottom: 30px;
+}
+.filtersWrapper input {
+    width: 200px;
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+select {
+    background-color: #f3f3f0;
+    border: none;
+    color: #aa8a78;
+    font-size: 1rem;
+    font-weight: 500;
+}

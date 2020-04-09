@@ -84,7 +84,7 @@
     margin-right: 2%;
 }
 .logo img {
-    max-width: 200px;
+    max-width: 350px;
     
 }
 
@@ -93,13 +93,13 @@
     justify-content: center;
     align-items: center;
     background-color: #ae998d;
-    /* background-color: #A6ADA6; */
+    
     border-radius: 5px;
     color: white;
     width: 5%;
     height: 30px;
-    
-    /* margin-top: 15%; */
+  position: absolute;
+  right: 10%;
     border: none
 }
 .btn:hover {

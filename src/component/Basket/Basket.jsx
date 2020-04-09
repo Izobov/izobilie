@@ -4,7 +4,12 @@ import Portal from '../Portal/Portal';
 import Modal from '../Modal/Modal';
 import SubmitForm from '../SubmitForm/SubmitForm';
 import BasketProduct from './BasketProduct';
-import basket from '../../img/icons/basket.png'
+import basket from '../../img/icons/basket.png';
+import bill from '../../img/background/bill.svg';
+import bill2 from "../../img/background/bill2.png"
+import bill3 from "../../img/background/bill3.png"
+import bill4 from "../../img/background/bill4.png"
+
 
 
 
@@ -75,6 +80,12 @@ const Basket = (props) => {
             <div onClick={() => { setShowModal(true) }} className={s.orderButton} >Оформить заказ!</div>
             <span className={s.clean} onClick={() => props.cleanBasket()}>Очистить корзину</span>
 
+            <div className={s.billWrapper}>
+
+                <img src={bill4} alt="" className={s.bill} />
+                <img src={bill4} alt="" className={s.bill} />
+                <img src={bill4} alt="" className={s.bill} />
+            </div>
 
             {showModal && !props.response &&                                                     // Сначала выскочит форма для заполнения
                 < Portal >

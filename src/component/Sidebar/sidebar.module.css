@@ -194,7 +194,7 @@
     box-sizing: border-box;
     box-shadow: 5px 3px 10px #99a0a7;
     z-index: 50;  
-    transition: 1s ease-out;
+    transition: 0.5s ease-out;
     overflow: hidden;
     
 }

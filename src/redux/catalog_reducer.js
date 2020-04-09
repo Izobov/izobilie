@@ -92,22 +92,22 @@ export const setCatalogThunk = () => {
 
     return (dispatch) => {
 
-        DBconnect().then(res => {
 
-            CategoryAPIStitch.getCategory().then(res => {
-                dispatch(setCatalog(res))
-            })
+
+        CategoryAPIStitch.getCategory().then(res => {
+            dispatch(setCatalog(res))
         })
-
-
-
-
-        //  CatalogAPI.getCatalog().then(response => {
-
-        //     dispatch(setCatalog(response))
-        // })
-
     }
+
+
+
+
+    //  CatalogAPI.getCatalog().then(response => {
+
+    //     dispatch(setCatalog(response))
+    // })
+
+
 }
 
 export const setCategories = (id) => {
@@ -128,6 +128,7 @@ export const setCategories = (id) => {
 
 
 export const setProductsThunk = (params) => {
+
     return (dispatch) => {
 
         return ProductAPIStitch.getProducts(params).then(response => {

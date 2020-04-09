@@ -31,7 +31,8 @@ class OrdersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        orders: state.orders.orders
+        orders: state.orders.orders,
+        isAuth: state.auth.isAuth
     }
 }
 

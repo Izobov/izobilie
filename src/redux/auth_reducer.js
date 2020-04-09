@@ -9,7 +9,7 @@ let LOGOUT = 'LOGOUT'
 
 let InitialState = {
     logins: [{ name: 'triton', password: '1026567i' }],
-    isAuth: false,
+    isAuth: true,
     error: false
 
 }
