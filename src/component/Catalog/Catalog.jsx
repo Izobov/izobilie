@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import s from './catalog.module.css'
 import Products from './Products/Products';
-import AddCategory from '../RedactorsMode/AddCategory';
+
 import AddProduct from '../RedactorsMode/AddProduct';
 
 
@@ -13,13 +13,9 @@ import AddProduct from '../RedactorsMode/AddProduct';
 
 const Catalog = (props) => {
 
-    const [addCategory, setAddCategory] = useState(false)
+
     const [addProduct, setAddProduct] = useState(false)
 
-    // const onAddCategorySubmit = (values) => {
-    //     props.onAddCategorySubmit(values)
-    //     setAddCategory(false)
-    // }
     const onAddProductSubmit = (values) => {
         props.onAddProductSubmit(values)
         setAddProduct(false)
@@ -46,9 +42,8 @@ const Catalog = (props) => {
         <div className={s.main}>
             {props.isAuth && <>
                 <div className={s.newItem}>
-                    {addProduct ? <AddProduct SetImg={props.SetImg} Cancel={setAddProduct} onSubmit={onAddProductSubmit} /> :
+                    {addProduct ? <AddProduct SetImg={props.SetImg} Cancel={setAddProduct} onSubmit={onAddProductSubmit} catalog={props.catalog} currentCategory={props.currentCategory} currentSection={props.currentSection} /> :
                         < div onClick={() => setAddProduct(true)}>
-                            <h2>Добавить товар</h2>
                             <div className={s.circle}><span>+</span></div>
                         </div>
                     }

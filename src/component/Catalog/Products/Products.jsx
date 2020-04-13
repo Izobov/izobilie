@@ -10,6 +10,7 @@ import RedactorProduct from './RedactorMode/RedactorProduct';
 
 const Products = (props) => {
 
+
     let product = props.product
     const [inputValue, setValue] = useState(0);
     const [redactorMode, setRedactorMode] = useState(false)
@@ -26,7 +27,7 @@ const Products = (props) => {
     //     setRedactorMode(false)
     // }
 
-    const [touched, setTouched] = useState(false);
+
 
 
     let decrment = () => {
@@ -55,76 +56,39 @@ const Products = (props) => {
                     <span className={s.price}>{product.price}руб</span>
                 </div>
             </div>
-            {/* <div className={s.cardBack}>
-                <div className={s.inputWrapper}>
-
-                    <div className={s.minusButton} onClick={() => decrment()} > -</div>
-                    <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
-                    <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
-                </div>
-                <button className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => props.pushInBasket(product, inputValue)}>{isInBasket ? "Товар в корзине" : "В корзину"}</button>
-            </div> */}
             <div className={s.cardHover}>
-                <div className={s.inputWrapper}>
 
-                    <div className={s.minusButton} onClick={() => decrment()} > -</div>
-                    <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
-                    <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
-                </div>
-                <div className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => {
-                    if (inputValue === 0) {
-                        setValue(1)
-                    }
-                    props.pushInBasket(product, inputValue)
-                }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
+                {props.isAuth ? <div className={s.btn}>
+                    <div className={s.add}>Изменить</div>
+                    <div className={`${s.add} ${s.delete}`} onClick={() => {
+                        props.deleteProduct({ _id: product._id })
+                    }}>Удалить</div>
+
+                </div> :
+                    <div>
+
+                        <div className={s.inputWrapper}>
+
+                            <div className={s.minusButton} onClick={() => decrment()} > -</div>
+                            <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
+                            <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
+                        </div>
+
+                        <div className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => {
+                            if (inputValue === 0) {
+                                setValue(1)
+                            }
+                            props.pushInBasket(product, inputValue)
+                        }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
+                    </div>
+                }
             </div>
         </div>
 
 
 
 
-        //<div className={s.card}>
-        //     <div className={s.wrapper}>
-        //         <img src={props.img} alt="" />
-        //         <div className={s.description} >
-        //             <h2>{props.name}</h2>
-        //             <div className={s.info}>
-        //                 <div className={s.characteristic}>
-        //                     {props.isAuth && <span>Раздела</span>}
-        //                     {props.isAuth && <span> Категории</span>}
-        //                     <span>Размер:</span>
-        //                     <span>Цвет:</span>
-        //                     <span>Материал:</span>
-        //                 </div>
-        //                 <div className={s.value}>
-        //                     {props.isAuth && <span>{props.catalog_id}</span>}
-        //                     {props.isAuth && (props.category_id.length !== 0 ? <span>{props.category_id}</span> : <span>Без категории</span>)}
-        //                     <span>{props.size}</span>
-        //                     <span>{props.color}</span>
-        //                     <span>{props.material}</span>
-        //                 </div>
-        //             </div>
 
-
-        //         </div>
-        //         <div className={s.buttons}>
-        //             <strong>{props.price}руб</strong>
-
-        //             <input type="number" value={inputValue} className={s.countInput} onChange={(e) => { setValue(e.target.value) }} min="0" />
-        //             {props.isAuth && <div className={s.delete} onClick={() => props.deleteProduct(props.product_id, props.category_id)}>Удалить</div>}
-        //             <div className={s.addButtonWrapper}>
-        //                 {props.isAuth ? <div className={touched ? s.active : s.addButton} onClick={() => setRedactorMode(true)}>Редактировать</div>
-
-        //                     : <div className={touched ? s.active : s.addButton} onClick={() => OnAddButtonClick()}>{touched ? <span>В корзине!</span> : <span>В корзину</span>}</div>
-        //                 }
-
-        //             </div>
-
-        //         </div>
-        //     </div>
-
-
-        // </div>
     }
 
 

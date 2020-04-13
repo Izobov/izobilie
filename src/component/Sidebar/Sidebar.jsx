@@ -7,13 +7,15 @@ import { useState } from "react";
 const Sidebar = props => {
 
   let [redactorMode, setRedactorMode] = useState(false);
-  let [inputValue, setInputValue] = useState();
+  let [inputName, setInputName] = useState('Название раздела');
+  let [img, setImg]=useState('')
   let [showSidebar, setShowSidebar] = useState(false)
 
 
   let submit = () => {
     setRedactorMode(false);
-    props.onSubmit(inputValue);
+    let params={name:inputName, img:img, sections:[]}
+    props.onSubmit(params);
   };
 
   let catalogItems = props.catalog.map(i => (
@@ -66,40 +68,46 @@ const Sidebar = props => {
         props.isAuth && (
           <div className={s.wrapper}>
             {redactorMode ? (
-              <div>
-                <input
-                  type="text"
-                  placeholder="название раздела"
-                  value={inputValue}
-                  onChange={e => {
-                    setInputValue(e.target.value);
+              <div className={s.redactorWrapper}>
+                {img&& <img src={img} className={s.icon}/>}
+                <input type="text" onChange={e=>setImg(e.target.value)} placeholder="ссылка картинки"/>
+                <div className={s.redactorName}>
+
+                  <span className={s.inputName}>{inputName}</span>
+                  <input
+                    type="text"
+                    placeholder="название раздела"
+                  
+                    onChange={e => {
+                    setInputName(e.target.value);
                   }}
-                />
-                <div
-                  className={s.submit}
+                  />
+                  </div>
+                  <div className={s.buttons}>
+
+                <div className={s.cancel} onClick={() => setRedactorMode(false)}>
+              
+              Отмена
+              </div>
+                <div 
+                  className={s.addButton}
                   onClick={() => {
                     submit();
                   }}
-                >
+                  >
                   Отправить
-              </div>
-              </div>
-            ) : (
-                <div
-                  className={s.submit}
-                  onClick={() => {
-                    setRedactorMode(true);
-                  }}
-                >
-                  Создать раздел
                 </div>
-              )}
-            {redactorMode && (
-              <div className={s.cancel} onClick={() => setRedactorMode(false)}>
-                {" "}
-              Отмена{" "}
+                  </div>
               </div>
-            )}
+              
+            ) : (
+                
+                <div className={s.circle} onClick={()=>{
+                  setShowSidebar(true)
+                  setRedactorMode(true)
+                }}><span>+</span></div>
+              )}
+           
           </div>
         )
       }

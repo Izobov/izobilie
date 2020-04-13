@@ -146,7 +146,8 @@
     /* background-color: #A6ADA6; */
     border-radius: 5px;
     color: white;
-    width: 70%;
+    margin: 0 auto;
+    width:100px;
     height: 30px;
     margin-top: 15%;
     border: none
@@ -159,7 +160,18 @@
     background-color: #A6ADA6;
 }
 
+.delete:hover{
+    background-color:rgb(187, 111, 111) ;
+}
 
+/* .btn{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.btn .add{
+    margin: 0;
+} */
 
 
 

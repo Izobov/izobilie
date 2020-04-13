@@ -100,31 +100,10 @@ export const setCatalogThunk = () => {
     }
 
 
-
-
-    //  CatalogAPI.getCatalog().then(response => {
-
-    //     dispatch(setCatalog(response))
-    // })
-
-
 }
 
-export const setCategories = (id) => {
-    return (dispatch) => {
 
-        return CatalogAPI.getCategories(id).then(response => {
-            if (response.length !== 0) {
-                dispatch(setCategoriesSuccess(response))
-            } else {
-                CatalogAPI.unsuccessGetCategories(id).then(response => {
-                    dispatch(setProductsSuccess(response))
-                })
-            }
-        })
-    }
-}
-// asdassssssssssasdasd
+
 
 
 export const setProductsThunk = (params) => {
@@ -138,68 +117,56 @@ export const setProductsThunk = (params) => {
 }
 
 
-//asddddddddddddddasdddd
-export const updateProducts = (file, data) => {
+
+
+export const insertCategory = (params) => {
     return (dispatch) => {
-        return ProductAPI.updateProducts(file, data).then(response => {
-
-            if (response.status === 200) {
-
-                dispatch(setProductsThunk(data.category))
-            }
+        CategoryAPIStitch.insertCategory(params).then(res => {
+            debugger
+            return dispatch(setCatalogThunk())
         })
     }
 }
 
-export const addCategory = (file, data) => {
 
-    return (dispatch) => {
-        return CategoryAPI.addCategory(file, data).then(response => {
-            if (response.status === 200) {
-                dispatch(setCategories(data.catalog_id))
-            }
-        })
-    }
-}
 
 export const updateCategory = (file, data) => {
     return (dispatch) => {
         return CategoryAPI.updateCategory(file, data).then(response => {
-            if (response.status === 200) {
-                dispatch(setCategories(data.catalog_id))
-            }
+            // if (response.status === 200) {
+            //     dispatch(setCategories(data.catalog_id))
+            // }
         })
     }
 }
 
-export const deleteCategory = (id, catalog_id) => {
+
+
+export const insertProduct = (params, section, category) => {
     return (dispatch) => {
-        return CategoryAPI.deleteCategory(id).then(response => {
-            if (response.status === 200) {
-                dispatch(setCategories(catalog_id))
-            }
-        })
+        ProductAPIStitch.insertProduct(params)
+            .then(res => {
+                dispatch(setProductsThunk())
+                if (section) {
+                    return dispatch(setProductsThunk({ sectionName: section }))
+                }
+                else { dispatch(setProductsThunk({ categoryName: category })) }
+
+            })
     }
 }
 
-export const addProduct = (file, data) => {
-
+export const deleteProduct = (params, section, category) => {
     return (dispatch) => {
-        return ProductAPI.addProduct(file, data).then(response => {
-            if (response.status === 200) {
-                dispatch(setProductsThunk(data.category_id))
-            }
-        })
-    }
-}
+        ProductAPIStitch.deleteProduct(params)
+            .then(res => {
+                if (section) {
+                    return dispatch(setProductsThunk({ sectionName: section }))
 
-export const deleteProduct = (id, category_id) => {
-    return dispatch => {
-        return ProductAPI.deleteProduct(id).then(response => {
-            if (response.status === 200) {
-                dispatch(setProductsThunk(category_id))
-            }
-        })
+                } else {
+                    return dispatch(setProductsThunk({ categoryName: category }))
+                }
+            })
     }
 }
 
@@ -215,3 +182,68 @@ export const Search = (search) => {
 }
 
 export default catalog_reducer;
+
+
+export const updateProducts = (file, data) => {
+    return (dispatch) => {
+        return ProductAPI.updateProducts(file, data).then(response => {
+
+            if (response.status === 200) {
+
+                dispatch(setProductsThunk(data.category))
+            }
+        })
+    }
+}
+// export const addProduct = (file, data) => {
+
+//     return (dispatch) => {
+//         return ProductAPI.addProduct(file, data).then(response => {
+//             if (response.status === 200) {
+//                 dispatch(setProductsThunk(data.category_id))
+//             }
+//         })
+//     }
+// }
+// export const deleteProduct = (id, category_id) => {
+//     return dispatch => {
+//         return ProductAPI.deleteProduct(id).then(response => {
+//             if (response.status === 200) {
+//                 dispatch(setProductsThunk(category_id))
+//             }
+//         })
+//     }
+// }
+// export const addCategory = (file, data) => {
+
+//     return (dispatch) => {
+//         return CategoryAPI.addCategory(file, data).then(response => {
+//             if (response.status === 200) {
+//                 dispatch(setCategories(data.catalog_id))
+//             }
+//         })
+//     }
+// }
+export const setCategories = (id) => {
+    return (dispatch) => {
+
+        return CatalogAPI.getCategories(id).then(response => {
+            if (response.length !== 0) {
+                dispatch(setCategoriesSuccess(response))
+            } else {
+                CatalogAPI.unsuccessGetCategories(id).then(response => {
+                    dispatch(setProductsSuccess(response))
+                })
+            }
+        })
+    }
+}
+export const deleteCategory = (id, catalog_id) => {
+    return (dispatch) => {
+        return CategoryAPI.deleteCategory(id).then(response => {
+            if (response.status === 200) {
+                dispatch(setCategories(catalog_id))
+            }
+        })
+    }
+}

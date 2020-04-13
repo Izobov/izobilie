@@ -46,7 +46,9 @@ export const getOrders = () => {
 
 export const updateOrders = (order, status) => {
     return (dispatch) => {
-        OrdersAPI.updateOrders(order, status)
+        OrdersAPI.updateOrders(order, status).then(res => {
+            dispatch(getOrders())
+        })
 
     }
 }

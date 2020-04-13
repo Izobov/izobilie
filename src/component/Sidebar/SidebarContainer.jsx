@@ -1,9 +1,9 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
-import { setCatalogThunk, setCurentCategory, setCurentSection } from "../../redux/catalog_reducer";
+import { setCatalogThunk, setCurentCategory, setCurentSection,  insertCategory } from "../../redux/catalog_reducer";
 import { setProductsThunk } from "../../redux/catalog_reducer";
-import { CatalogAPI } from "../../api/api";
+// import { CatalogAPI } from "../../api/api";
 
 
 class SidebarContainer extends React.Component {
@@ -22,14 +22,16 @@ class SidebarContainer extends React.Component {
 
     this.props.setProductsThunk(params);
     this.props.setCurentCategory(name);
-    if (params.sectionId) {
+    if (params.sectionName) {
 
-      this.props.setCurentSection(params.sectionId)
+      this.props.setCurentSection(params.sectionName)
     }
   }
 
-  onSubmit(name) {
-    CatalogAPI.addCatalog(name);
+  onSubmit(params) {
+    debugger
+   this.props.insertCategory(params)
+    // CatalogAPI.addCatalog(name);
   }
 
 
@@ -46,6 +48,7 @@ class SidebarContainer extends React.Component {
   }
 }
 
+
 let mapStateToProps = state => {
   return {
     catalog: state.catalog.catalog,
@@ -58,6 +61,7 @@ export default connect(mapStateToProps, {
   setProductsThunk,
   setCurentCategory,
   setCurentSection,
+  insertCategory,
 
 
 })(SidebarContainer);
