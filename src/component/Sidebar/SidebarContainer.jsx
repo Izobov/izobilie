@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
-import { setCatalogThunk, setCurentCategory, setCurentSection,  insertCategory } from "../../redux/catalog_reducer";
+import { setCatalogThunk, setCurentCategory, setCurentSection, insertCategory, deleteCategory, addSection, deleteSection } from "../../redux/catalog_reducer";
 import { setProductsThunk } from "../../redux/catalog_reducer";
 // import { CatalogAPI } from "../../api/api";
 
@@ -11,6 +11,9 @@ class SidebarContainer extends React.Component {
     super(props);
     this.onClick = this.onClick.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDeleteCategory = this.onDeleteCategory.bind(this);
+    this.addSection = this.addSection.bind(this);
+    this.deleteSection = this.deleteSection.bind(this)
 
   }
 
@@ -29,11 +32,24 @@ class SidebarContainer extends React.Component {
   }
 
   onSubmit(params) {
-    debugger
-   this.props.insertCategory(params)
+
+    this.props.insertCategory(params)
     // CatalogAPI.addCatalog(name);
   }
 
+  onDeleteCategory(params) {
+
+    this.props.deleteCategory(params)
+  }
+
+  deleteSection(name, id) {
+    this.props.deleteSection(name, id)
+  }
+
+  addSection(name, id) {
+    debugger
+    this.props.addSection(name, id)
+  }
 
   render() {
     return (
@@ -42,6 +58,9 @@ class SidebarContainer extends React.Component {
         {...this.props}
         onClick={this.onClick}
         onSubmit={this.onSubmit}
+        deleteCategory={this.onDeleteCategory}
+        addSection={this.addSection}
+        deleteSection={this.deleteSection}
 
       />
     );
@@ -62,6 +81,9 @@ export default connect(mapStateToProps, {
   setCurentCategory,
   setCurentSection,
   insertCategory,
+  deleteCategory,
+  addSection,
+  deleteSection
 
 
 })(SidebarContainer);

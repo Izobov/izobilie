@@ -75,6 +75,8 @@
 .icon {
     max-width: 50px;
     z-index: 100;
+    min-height: 40px;
+    height: 100%;
 }
 
 .hamburger {
@@ -169,22 +171,29 @@
     transform: rotate(90deg);
 }
 .name:hover +.sections{
+    transform: translate(0);
     top: 52px;
     border-radius: 0;
     
 }
-.name:hover +.sections span, .sections:hover>span{
+.name:hover +.sections .sectionName, .sections:hover>.sectionName{
     position: relative;
     min-height: 52px;
     padding: 5px;
     
 }
+
+
+
+
 .sections:hover{
     border-radius: 0;
     top: 52px;
+    
 }
 
 .sections {
+    transform: translate(0);
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -199,7 +208,7 @@
     
 }
 
-.sections span {
+.sectionName {
     padding: 5px;
     border-top: 1px solid #8f725a;
     z-index: 50;
@@ -213,9 +222,14 @@
     
 }
 
-.sections span:hover {
+.sectionName:hover {
     transition: 0s;
     background-color: #f3f3f0;
+    height: 100%;
+}
+.sectionName:hover> .deleteSection{
+    color:#8f725a ;
+    transition: 0.5s;
 }
 
 .showSidebar .sections {
@@ -231,6 +245,12 @@
     
 }
 
+.showSidebar .sections{
+    transform: translate(-145px);
+}
+.showSidebar .sections:hover{
+    transform: translate(0);
+}
 .showSidebar .sections span:first-child{
     border-top: none;
 }
@@ -250,7 +270,7 @@
     color:rgb(101, 73, 49, .5);
     position: relative;
     margin-top: 15px;
-   
+    
 }
 .circle:hover {
     border: 3px solid #A6ADA6;
@@ -282,6 +302,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    max-width: 100%;
 }
 
 .addButton, .cancel{
@@ -295,7 +316,7 @@
     width: 60%;
     height: 30px;
     
-   
+    
     flex-shrink: 0;
     border: none;
 } 
@@ -311,4 +332,74 @@
 }
 .cancel{
     margin-right: 10px;
+}
+
+.delete, .deleteSection{
+    color: #f3f3f0;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 10000;
+    border-top: none;
+}
+
+.plus {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+}
+
+.addSection {
+    height: 0;
+    border-top:1px solid #8f725a;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    z-index: 1000;
+    overflow: visible;
+}
+.addSection:hover{
+    background-color: #f3f3f0;
+}
+.add{
+    display: flex;
+    flex-direction: column;
+    min-height: 80px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.addSection input{
+    margin-top: 5px;
+}
+
+.name:hover +.sections .addSection, .sections:hover>.addSection{
+    position: relative;
+    min-height: 80px;
+    padding: 5px;
+    
+}
+
+.sectionButtons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteIcon {
+    margin-right: 30px;
+}
+.deleteIcon:hover{
+    cursor: pointer;
+    color: rgb(187, 111, 111);
+}
+.successIcon:hover{
+    cursor: pointer;
+    color: #A6ADA6;
 }

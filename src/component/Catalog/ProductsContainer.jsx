@@ -44,6 +44,7 @@ class CatalogContainer extends React.Component {
 
 
     onAddProductSubmit(params) {
+        debugger
         this.props.insertProduct(params, this.props.currentSection, this.props.currentCategory)
     }
 

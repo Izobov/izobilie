@@ -7,7 +7,8 @@ import {
 import {
     CategoryAPIStitch,
     DBconnect,
-    ProductAPIStitch
+    ProductAPIStitch,
+    SectionAPIStitch
 } from "../api/stitch"
 
 
@@ -122,13 +123,38 @@ export const setProductsThunk = (params) => {
 export const insertCategory = (params) => {
     return (dispatch) => {
         CategoryAPIStitch.insertCategory(params).then(res => {
-            debugger
+
             return dispatch(setCatalogThunk())
         })
     }
 }
 
+export const deleteCategory = (params) => {
+    return (dispatch) => {
 
+        CategoryAPIStitch.deleteCategory(params).then(res => {
+            return dispatch(setCatalogThunk())
+        })
+    }
+}
+
+export const addSection = (name, id) => {
+    return (dispatch) => {
+
+        return SectionAPIStitch.addSection(name, id).then(res => {
+            dispatch(setCatalogThunk())
+        })
+    }
+}
+
+export const deleteSection = (name, id) => {
+    return (dispatch) => {
+        debugger
+        return SectionAPIStitch.deleteSection(name, id).then(res => {
+            dispatch(setCatalogThunk())
+        })
+    }
+}
 
 export const updateCategory = (file, data) => {
     return (dispatch) => {
@@ -144,6 +170,7 @@ export const updateCategory = (file, data) => {
 
 export const insertProduct = (params, section, category) => {
     return (dispatch) => {
+
         ProductAPIStitch.insertProduct(params)
             .then(res => {
                 dispatch(setProductsThunk())
@@ -156,9 +183,25 @@ export const insertProduct = (params, section, category) => {
     }
 }
 
+
+
 export const deleteProduct = (params, section, category) => {
     return (dispatch) => {
         ProductAPIStitch.deleteProduct(params)
+            .then(res => {
+                if (section) {
+                    return dispatch(setProductsThunk({ sectionName: section }))
+
+                } else {
+                    return dispatch(setProductsThunk({ categoryName: category }))
+                }
+            })
+    }
+}
+
+export const updateProducts = (params, id, section, category) => {
+    return (dispatch) => {
+        ProductAPIStitch.updateProducts(params, id)
             .then(res => {
                 if (section) {
                     return dispatch(setProductsThunk({ sectionName: section }))
@@ -184,17 +227,17 @@ export const Search = (search) => {
 export default catalog_reducer;
 
 
-export const updateProducts = (file, data) => {
-    return (dispatch) => {
-        return ProductAPI.updateProducts(file, data).then(response => {
+// export const updateProducts = (file, data) => {
+//     return (dispatch) => {
+//         return ProductAPI.updateProducts(file, data).then(response => {
 
-            if (response.status === 200) {
+//             if (response.status === 200) {
 
-                dispatch(setProductsThunk(data.category))
-            }
-        })
-    }
-}
+//                 dispatch(setProductsThunk(data.category))
+//             }
+//         })
+//     }
+// }
 // export const addProduct = (file, data) => {
 
 //     return (dispatch) => {
@@ -234,15 +277,6 @@ export const setCategories = (id) => {
                 CatalogAPI.unsuccessGetCategories(id).then(response => {
                     dispatch(setProductsSuccess(response))
                 })
-            }
-        })
-    }
-}
-export const deleteCategory = (id, catalog_id) => {
-    return (dispatch) => {
-        return CategoryAPI.deleteCategory(id).then(response => {
-            if (response.status === 200) {
-                dispatch(setCategories(catalog_id))
             }
         })
     }

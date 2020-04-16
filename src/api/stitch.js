@@ -3,6 +3,7 @@ import {
     RemoteMongoClient,
     AnonymousCredential
 } from 'mongodb-stitch-browser-sdk';
+import { updateProducts } from '../redux/catalog_reducer';
 
 
 
@@ -44,9 +45,28 @@ export const CategoryAPIStitch = {
         await category.insertOne(params).then(res => {
             return res
         })
+    },
+
+    async deleteCategory(params) {
+
+        await category.deleteOne(params).then(res => { return res })
     }
 
+
+
 };
+
+export const SectionAPIStitch = {
+    async addSection(name, id) {
+
+        await category.updateOne({ _id: id }, { $push: { sections: { name: name } } }).then(res => { return res })
+
+    },
+    async deleteSection(name, id) {
+        debugger
+        await category.updateOne({ _id: id }, { $pull: { sections: { name: name } } }).then(res => { debugger; return res })
+    }
+}
 
 export const ProductAPIStitch = {
 
@@ -66,6 +86,10 @@ export const ProductAPIStitch = {
     async deleteProduct(params) {
 
         await products.deleteOne(params).then(res => { return res })
+    },
+
+    async updateProducts(params, id) {
+        await products.updateOne({ _id: id }, { $set: params }).then(res => { return res })
     }
 }
 

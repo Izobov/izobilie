@@ -34,7 +34,7 @@
     opacity: 0;
     
 }
-.cardFront {
+.cardFront, .redactor {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -48,6 +48,26 @@
     box-shadow: 2px 2px 10px #9d9b92;
 }
 
+.redactor {
+    min-height: 100%;
+    background-color: #f3f3f0;
+    transition: 1s;
+}
+.redactor input{
+    /* width: 200px; */
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.redactor .info{
+    background-color: #f3f3f0;
+    box-shadow: 2px 2px 10px #9d9b92;
+    z-index: 700;
+}
+.redactor .add {
+    margin: 10px auto;
+}
 .cardFront img {
     height: 200px;
 }
@@ -164,138 +184,3 @@
     background-color:rgb(187, 111, 111) ;
 }
 
-/* .btn{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.btn .add{
-    margin: 0;
-} */
-
-
-
-
-/* .card {
-    max-width: 100%;
-    width: 100%;
-    padding-top: 5px;
-    margin-top: 10px;
-    border-top:  1px solid rgb(101, 73, 49);
-    box-sizing: border-box;
-}
-
-.wrapper {
-    display: flex;
-    margin-bottom: 10px;
-    
-}
-
-h2 {
-    margin-top: 0;
-}
-
-.description {
-    margin-left: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-grow: 1;
-
-}
-
-
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    
-
-}
-.info {
-    display: flex;
-    flex-grow: 1;
-}
-
-.characteristic {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 70%;
-    justify-content: space-between;
-}
-
-.value {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-left: 40%;
-    height: 70%;
-}
-
-button {
-  
-}
-
-.buttons input {
-    max-width: 50px;
-}
-.redactorName {
-    display: flex;
-    align-items: center;
-    
-}
-
-.redactorName h2 {
-    margin: 0%;
-    margin-right: 17%;
-}
-.wrapper img {
-    max-width: 200px;
-}
-
-.submit {
-    display: none;
-}
-.delete {
-    background-color: rgb(214, 106, 106);
-    max-width: 130px;
-    width: 100%;
-    border-radius: 10px;
-    padding: 3px 5px;
-    color:rgb(101, 73, 49);
-}
-.delete:hover {
-    background-color: unset;
-    border: 1px solid rgb(214, 106, 106);
-    cursor: pointer;
-}
-
-.addButton {
-    background-color: rgb(139, 138, 138);
-    padding: 3px 5px;
-    color:rgb(101, 73, 49);
-    border-radius: 10px;
-    max-width: 130px;
-    transition: .5s ease;
-}
-
-.addButtonWrapper {
-    width: 140px;
-    height: 50px;
-}
-
-.addButton:hover {
-    background-color: unset;
-    border: 1px solid rgb(139, 138, 138);
-    cursor: pointer;
-}
-.active {
-    padding: 3px 5px;
-    border: 1px solid rgb(139, 138, 138);
-    background-color: unset;
-    border-radius: 10px;
-} */
