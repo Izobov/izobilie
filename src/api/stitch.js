@@ -89,6 +89,7 @@ export const ProductAPIStitch = {
     },
 
     async updateProducts(params, id) {
+
         await products.updateOne({ _id: id }, { $set: params }).then(res => { return res })
     }
 }

@@ -10,25 +10,20 @@ class CatalogContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { img: '' };
+
         this.onCategoryClick = this.onCategoryClick.bind(this);
 
         this.onProductsSubmit = this.onProductsSubmit.bind(this)
         this.pushInBasket = this.pushInBasket.bind(this)
-        this.SetImg = this.SetImg.bind(this)
+
 
         this.onAddProductSubmit = this.onAddProductSubmit.bind(this)
 
-
+        this.updateProducts = this.updateProducts.bind(this)
         this.deleteProduct = this.deleteProduct.bind(this)
     }
 
-    SetImg(img) {
 
-        if (this.state.img !== img) {
-            this.setState({ img: img })
-        }
-    }
 
 
     deleteProduct(params) {
@@ -44,10 +39,15 @@ class CatalogContainer extends React.Component {
 
 
     onAddProductSubmit(params) {
-        debugger
+
+
         this.props.insertProduct(params, this.props.currentSection, this.props.currentCategory)
     }
 
+    updateProducts(params, id) {
+
+        this.props.updateProducts(params, id)
+    }
 
 
     onCategoryClick(id, name) {
@@ -71,7 +71,7 @@ class CatalogContainer extends React.Component {
 
         return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} pushInBasket={this.pushInBasket}
             onProductsSubmit={this.onProductsSubmit}
-            SetImg={this.SetImg}
+            updateProduct={this.updateProducts}
             onAddProductSubmit={this.onAddProductSubmit} deleteProduct={this.deleteProduct} />
 
     }
@@ -91,8 +91,8 @@ let mapStateToProps = (state) => {
 
 
 
-
 export default connect(mapStateToProps, {
     insertProduct, setProductsThunk, setCurentCategory,
+    updateProducts,
     setBasketProducts, deleteProduct
 })(CatalogContainer)

@@ -23,7 +23,7 @@ const Catalog = (props) => {
 
 
     let productsElements = props.products.map(item => <Products product={item} key={item.product_id} pushInBasket={props.pushInBasket} isAuth={props.isAuth}
-        onSubmit={props.onProductsSubmit} SetImg={props.SetImg} deleteProduct={props.deleteProduct} basket={props.basket} />)
+        onSubmit={props.onProductsSubmit} SetImg={props.SetImg} deleteProduct={props.deleteProduct} basket={props.basket} catalog={props.catalog} updateProduct={props.updateProduct} />)
     return <main className={s.wrapper}>
         <div className={s.header}>
 

@@ -199,15 +199,16 @@ export const deleteProduct = (params, section, category) => {
     }
 }
 
-export const updateProducts = (params, id, section, category) => {
+export const updateProducts = (params, id) => {
     return (dispatch) => {
+
         ProductAPIStitch.updateProducts(params, id)
             .then(res => {
-                if (section) {
-                    return dispatch(setProductsThunk({ sectionName: section }))
+                if (params.sectionName) {
+                    return dispatch(setProductsThunk({ sectionName: params.sectionName }))
 
                 } else {
-                    return dispatch(setProductsThunk({ categoryName: category }))
+                    return dispatch(setProductsThunk({ categoryName: params.categoryName }))
                 }
             })
     }
@@ -227,46 +228,7 @@ export const Search = (search) => {
 export default catalog_reducer;
 
 
-// export const updateProducts = (file, data) => {
-//     return (dispatch) => {
-//         return ProductAPI.updateProducts(file, data).then(response => {
 
-//             if (response.status === 200) {
-
-//                 dispatch(setProductsThunk(data.category))
-//             }
-//         })
-//     }
-// }
-// export const addProduct = (file, data) => {
-
-//     return (dispatch) => {
-//         return ProductAPI.addProduct(file, data).then(response => {
-//             if (response.status === 200) {
-//                 dispatch(setProductsThunk(data.category_id))
-//             }
-//         })
-//     }
-// }
-// export const deleteProduct = (id, category_id) => {
-//     return dispatch => {
-//         return ProductAPI.deleteProduct(id).then(response => {
-//             if (response.status === 200) {
-//                 dispatch(setProductsThunk(category_id))
-//             }
-//         })
-//     }
-// }
-// export const addCategory = (file, data) => {
-
-//     return (dispatch) => {
-//         return CategoryAPI.addCategory(file, data).then(response => {
-//             if (response.status === 200) {
-//                 dispatch(setCategories(data.catalog_id))
-//             }
-//         })
-//     }
-// }
 export const setCategories = (id) => {
     return (dispatch) => {
 

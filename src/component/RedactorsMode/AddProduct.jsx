@@ -1,5 +1,4 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
 import s from './redactor.module.css'
 import { useState } from 'react'
 
@@ -34,7 +33,7 @@ const AddProduct = (props) => {
     })
 
 
-    props.SetImg(img)
+
 
     return <div className={s.wrapper}>
         <div className={s.card}>
