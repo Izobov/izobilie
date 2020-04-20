@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/izobilie/precache-manifest.a6b8efc02165b83e12aa41d96330621d.js"
+  "/izobilie/precache-manifest.daad786b11be63adb8a401c452c73ff7.js"
 );
 
 self.addEventListener('message', (event) => {
