@@ -101,7 +101,7 @@ const Basket = (props) => {
             {showModal && props.response && // После ответа сервера выскочит еще одно модальное окно с информацией
 
                 < Portal >
-                    <Modal title='Спасибо за заказ!' Close={props.Close} ok="Ok" >
+                    <Modal title='Спасибо за Ваш заказ!' Close={props.Close} ok="Ok" >
 
                         {props.response !== 500 ? <div>
                             Ваш заказ успешно размещен!

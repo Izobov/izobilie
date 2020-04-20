@@ -13,7 +13,7 @@
     width: 100%;
 }
 .paralax{
-    background: url('../../img/slider/img2.jpg');
+    background: url('../../img/slider/img8.jpg');
     background-attachment: fixed;
     
     height: 100%;
@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px;
+    padding: 80px;
 }
 .paralaxContent h2{
     color: #f3f3f0;
@@ -52,7 +52,7 @@
     background-color: #f3f3f0;
     position: relative;
     z-index: 3;
-    height: 300px;
+    height: 400px;
     font-size: 1.2rem;   
 }
 

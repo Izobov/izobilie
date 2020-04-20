@@ -15,6 +15,7 @@ import {
 let SET_CATALOG = "SET_CATALOG"
 let SET_CATEGORIES = "SET_CATEGORIES"
 let SET_PRODUCTS = "SET_PRODUCTS"
+let SET_TOP = "SET_TOP"
 let SET_CURRENT_SECTION = "SET_CURRENT_SECTION"
 let SET_CURRENT_CATEGORY = "SET_CURRENT_CATEGORY"
 
@@ -26,6 +27,7 @@ let InitialState = {
     currentSection: '',
     categories: [],
     products: [],
+    topProducts: []
 
 }
 
@@ -61,6 +63,12 @@ const catalog_reducer = (state = InitialState, action) => {
                 categories: [],
                 products: action.products
             }
+        case SET_TOP:
+
+            return {
+                ...state,
+                topProducts: action.products
+            }
 
         default:
             return state
@@ -78,6 +86,12 @@ const setCategoriesSuccess = (categories) => ({
 })
 const setProductsSuccess = (products) => ({
     type: SET_PRODUCTS,
+    products
+})
+
+const setTop = (products) => ({
+
+    type: SET_TOP,
     products
 })
 export const setCurentSection = (name) => ({
@@ -149,23 +163,31 @@ export const addSection = (name, id) => {
 
 export const deleteSection = (name, id) => {
     return (dispatch) => {
-        debugger
+
         return SectionAPIStitch.deleteSection(name, id).then(res => {
             dispatch(setCatalogThunk())
         })
     }
 }
 
-export const updateCategory = (file, data) => {
+// export const updateCategory = (file, data) => {
+//     return (dispatch) => {
+//         return CategoryAPI.updateCategory(file, data).then(response => {
+//             // if (response.status === 200) {
+//             //     dispatch(setCategories(data.catalog_id))
+//             // }
+//         })
+//     }
+// }
+
+export const getTopProducts = () => {
     return (dispatch) => {
-        return CategoryAPI.updateCategory(file, data).then(response => {
-            // if (response.status === 200) {
-            //     dispatch(setCategories(data.catalog_id))
-            // }
+        return ProductAPIStitch.getTopProducts().then(res => {
+
+            dispatch(setTop(res))
         })
     }
 }
-
 
 
 export const insertProduct = (params, section, category) => {

@@ -69,7 +69,7 @@
    
 }
 
-.top h2{
+.title{
     color: #8f725a;;
     margin-bottom: 80px;
     font-size: 2.5rem;
@@ -77,7 +77,8 @@
 
 .cardsWrapper{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    width: 1300px;
 }
 
 .testCards {
@@ -86,4 +87,8 @@
     background-color: #ae998d;
     margin: 20px;
     box-shadow: 0px 0px 15px #9d9b92;
+}
+
+.test {
+    width: 20%;
 }

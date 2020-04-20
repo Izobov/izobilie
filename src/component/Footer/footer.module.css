@@ -1,8 +1,12 @@
 footer {
-    background-color: rgb(199, 168, 118);
+    background-color: #babec2;
     padding: 10px;
+    height: 250px;
 }
 
+footer img{
+    width: 50px;
+}
 
 p {
     color: rgb(112, 86, 61);

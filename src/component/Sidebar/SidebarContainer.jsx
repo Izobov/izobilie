@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
 import { setCatalogThunk, setCurentCategory, setCurentSection, insertCategory, deleteCategory, addSection, deleteSection } from "../../redux/catalog_reducer";
 import { setProductsThunk } from "../../redux/catalog_reducer";
-// import { CatalogAPI } from "../../api/api";
+
 
 
 class SidebarContainer extends React.Component {

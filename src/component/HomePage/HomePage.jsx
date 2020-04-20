@@ -2,25 +2,34 @@ import React from "react";
 
 import s from "./home.module.css";
 
+
 import Slider from './Slider'
 import inst from "../../img/icons/instagram.svg"
 
+import SliderTopProducts from "./SliderTopProducts"
 
-const HomePage = props => {
+
+
+const HomePage = (props) => {
+
+
+
+
 
 
     return <div >
 
         <Slider />
         <div className={s.top}>
-            <h2>Топ продаж</h2>
+            <h2 className={s.title}>Топ продаж</h2>
             <div className={s.cardsWrapper}>
+                <SliderTopProducts />
 
+                {/* <div className={s.testCards}></div>
                 <div className={s.testCards}></div>
                 <div className={s.testCards}></div>
                 <div className={s.testCards}></div>
-                <div className={s.testCards}></div>
-                <div className={s.testCards}></div>
+                <div className={s.testCards}></div> */}
             </div>
         </div >
         <div className={s.inst}>
@@ -28,7 +37,7 @@ const HomePage = props => {
 
                 <img src={inst} alt="" className={s.icon} />
                 <h2>
-                    Следите за нами в инстаграмм  <a href="https://instagram.com/izo_bilie?igshid=1dgjw8axpv66a" target="_blank">&#64;izo_bilie. </a>
+                    Следите за нами в Инстаграм  <a href="https://instagram.com/izo_bilie?igshid=1dgjw8axpv66a" target="_blank">&#64;izo_bilie. </a>
                 </h2>
             </div>
             <div className={s.instImg}>
@@ -47,4 +56,6 @@ const HomePage = props => {
 
 };
 
-export default HomePage;
+
+
+export default HomePage

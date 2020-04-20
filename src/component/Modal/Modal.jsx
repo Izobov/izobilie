@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './modal.module.css';
-import close from '../../img/icons/cancel.png';
+
 
 
 

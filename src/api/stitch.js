@@ -31,7 +31,7 @@ export const DBconnect = async () => {
 
 export const CategoryAPIStitch = {
 
-    getCategory() {
+    async getCategory() {
         return category
             .find()
             .asArray()
@@ -91,6 +91,14 @@ export const ProductAPIStitch = {
     async updateProducts(params, id) {
 
         await products.updateOne({ _id: id }, { $set: params }).then(res => { return res })
+    },
+
+    getTopProducts() {
+
+        return products.find({}, {
+            sort: { countOfSales: -1 },
+            limit: 5
+        }).asArray().then(res => { return res })
     }
 }
 

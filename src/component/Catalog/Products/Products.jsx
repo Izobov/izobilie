@@ -67,7 +67,7 @@ const Products = (props) => {
     }
 
 
-    return <div className={s.wrapper}>
+    return <div className={s.wrapper} >
 
         <div className={s.cardFront}>
             <img src={product.img} alt="" />

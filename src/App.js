@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import {
   Route
@@ -71,8 +71,9 @@ function App() {
 
       </main>
 
-      {
-      /* <Footer /> */} </div>
+
+      <Footer />
+    </div>
 
   );
 }
