@@ -96,3 +96,12 @@ max-width: 100%;
 .info{
     padding: 15px;
 }
+
+@media screen and (max-width: 480px) {
+    .card{
+        width: 85px;
+    }
+    .info{
+        padding: 3px;
+    }
+}

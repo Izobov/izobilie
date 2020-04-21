@@ -17,19 +17,13 @@ const HomePage = (props) => {
 
 
 
-    return <div >
+    return <div className={s.home}>
 
         <Slider />
         <div className={s.top}>
             <h2 className={s.title}>Топ продаж</h2>
             <div className={s.cardsWrapper}>
                 <SliderTopProducts />
-
-                {/* <div className={s.testCards}></div>
-                <div className={s.testCards}></div>
-                <div className={s.testCards}></div>
-                <div className={s.testCards}></div>
-                <div className={s.testCards}></div> */}
             </div>
         </div >
         <div className={s.inst}>

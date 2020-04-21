@@ -37,3 +37,10 @@
 .info p {
     margin-bottom: 50px;
 }
+
+@media screen and (max-width: 1024px) {
+    
+    .content {
+        padding: 50px;
+    }
+}
