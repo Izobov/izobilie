@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/izobilie/static/css/main.2bdfd888.chunk.css",
-    "main.js": "/izobilie/static/js/main.a6a9abca.chunk.js",
-    "main.js.map": "/izobilie/static/js/main.a6a9abca.chunk.js.map",
+    "main.css": "/izobilie/static/css/main.b1612518.chunk.css",
+    "main.js": "/izobilie/static/js/main.2d8c303c.chunk.js",
+    "main.js.map": "/izobilie/static/js/main.2d8c303c.chunk.js.map",
     "runtime-main.js": "/izobilie/static/js/runtime-main.24ebddd7.js",
     "runtime-main.js.map": "/izobilie/static/js/runtime-main.24ebddd7.js.map",
     "static/css/2.0988ea1f.chunk.css": "/izobilie/static/css/2.0988ea1f.chunk.css",
-    "static/js/2.e30ec57e.chunk.js": "/izobilie/static/js/2.e30ec57e.chunk.js",
-    "static/js/2.e30ec57e.chunk.js.map": "/izobilie/static/js/2.e30ec57e.chunk.js.map",
+    "static/js/2.6e8e67a4.chunk.js": "/izobilie/static/js/2.6e8e67a4.chunk.js",
+    "static/js/2.6e8e67a4.chunk.js.map": "/izobilie/static/js/2.6e8e67a4.chunk.js.map",
     "index.html": "/izobilie/index.html",
-    "precache-manifest.19bf2c7507519585be3ab8979e7316d6.js": "/izobilie/precache-manifest.19bf2c7507519585be3ab8979e7316d6.js",
+    "precache-manifest.dfac8634ecfe27f80815e6b10309b4bd.js": "/izobilie/precache-manifest.dfac8634ecfe27f80815e6b10309b4bd.js",
     "service-worker.js": "/izobilie/service-worker.js",
     "static/css/2.0988ea1f.chunk.css.map": "/izobilie/static/css/2.0988ea1f.chunk.css.map",
-    "static/css/main.2bdfd888.chunk.css.map": "/izobilie/static/css/main.2bdfd888.chunk.css.map",
-    "static/js/2.e30ec57e.chunk.js.LICENSE.txt": "/izobilie/static/js/2.e30ec57e.chunk.js.LICENSE.txt",
+    "static/css/main.b1612518.chunk.css.map": "/izobilie/static/css/main.b1612518.chunk.css.map",
+    "static/js/2.6e8e67a4.chunk.js.LICENSE.txt": "/izobilie/static/js/2.6e8e67a4.chunk.js.LICENSE.txt",
     "static/media/Logo.png": "/izobilie/static/media/Logo.a5efe846.png",
     "static/media/bank.png": "/izobilie/static/media/bank.847884c3.png",
     "static/media/basket.png": "/izobilie/static/media/basket.8c64ba33.png",
@@ -34,8 +34,8 @@
   "entrypoints": [
     "static/js/runtime-main.24ebddd7.js",
     "static/css/2.0988ea1f.chunk.css",
-    "static/js/2.e30ec57e.chunk.js",
-    "static/css/main.2bdfd888.chunk.css",
-    "static/js/main.a6a9abca.chunk.js"
+    "static/js/2.6e8e67a4.chunk.js",
+    "static/css/main.b1612518.chunk.css",
+    "static/js/main.2d8c303c.chunk.js"
   ]
 }
