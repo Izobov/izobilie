@@ -28,9 +28,9 @@ const Header = (props) => {
             <NavLink to='/about'>О нас</NavLink>
             <NavLink to='/contacts'> Доставка и оплата</NavLink>
             {props.isAuth && <NavLink to='/orders'>Заказы</NavLink>}
+            {props.isAuth && <div className={s.btn} onClick={props.onClick}> Выйти</div>}
         </div>
 
-        {props.isAuth && <div className={s.btn} onClick={props.onClick}> Выйти</div>}
 
 
     </header>

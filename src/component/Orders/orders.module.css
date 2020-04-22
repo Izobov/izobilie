@@ -102,3 +102,14 @@ select {
     font-size: 1rem;
     font-weight: 500;
 }
+
+
+
+@media screen and (max-width: 780px) {
+    
+     .btn, .active, .cancel,  .lose{
+        width: 30%;
+    }
+    
+   
+}

@@ -52,11 +52,12 @@
     
     border-radius: 5px;
     color: white;
-    width: 5%;
+    width: 100px;
     height: 30px;
-    position: absolute;
+    /* position: absolute; */
     right: 10%;
-    border: none
+    border: none;
+    margin-left: 5px;
 }
 .btn:hover {
     cursor: pointer;
@@ -109,6 +110,11 @@
         width: 100px;
     }
     
+    .btn{
+        width: 50px;
+        height: 20px;
+    }
+    
     
 }
 @media screen and (max-width: 344px){
@@ -128,5 +134,5 @@
     .contacts {
         width: 33.3%;
     }
-    
+   
 }

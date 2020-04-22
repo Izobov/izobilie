@@ -61,3 +61,13 @@ align-self: flex-start;
 .error {
     color: rgb(184, 36, 36)
 }
+
+
+@media screen and (max-width: 1080px) {
+    
+    .loginWrapper {
+        width: 80%;
+    }
+    
+   
+}
