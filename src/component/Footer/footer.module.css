@@ -48,3 +48,25 @@ p:hover{cursor: default;}
     bottom: 5px;
     right: 10%;
 }
+
+
+@media screen and (max-width: 1024px) {
+    
+    footer{
+        margin: 0;
+        height: 150px;
+    }
+   
+}
+
+
+
+
+
+@media screen and (max-width: 800px) {
+   
+    
+    footer img{
+        width: 40px;
+    }
+}
