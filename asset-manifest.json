@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/izobilie/static/css/main.55db0bd7.chunk.css",
+    "main.css": "/izobilie/static/css/main.dc8c4f2e.chunk.css",
     "main.js": "/izobilie/static/js/main.19cbfbea.chunk.js",
     "main.js.map": "/izobilie/static/js/main.19cbfbea.chunk.js.map",
     "runtime-main.js": "/izobilie/static/js/runtime-main.24ebddd7.js",
@@ -9,10 +9,10 @@
     "static/js/2.b6d2a230.chunk.js": "/izobilie/static/js/2.b6d2a230.chunk.js",
     "static/js/2.b6d2a230.chunk.js.map": "/izobilie/static/js/2.b6d2a230.chunk.js.map",
     "index.html": "/izobilie/index.html",
-    "precache-manifest.7057f65f19901c1c119770b2284364e7.js": "/izobilie/precache-manifest.7057f65f19901c1c119770b2284364e7.js",
+    "precache-manifest.9d3a71d02625010f8edf4f0e08d89030.js": "/izobilie/precache-manifest.9d3a71d02625010f8edf4f0e08d89030.js",
     "service-worker.js": "/izobilie/service-worker.js",
     "static/css/2.0988ea1f.chunk.css.map": "/izobilie/static/css/2.0988ea1f.chunk.css.map",
-    "static/css/main.55db0bd7.chunk.css.map": "/izobilie/static/css/main.55db0bd7.chunk.css.map",
+    "static/css/main.dc8c4f2e.chunk.css.map": "/izobilie/static/css/main.dc8c4f2e.chunk.css.map",
     "static/js/2.b6d2a230.chunk.js.LICENSE.txt": "/izobilie/static/js/2.b6d2a230.chunk.js.LICENSE.txt",
     "static/media/Logo.png": "/izobilie/static/media/Logo.a5efe846.png",
     "static/media/bank.png": "/izobilie/static/media/bank.847884c3.png",
@@ -35,7 +35,7 @@
     "static/js/runtime-main.24ebddd7.js",
     "static/css/2.0988ea1f.chunk.css",
     "static/js/2.b6d2a230.chunk.js",
-    "static/css/main.55db0bd7.chunk.css",
+    "static/css/main.dc8c4f2e.chunk.css",
     "static/js/main.19cbfbea.chunk.js"
   ]
 }
