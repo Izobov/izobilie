@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d3f8c7dc9ef3c96740d74fb26536d3bc",
+    "revision": "d16f95ecc380f833eb7dfc253b335f8e",
     "url": "/izobilie/index.html"
   },
   {
