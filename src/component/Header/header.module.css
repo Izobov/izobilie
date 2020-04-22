@@ -73,41 +73,13 @@
     font-weight: 600;
 }
 
-@media screen and (max-width: 320px) {
-    
-    .logo img{
-        max-width: 50px;
-    }
-    
-    
-    .contacts {
-        width: 33.3%;
-    }
-    
-}
-
-@media screen and (max-width: 344px){
-
-    .logo img{
-        max-width: 60px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    
-    .logo img{
-        width: 100px;
-    }
-    
-    
-}
 
 @media screen and (max-width: 870px) {
     
     .logo img{
         width: 150px;
     }
-
+    
     .contacts {
         font-size: 1rem;
         font-weight: 400;
@@ -129,4 +101,32 @@
         margin-left: 0;
         padding: 5px;
     }
+}
+
+@media screen and (max-width: 480px) {
+    
+    .logo img{
+        width: 100px;
+    }
+    
+    
+}
+@media screen and (max-width: 344px){
+
+    .logo img{
+        max-width: 30px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    
+    .logo img{
+        max-width: 30px;
+    }
+    
+    
+    .contacts {
+        width: 33.3%;
+    }
+    
 }

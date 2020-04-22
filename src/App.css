@@ -47,4 +47,10 @@
 
 } */
 
+@media screen and (max-width: 1024px) {
+  .content_wrapper {
+    max-width: 100%;
+    margin: 0%;
+  }
+}
 

@@ -296,9 +296,86 @@
     
 }
 .bill{
-    /* box-shadow: 5px 5px 10px grey; */
-    /* background-color: grey; */
-    /* background: none; */
+    
     width: 50%;
    
+}
+
+
+
+@media screen and (max-width: 1650px) {
+    
+    
+    .basketIcon {
+        /* top: 50px; */
+        right: 10%;
+        
+    }
+    
+    .wrapper {
+        width: 35%;
+    }
+    
+    
+    
+}
+
+@media screen and (max-width: 1250px) {
+    
+    
+    .basketIcon {
+        /* top: 50px; */
+        right: 5%;
+        
+    }
+    .wrapper {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 870px) {
+    
+    .basketIcon img{
+        max-width: 20px;
+    }
+    .basketIcon {
+        top: 15px;
+       
+    }
+
+    .wrapper {
+        width: 50%;
+    }
+    
+    
+   
+    
+}
+
+@media screen and (max-width: 640px) {
+    
+    .basketIcon img{
+        max-width: 20px;
+    }
+    .basketIcon {
+        top: 15px;
+        right: 1%;
+    }
+    
+    
+    .wrapper {
+        width: 65%;
+    }
+   
+    
+}
+
+@media screen and (max-width: 400px) {
+    
+   
+    .wrapper {
+        width: 80%;
+    }
+    
+   
+    
 }

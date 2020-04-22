@@ -21,81 +21,85 @@ const Sidebar = props => {
   };
 
   let catalogItems = props.catalog.map(i => (
-    <div>
 
 
-      <NavLink className={s.item} key={i.catalog_id}
-        to="/products"
-        onClick={() => {
-          props.onClick({ categoryName: i.name }, i.name);
-        }}
-      >
-        <img src={i.img} alt="" className={s.icon} />
-        {props.isAuth && i.catalog_id}
-        <div className={s.categoryName}>
-          {props.isAuth && <span className={s.delete} onClick={(e) => {
-            e.stopPropagation()
 
-            props.deleteCategory({ _id: i._id })
-          }}>&#10006;</span>}
+    <NavLink className={s.item} key={i.catalog_id}
+      to="/products"
+      onClick={() => {
+        props.onClick({ categoryName: i.name }, i.name); setShowSidebar(false)
+      }}
+    >
+      <img src={i.img} alt="" className={s.icon} />
+      {props.isAuth && i.catalog_id}
+      <div className={s.categoryName}>
+        {props.isAuth && <span className={s.delete} onClick={(e) => {
+          e.stopPropagation()
 
-          <span className={s.name}>
-            {i.name}
+          props.deleteCategory({ _id: i._id })
+        }}>&#10006;</span>}
 
-            {i.sections.length && !showSidebar ? <span className={s.arrow}>  &#8594; </span> : ''}
-          </span>
-          {(i.sections.length > 0 || props.isAuth) && <div className={s.sections}>
-            {i.sections.map(item =>
+        <span className={s.name}>
+          {i.name}
 
-              <span className={s.sectionName} onClick={(e) => {
-                e.stopPropagation()
-                props.onClick({ sectionName: item.name }, i.name)
-              }} >{item.name}
-                {props.isAuth &&
-                  <span className={s.deleteSection} onClick={e => {
-                    e.stopPropagation()
-                    props.deleteSection(item.name, i._id)
+          {i.sections.length && !showSidebar ? <span className={s.arrow}>  &#8594; </span> : ''}
+        </span>
+        {(i.sections.length > 0 || props.isAuth) && <div className={s.sections}>
+          {i.sections.map(item =>
 
-
-                  }}>&#10006;</span>
-                }
-              </span>
-            )}
-            {props.isAuth && <span className={` ${s.sectionName} ${s.addSection}`}>
-              {addSection ? <div className={s.add}>
-                <span >{sectionInput}</span>
-                <input type="text" value={sectionInput} onChange={e => setSectionInput(e.target.value)} />
-                <div className={s.sectionButtons}>
-                  <span className={s.deleteIcon} onClick={e => {
-                    e.stopPropagation();
-                    setAddSection(false)
-                  }}>&#10006;</span>
-
-                  <span className={s.successIcon}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      props.addSection(sectionInput, i._id)
-                      setAddSection(false)
-                    }}
-                  >&#10004;</span>
-                </div>
-              </div> :
-                <div className={s.plus} onClick={e => {
+            <span className={s.sectionName} onClick={(e) => {
+              e.stopPropagation()
+              props.onClick({ sectionName: item.name }, i.name);
+              setShowSidebar(false)
+            }} >{item.name}
+              {props.isAuth &&
+                <span className={s.deleteSection} onClick={e => {
                   e.stopPropagation()
-                  setAddSection(true)
-                }} >
-                  &#10010;</div>
-              }
-            </span>}
-          </div>
-          }
+                  props.deleteSection(item.name, i._id)
 
+
+                }}>&#10006;</span>
+              }
+            </span>
+          )}
+          {props.isAuth && <span className={` ${s.sectionName} ${s.addSection}`}>
+            {addSection ? <div className={s.add}>
+              <span >{sectionInput}</span>
+              <input type="text" value={sectionInput} onChange={e => setSectionInput(e.target.value)} />
+              <div className={s.sectionButtons}>
+                <span className={s.deleteIcon} onClick={e => {
+                  e.stopPropagation();
+                  setAddSection(false)
+                }}>&#10006;</span>
+
+                <span className={s.successIcon}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    props.addSection(sectionInput, i._id)
+                    setAddSection(false)
+                  }}
+                >&#10004;</span>
+              </div>
+            </div> :
+              <div className={s.plus} onClick={e => {
+                e.stopPropagation()
+                setAddSection(true)
+              }} >
+                &#10010;</div>
+            }
+          </span>}
         </div>
-      </NavLink>
-    </div >
+        }
+
+      </div>
+    </NavLink>
+
   ));
 
-  return (
+  return (<>
+    <div className={s.menu} onClick={() => setShowSidebar(true)} >
+      <span className={s.line} ></span>
+    </div>
     <aside className={showSidebar ? `${s.aside} ${s.showSidebar}` : s.aside}  >
 
 
@@ -154,6 +158,7 @@ const Sidebar = props => {
         )
       }
     </aside >
+  </>
   );
 };
 
