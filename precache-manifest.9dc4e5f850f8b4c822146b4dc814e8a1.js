@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "18285ae3c11f5b52c31876b5baf50bd4",
+    "revision": "5a0b1b2c3b93f2c2ee6061e34cb1a994",
     "url": "/izobilie/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/izobilie/static/css/2.0988ea1f.chunk.css"
   },
   {
-    "revision": "ae1f0e28b111db427413",
-    "url": "/izobilie/static/css/main.c1e6c9f3.chunk.css"
+    "revision": "4e4bbee62a6b12cf8d92",
+    "url": "/izobilie/static/css/main.55db0bd7.chunk.css"
   },
   {
     "revision": "cab75903ddf11dd9528f",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/izobilie/static/js/2.b6d2a230.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ae1f0e28b111db427413",
+    "revision": "4e4bbee62a6b12cf8d92",
     "url": "/izobilie/static/js/main.19cbfbea.chunk.js"
   },
   {
