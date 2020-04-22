@@ -1,12 +1,10 @@
 .main {
     display: flex;
     flex-wrap: wrap;
-    /* margin-top: 100px ; */
     padding: 30px;
     width: 100%;
     padding: 70px 10%;
     align-items: center;
-    /* background-color: #f3f3f0; */
     
    
 }
@@ -106,3 +104,19 @@ h2 {
     margin-top: -12px;
     margin-left:
 } 
+
+
+@media screen and (max-width: 870px) {
+    
+    .header{
+        height: 150px;
+    }
+     .title {
+         height: 50px;
+     }
+
+     .main {
+         padding: 10%;
+     }
+    
+}

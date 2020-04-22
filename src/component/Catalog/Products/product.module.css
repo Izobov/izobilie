@@ -3,18 +3,12 @@
     width: 200px;
     height: 400px;
     position: relative;
-    /* background-color: grey; */
     margin-right: 5%;
     margin-bottom: 5%;
     perspective: 500px;
     
 }
- /* .wrapper:hover> .cardFront{
-    transform: rotateY(180deg);
-} 
-.wrapper:hover> .cardBack{
-    transform: rotateY(360deg);
-}  */
+ 
 .wrapper:hover>.cardHover{
     opacity: 1;
 }
@@ -102,7 +96,6 @@
 
     justify-content: center;
     align-items: center;
-    /* background-color: grey; */
     transform:rotateY(180deg);
     transition: 1s ease;
     backface-visibility: hidden;
@@ -123,7 +116,6 @@
 
 .input {
     appearance: textfield;
-    /* border-radius: 5px; */
     background: none;
     width: 20%;
     margin: 0 2%;
@@ -163,7 +155,6 @@
     justify-content: center;
     align-items: center;
     background-color: #ae998d;
-    /* background-color: #A6ADA6; */
     border-radius: 5px;
     color: white;
     margin: 0 auto;
@@ -184,3 +175,51 @@
     background-color:rgb(187, 111, 111) ;
 }
 
+
+
+
+@media screen and (max-width: 870px) {
+    .wrapper{
+        width: 100px;
+        height: 200px;
+    }
+
+    .info{
+        padding: 3px;
+    }
+    .info h2{
+        font-size: 1.1rem;
+        margin-top: 3px;
+    }
+    .wrapper img{
+        height: 100px;
+    }
+
+    .add {
+        width: 70px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .wrapper{
+        width: 100px;
+        height: 200px;
+    }
+
+    .info{
+        padding: 3px;
+    }
+    .info h2{
+        font-size: 1.1rem;
+        margin-top: 3px;
+    }
+    .wrapper img{
+        height: 100px;
+    }
+
+    .add {
+        width: 70px;
+        height: 20px;
+    }
+}
