@@ -57,3 +57,20 @@ form {
 .body {
       color:  rgb(112, 86, 61);
 }
+
+
+@media screen and (max-width: 1250px) {
+    
+    form input{
+        width: 150px;
+        margin: 10px auto;
+    }
+    .name {
+       flex-direction: column;
+       padding: 0;
+    }
+  
+  .phone{
+      padding: 0;
+  }
+}

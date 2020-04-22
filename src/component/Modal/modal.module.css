@@ -82,3 +82,22 @@ h3 {
     font-weight: 600;
 }
 
+
+@media screen and (max-width: 880px) {
+    
+    .wrapper {
+        max-width: 50%;
+    }
+    
+    
+}
+
+
+@media screen and (max-width: 480px) {
+    
+    .wrapper {
+        max-width: 80%;
+    }
+    
+   
+}
