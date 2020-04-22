@@ -55,6 +55,7 @@
     margin-top: 2%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .top {
@@ -99,6 +100,11 @@
     .sliderImg {
         height: 400px;
     }
+
+    .instImg img{
+        width: 300px;
+        margin-bottom: 10px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -121,6 +127,9 @@
     .icon{
         width: 40px;
     }
+    .instImg img{
+        width: 250px;
+    }
 }
 
 
@@ -135,6 +144,11 @@
     }
     html {
        font-size: 10px;
+    }
+    
+
+    .instImg img{
+        width: 100px;
     }
 }
 
