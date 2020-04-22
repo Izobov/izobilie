@@ -77,7 +77,7 @@
 
 .cardsWrapper{
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
    max-width: 1300px;
    width: 100%;
     justify-content: center;
@@ -111,6 +111,15 @@
     }
     html {
        font-size: 12px;
+    }
+    .top {
+        padding: 50px 20px ;
+    }
+    .inst {
+        padding: 50px 20px 100px 20px;
+    }
+    .icon{
+        width: 40px;
     }
 }
 
