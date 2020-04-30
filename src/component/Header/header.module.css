@@ -103,12 +103,19 @@
         padding: 5px;
     }
 }
+@media screen and (max-width: 580px) {
+    
+    .logo img{
+        width: 50px;
+    }
+    
+    
+    
+}
 
 @media screen and (max-width: 480px) {
     
-    .logo img{
-        width: 100px;
-    }
+    
     
     .btn{
         width: 50px;

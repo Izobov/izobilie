@@ -14,13 +14,13 @@ const Header = (props) => {
                 +375(29) 655-99-38
             </span>
             <span>
-                +375(29) 329-89-85
+                +375(29) 653-09-37
             </span>
         </div>
         <NavLink to='/'>
 
             <div className={s.logo}>
-                <img src={window.innerWidth <= 344 ? logo2 : logo1} alt="" />
+                <img src={window.innerWidth <= 580 ? logo2 : logo1} alt="" />
             </div>
         </NavLink>
         <div className={s.navbar}>

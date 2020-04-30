@@ -94,7 +94,7 @@
     cursor: pointer;
     position: absolute;
     top: 1%;
-    left: 1%;
+    left: 3%;
     z-index: 1500;
     width: 20px;
     height: 20px;
@@ -440,9 +440,10 @@
         box-shadow: none
         
     }
+    
     .showSidebar .sectionName {
         position: relative;
-        min-height: 52px;
+        min-height: 35px;
         border: none;
     }
     .icon{height: initial;}
@@ -467,6 +468,7 @@
     .showSidebar{
        transform: translate(0);
        z-index: 1600;
+       overflow: auto;
     }
     
     .showSidebar img {
