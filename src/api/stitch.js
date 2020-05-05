@@ -86,7 +86,7 @@ export const SectionAPIStitch = {
 
         await category.updateOne({ _id: id }, { $pull: { sections: { name: name } } }).then(res => { return res })
     },
-    async updateSecondSection(categoryName, sectionName, arr) {
+    async updateSecondSection(categoryName, sectionName, arr, bool) {
         console.log(category)
         let query = { categoryName: categoryName, sectionName: sectionName }
         let update = { $set: { "nestedSections": arr } }
@@ -95,7 +95,9 @@ export const SectionAPIStitch = {
         }
         debugger
 
-        await sections.updateOne(query, update, updateOptions).then(res => { debugger; return res })
+
+        await sections.updateOne(query, update, updateOptions).then(res => { return res })
+
     }
 }
 

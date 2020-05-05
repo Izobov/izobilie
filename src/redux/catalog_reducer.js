@@ -168,6 +168,15 @@ export const deleteSection = (name, id) => {
     }
 }
 
+export const updateNestedSections = (categoryName, sectionName, arr) => {
+    debugger
+    return (dispatch) => {
+        return SectionAPIStitch.updateSecondSection(categoryName, sectionName, arr).then(res => {
+            dispatch(setCatalogThunk())
+        })
+    }
+
+}
 // export const updateCategory = (file, data) => {
 //     return (dispatch) => {
 //         return CategoryAPI.updateCategory(file, data).then(response => {

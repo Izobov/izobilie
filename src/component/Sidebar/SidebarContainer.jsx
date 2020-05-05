@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
-import { setCatalogThunk, setCurentCategory, setCurentSection, insertCategory, deleteCategory, addSection, deleteSection } from "../../redux/catalog_reducer";
+import { setCatalogThunk, setCurentCategory, setCurentSection, insertCategory, deleteCategory, addSection, deleteSection, updateNestedSections } from "../../redux/catalog_reducer";
 import { setProductsThunk } from "../../redux/catalog_reducer";
 
 
@@ -14,8 +14,10 @@ class SidebarContainer extends React.Component {
     this.onDeleteCategory = this.onDeleteCategory.bind(this);
     this.addSection = this.addSection.bind(this);
     this.deleteSection = this.deleteSection.bind(this)
+    this.onUpdateNestedSections = this.onUpdateNestedSections.bind(this)
 
   }
+
 
   componentDidMount() {
     this.props.setCatalogThunk();
@@ -51,6 +53,10 @@ class SidebarContainer extends React.Component {
     this.props.addSection(name, id)
   }
 
+  onUpdateNestedSections(categoryName, sectionName, arr) {
+    this.props.updateNestedSections(categoryName, sectionName, arr)
+  }
+
   render() {
     return (
 
@@ -61,6 +67,7 @@ class SidebarContainer extends React.Component {
         deleteCategory={this.onDeleteCategory}
         addSection={this.addSection}
         deleteSection={this.deleteSection}
+        update={this.onUpdateNestedSections}
 
       />
     );
@@ -83,7 +90,8 @@ export default connect(mapStateToProps, {
   insertCategory,
   deleteCategory,
   addSection,
-  deleteSection
+  deleteSection,
+  updateNestedSections
 
 
 })(SidebarContainer);

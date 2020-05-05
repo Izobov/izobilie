@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./sidebar.module.css";
 import { useState } from "react";
-import { SectionAPIStitch } from "../../api/stitch";
+
 
 
 
@@ -10,9 +10,8 @@ import { SectionAPIStitch } from "../../api/stitch";
 const Sidebar = props => {
   let auth = props.isAuth
 
-  function update(id, name, arr) {
-    SectionAPIStitch.updateSecondSection(id, name, arr)
-  }
+
+
   let [redactorMode, setRedactorMode] = useState(false);
   let [redactorSection, setRedactorSection] = useState(false)
   let [inputName, setInputName] = useState('Название раздела');
@@ -45,20 +44,27 @@ const Sidebar = props => {
             </span>
           </div>
           {d.nestedSection && d.nestedSection.nestedSections.map(sec =>
-            <span className={s.secondSection}>-{sec}</span>)}
+            <div className={s.nested}>
+              <span className={s.secondSection}>-{sec} </span>
+              {auth &&
+                <div className={s.deleteSection} onClick={() => props.update(i.name, d.name, [...d.nestedSection.nestedSections.filter(i => i !== sec)])} >&#10006;</div>
+              }
 
-          {d.name === redactorSection ?
+            </div>
+          )}
+
+          {auth && (d.name === redactorSection ?
             <div className={s.inputWrapper2} >
               <span>-{sectionInput}</span>
               <input type="text" value={sectionInput} onChange={e => setSectionInput(e.target.value)} />
               <div className={s.buttons}>
-                <div className={s.cancel} onClick={() => { setSectionInput('Название'); setRedactorMode(false) }}>Отменить</div>
-                <div className={s.add} onClick={() => { console.log(i); setRedactorMode(false); update(i.name, d.name, d.nestedSection ? [...d.nestedSection.nestedSections, sectionInput] : [{ name: sectionInput }]) }}>Отправить</div>
+                <div className={s.cancel} onClick={() => { setSectionInput('Название'); setRedactorSection(false) }}>Отменить</div>
+                <div className={s.add} onClick={() => { setRedactorSection(false); props.update(i.name, d.name, d.nestedSection ? [...d.nestedSection.nestedSections, sectionInput] : [sectionInput]) }}>Отправить</div>
               </div>
             </div>
             :
 
-            <span onClick={() => setRedactorSection(d.name)}>- &#10010;</span>
+            <span className={s.secondSection} onClick={() => setRedactorSection(d.name)}>- добавить</span>)
           }
         </div>
       )}

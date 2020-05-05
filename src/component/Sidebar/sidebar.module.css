@@ -51,7 +51,7 @@
     flex-direction: column;
 } 
 
-.section span:hover{
+.section span:first-child:hover{
     color: rgb(68, 68, 68);
 }
 .secondSection {
@@ -115,3 +115,16 @@
     flex-direction: column;
     font-size: 1rem;
 }
+
+.deleteSection{
+    color:  rgb(112, 86, 61);
+    
+    margin-left: 15px;
+    font-size: 0.8rem;
+}
+.deleteSection:hover {
+   color:rgb(187, 111, 111)! ;
+}
+.nested {
+    display: flex;
+align-items: flex-end;}
