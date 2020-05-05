@@ -4,7 +4,7 @@ import cash from "../../img/icons/cash.png";
 import card from '../../img/icons/bank.png'
 import SidebarContainer from '../Sidebar/SidebarContainer'
 
-const Contacts = (props) => {
+const PayInfo = (props) => {
     return <div>
         <SidebarContainer/>
         <div className={s.titleText}>
@@ -44,4 +44,4 @@ const Contacts = (props) => {
 
 }
 
-export default Contacts;
+export default PayInfo;

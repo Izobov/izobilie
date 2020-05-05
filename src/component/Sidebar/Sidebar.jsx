@@ -69,7 +69,6 @@ const Sidebar = props => {
         </div>
       )}
 
-      {/* {auth && */}
       {auth && (redactorMode ?
         <div className={s.inputWrapper} >
           <span>{sectionInput}</span>
@@ -83,7 +82,7 @@ const Sidebar = props => {
           &#10010;
       </div>)
       }
-      {/* } */}
+
 
     </div>}
   </div>)
@@ -91,7 +90,7 @@ const Sidebar = props => {
   return <div className={s.nav}>
     {catalogItem}
     <NavLink to='/about' className={s.item}>О нас</NavLink>
-    <NavLink to='/contacts' className={s.item}> Доставка и оплата</NavLink>
+    <NavLink to='/payinfo' className={s.item}> Доставка и оплата</NavLink>
     <NavLink to='/contacts' className={s.item}> Контакты</NavLink>
     {props.isAuth && <NavLink to='/orders' className={s.item}>Заказы</NavLink>}
   </div>

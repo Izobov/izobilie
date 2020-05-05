@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import About from './component/About/About';
-import Contacts from './component/Contacts/Contacts';
+import PayInfo from './component/PayInfo/PayInfo';
 import ProductsContainer from './component/Catalog/ProductsContainer';
 import BasketContainer from './component/Basket/BasketContainer';
 import HeaderContainer from './component/Header/HeaderContainer';
@@ -40,9 +40,9 @@ function App() {
                 () => < About />
               }
             />
-            <Route path='/contacts'
+            <Route path='/payinfo'
               render={
-                () => < Contacts />
+                () => < PayInfo />
               }
             />
             <Route path='/products'
