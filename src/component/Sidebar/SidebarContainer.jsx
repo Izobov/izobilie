@@ -47,7 +47,7 @@ class SidebarContainer extends React.Component {
   }
 
   addSection(name, id) {
-    debugger
+
     this.props.addSection(name, id)
   }
 

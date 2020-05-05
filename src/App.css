@@ -36,10 +36,13 @@
 .content_wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 97%;
+  max-width: 100%;
   width: 100%;
   position: relative;
-  margin-left: 3%;
+  
+}
+.swiper-container{
+  height: 400px;
 }
 
 /* h2 {

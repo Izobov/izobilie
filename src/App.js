@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom'
 import About from './component/About/About';
 import Contacts from './component/Contacts/Contacts';
-import SidebarContainer from './component/Sidebar/SidebarContainer';
 import ProductsContainer from './component/Catalog/ProductsContainer';
 import BasketContainer from './component/Basket/BasketContainer';
 import HeaderContainer from './component/Header/HeaderContainer';
@@ -24,9 +23,8 @@ function App() {
 
     <div className="App" >
       <HeaderContainer />
+      <BasketContainer />
       < main className="main" >
-        <SidebarContainer />
-        <BasketContainer />
         <div className="content_wrapper" >
 
           <div className='content' >

@@ -2,9 +2,11 @@ import React from 'react'
 import s from './contacts.module.css'
 import cash from "../../img/icons/cash.png";
 import card from '../../img/icons/bank.png'
+import SidebarContainer from '../Sidebar/SidebarContainer'
 
 const Contacts = (props) => {
     return <div>
+        <SidebarContainer/>
         <div className={s.titleText}>
 
             <h2 > Способы оплаты и доставка</h2>

@@ -104,9 +104,7 @@ export const setCurentCategory = (name) => ({
 })
 
 export const setCatalogThunk = () => {
-
     return (dispatch) => {
-
 
 
         CategoryAPIStitch.getCategory().then(res => {

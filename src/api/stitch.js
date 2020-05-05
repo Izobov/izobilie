@@ -16,7 +16,7 @@ const db = client
 let category;
 let products;
 let orders;
-
+let sections;
 
 export const DBconnect = async () => {
 
@@ -25,17 +25,37 @@ export const DBconnect = async () => {
         .then(user => {
             category = db.collection("category");
             products = db.collection("products");
-            orders = db.collection("orders")
+            orders = db.collection("orders");
+            sections = db.collection("sections")
+
         });
 }
 
 export const CategoryAPIStitch = {
 
     async getCategory() {
+
+        let data = await sections.find().asArray();
+        console.log(data)
+
         return category
             .find()
             .asArray()
             .then(res => {
+                res.forEach(el => {
+
+
+                    for (let i = 0; i < el.sections.length; i++) {
+
+                        let section = el.sections[i];
+                        let nestedSection = data.find(item => { return item.categoryName === el.name && item.sectionName === section.name })
+                        console.log(nestedSection)
+                        if (nestedSection) {
+                            section.nestedSection = nestedSection
+                        }
+                    }
+                });
+                console.log(res)
                 return res;
             });
 
@@ -63,8 +83,19 @@ export const SectionAPIStitch = {
 
     },
     async deleteSection(name, id) {
+
+        await category.updateOne({ _id: id }, { $pull: { sections: { name: name } } }).then(res => { return res })
+    },
+    async updateSecondSection(categoryName, sectionName, arr) {
+        console.log(category)
+        let query = { categoryName: categoryName, sectionName: sectionName }
+        let update = { $set: { "nestedSections": arr } }
+        let updateOptions = {
+            upsert: true
+        }
         debugger
-        await category.updateOne({ _id: id }, { $pull: { sections: { name: name } } }).then(res => { debugger; return res })
+
+        await sections.updateOne(query, update, updateOptions).then(res => { debugger; return res })
     }
 }
 

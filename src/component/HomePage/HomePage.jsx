@@ -1,12 +1,9 @@
 import React from "react";
-
 import s from "./home.module.css";
-
-
 import Slider from './Slider'
 import inst from "../../img/icons/instagram.svg"
-
 import SliderTopProducts from "./SliderTopProducts"
+import SidebarContainer from "../Sidebar/SidebarContainer"
 
 
 
@@ -20,6 +17,8 @@ const HomePage = (props) => {
     return <div className={s.home}>
 
         <Slider />
+        <SidebarContainer />
+
         <div className={s.top}>
             <h2 className={s.title}>Топ продаж</h2>
             <div className={s.cardsWrapper}>

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import store from './redux/redux';
 import { DBconnect } from './api/stitch';
 
+
 DBconnect().then(res => {
 
     ReactDOM.render(

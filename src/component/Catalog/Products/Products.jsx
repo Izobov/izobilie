@@ -14,6 +14,7 @@ const Products = (props) => {
     let product = props.product
 
     let catalog = props.catalog
+
     const [inputValue, setValue] = useState(0);
     const [redactorMode, setRedactorMode] = useState(false)
     const [nameInput, setNameInput] = useState(product.name)
@@ -31,14 +32,14 @@ const Products = (props) => {
         }
         return <option onClick={() => { setCategoryName(i.name) }}>{i.name}</option>
     })
+    let sectionsOptions = []
+    // let sectionsOptions = catalog.find(i => i.name === inputCategoryName).sections.map(i => {
+    //     if (i.name === product.sectionName) {
 
-    let sectionsOptions = catalog.find(i => i.name === inputCategoryName).sections.map(i => {
-        if (i.name === product.sectionName) {
-
-            return <option selected onClick={() => { setSectionName(i.name) }}>{i.name}</option>
-        }
-        return <option onClick={() => { setSectionName(i.name) }}>{i.name}</option>
-    })
+    //         return <option selected onClick={() => { setSectionName(i.name) }}>{i.name}</option>
+    //     }
+    //     return <option onClick={() => { setSectionName(i.name) }}>{i.name}</option>
+    // })
 
     let update = () => {
         let price = +inputPrice

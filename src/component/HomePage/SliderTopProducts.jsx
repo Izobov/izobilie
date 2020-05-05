@@ -33,7 +33,7 @@ const SliderTopProducts = (props) => {
 
     }
 
-    console.log(Swiper)
+
 
     const params = {
 
