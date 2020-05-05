@@ -1,0 +1,64 @@
+.wrapper {
+    padding: 150px 15px;
+    display: flex;
+    justify-content: center;
+}
+.wrapper img{
+    /* width: 500px; */
+    height: 400px;
+}
+.info{
+    margin-left: 50px;
+}
+
+.info h2 {
+    margin-top: 0;
+}
+.spanWrapper{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.inputWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.plusButton, .minusButton {
+    width: 25px;
+    height: 25px;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ae998d;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+.inputWrapper input{
+    background: none;
+    width: 50px;
+    border: none;
+    color: #ae998d;
+    font-size: 1.3rem;
+    text-align: center;
+    appearance: textfield;
+}
+
+.add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ae998d;
+    border-radius: 5px;
+    color: white;
+    margin: 0 auto;
+    width:150px;
+    height: 30px;
+    margin-top: 15%;
+    border: none;
+    cursor: pointer;
+}

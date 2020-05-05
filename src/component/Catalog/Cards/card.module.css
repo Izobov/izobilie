@@ -103,11 +103,10 @@
     justify-content: center;
     color: #f3f3f0;
     font-size: 1.5rem;
-}
-
-.plusButton:hover, .minusButton:hover {
     cursor: pointer;
 }
+
+
 
 
 .add {

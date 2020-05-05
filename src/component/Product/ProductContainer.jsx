@@ -7,15 +7,16 @@ import SidebarContainer from '../Sidebar/SidebarContainer';
 
 
 
-class CatalogContainer extends React.Component {
+class ProductContainer extends React.Component {
 
     constructor(props) {
+
         super(props);
 
         this.onCategoryClick = this.onCategoryClick.bind(this);
 
         this.onProductsSubmit = this.onProductsSubmit.bind(this)
-        // this.pushInBasket = this.pushInBasket.bind(this)
+        this.pushInBasket = this.pushInBasket.bind(this)
 
 
         this.onAddProductSubmit = this.onAddProductSubmit.bind(this)
@@ -68,6 +69,8 @@ class CatalogContainer extends React.Component {
         } else {
             product.count = 1
         }
+        console.log(this.props)
+        this.props.setBasketProducts(product)
         this.props.setBasketProducts(product)
 
 
@@ -103,4 +106,4 @@ export default connect(mapStateToProps, {
     updateProducts,
     setBasketProducts, deleteProduct,
     setCurrentProduct
-})(CatalogContainer)
+})(ProductContainer)

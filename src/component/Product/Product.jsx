@@ -68,33 +68,33 @@ const Product = (props) => {
     }
 
 
-    return <div>
+    return <div className={s.wrapper}>
         <div>
             <img src={product.img} alt="" />
         </div>
         <div className={s.info}>
             <h2>{product.name}</h2>
-            <div>
+            <div className={s.spanWrapper}>
                 <span>Цвет:</span>
                 <p> {product.color}</p>
 
             </div>
-            <div>
+            <div className={s.spanWrapper}>
                 <span>Размер:</span>
                 <p> {product.size}</p>
 
             </div>
-            <div>
+            <div className={s.spanWrapper}>
                 <span>Производитель:  </span>
                 <p>{product.manufacturer || ''}</p>
 
             </div>
-            <div>
+            <div className={s.spanWrapper}>
                 <span>Описание:  </span>
                 <p>{product.description || ''}</p>
 
-            </div>
-            <div>
+            </div >
+            <div className={s.spanWrapper}>
                 <span>Цена:</span>
                 <p>{product.price}</p>
             </div>
@@ -115,8 +115,8 @@ const Product = (props) => {
                     props.pushInBasket(product, inputValue)
                 }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
             </div>
-        </div>
-    </div>
+        </div >
+    </div >
     {/* <div className={s.cardHover}>
 
             {props.isAuth ? <div className={s.btn}>

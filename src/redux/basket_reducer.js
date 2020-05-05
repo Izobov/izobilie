@@ -31,15 +31,10 @@ const basket_reducer = (state = InitialState, action) => {
             })
 
             if (filter.length === 0) {
+                debugger
                 return {
                     ...state,
                     products: [...state.products, action.products],
-
-                }
-            } else {
-                alert("этот товар уже имеется в вашей корзине")
-                return {
-                    ...state,
 
                 }
             }
