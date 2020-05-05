@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Catalog from './Catalog';
-import { setProductsThunk, setCurentCategory, updateProducts, insertProduct, deleteProduct } from '../../redux/catalog_reducer';
+import { setProductsThunk, setCurentCategory, updateProducts, insertProduct, deleteProduct, setCurrentProduct } from '../../redux/catalog_reducer';
 import { setBasketProducts } from '../../redux/basket_reducer';
+import Product from './Product';
+import SidebarContainer from '../Sidebar/SidebarContainer';
 
 
 
@@ -14,13 +15,14 @@ class CatalogContainer extends React.Component {
         this.onCategoryClick = this.onCategoryClick.bind(this);
 
         this.onProductsSubmit = this.onProductsSubmit.bind(this)
-        this.pushInBasket = this.pushInBasket.bind(this)
+        // this.pushInBasket = this.pushInBasket.bind(this)
 
 
         this.onAddProductSubmit = this.onAddProductSubmit.bind(this)
 
         this.updateProducts = this.updateProducts.bind(this)
         this.deleteProduct = this.deleteProduct.bind(this)
+        this.onSetCurrentProduct = this.onSetCurrentProduct.bind(this)
     }
 
 
@@ -55,6 +57,10 @@ class CatalogContainer extends React.Component {
         this.props.setProducts(id)
     }
 
+    onSetCurrentProduct(product) {
+        this.props.setCurrentProduct(product)
+    }
+
     pushInBasket(product, count) {
         if (count > 0) {
             product.count = count;
@@ -69,11 +75,10 @@ class CatalogContainer extends React.Component {
 
     render() {
 
-        return <Catalog {...this.props} onCategoryClick={this.onCategoryClick} pushInBasket={this.pushInBasket}
-            onProductsSubmit={this.onProductsSubmit}
-            updateProduct={this.updateProducts}
-            onAddProductSubmit={this.onAddProductSubmit} deleteProduct={this.deleteProduct} />
-
+        return <>
+            <SidebarContainer />
+            <Product {...this.props} pushInBasket={this.pushInBasket} />
+        </>
     }
 }
 
@@ -85,14 +90,17 @@ let mapStateToProps = (state) => {
         currentCategory: state.catalog.currentCategory,
         isAuth: state.auth.isAuth,
         basket: state.basket.products,
-        catalog: state.catalog.catalog
+        catalog: state.catalog.catalog,
+        currentProduct: state.catalog.currentProduct
     }
 }
+
 
 
 
 export default connect(mapStateToProps, {
     insertProduct, setProductsThunk, setCurentCategory,
     updateProducts,
-    setBasketProducts, deleteProduct
+    setBasketProducts, deleteProduct,
+    setCurrentProduct
 })(CatalogContainer)

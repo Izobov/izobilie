@@ -128,3 +128,8 @@
 .nested {
     display: flex;
 align-items: flex-end;}
+
+.nav a{
+    text-decoration: none;
+    color: rgb(112, 86, 61);;
+}

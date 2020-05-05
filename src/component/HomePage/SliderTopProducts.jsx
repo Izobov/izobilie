@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Swiper from 'react-id-swiper';
 import s from "./home.module.css";
-import d from "../Catalog/Products/product.module.css";
+import d from "../Catalog/Cards/card.module.css";
 import 'swiper/css/swiper.css';
 import { connect } from 'react-redux';
-import Products from "../Catalog/Products/Products"
+import Products from "../Catalog/Cards/Cards"
 import { getTopProducts } from "../../redux/catalog_reducer";
 import { setBasketProducts } from "../../redux/basket_reducer";
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import s from './product.module.css'
+import s from "./card.module.css"
 import { useState } from 'react'
+import { NavLink } from "react-router-dom";
 
 
 
@@ -8,7 +9,8 @@ import { useState } from 'react'
 
 
 
-const Products = (props) => {
+const Cards = (props) => {
+    debugger
 
 
     let product = props.product
@@ -68,19 +70,29 @@ const Products = (props) => {
     }
 
 
-    return <div className={s.wrapper} >
+    return <div className={s.cardFront}>
+        <img src={product.img} alt="" />
+        <div className={s.info}>
 
-        <div className={s.cardFront}>
-            <img src={product.img} alt="" />
-            <div className={s.info}>
+            <h2>{product.name}</h2>
+            <span>Размер:{product.size}</span>
+            <span>Цвет:{product.color}</span>
+            <span className={s.price}>{product.price}руб</span>
+            <div className={s.buttonWrapper}>
+                <NavLink to="/product">
+                    <div className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => {
 
-                <h2>{product.name}</h2>
-                <span>Размер:{product.size}</span>
-                <span>Цвет:{product.color}</span>
-                <span className={s.price}>{product.price}руб</span>
+                        if (inputValue === 0) {
+                            setValue(1)
+                        }
+                        console.log(props.CurrrentProduct)
+                        props.CurrentProduct(product)
+                    }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
+                </NavLink>
             </div>
         </div>
-        <div className={s.cardHover}>
+    </div>
+    {/* <div className={s.cardHover}>
 
             {props.isAuth ? <div className={s.btn}>
                 <div className={s.add} onClick={() => setRedactorMode(true)}>Изменить</div>
@@ -106,9 +118,9 @@ const Products = (props) => {
                     }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
                 </div>
             }
-        </div>
+        </div> */}
 
-        {redactorMode && <div className={`${s.cardFront} ${s.redactor}`} >
+    {/* {redactorMode && <div className={`${s.cardFront} ${s.redactor}`} >
             <img src={product.img} alt="" />
             <div className={s.info}>
 
@@ -135,10 +147,10 @@ const Products = (props) => {
 
 
             </div>
-        </div>}
+        </div>} */}
 
 
-    </div>
+
 
 
 
@@ -146,4 +158,4 @@ const Products = (props) => {
 
 }
 
-export default Products;
+export default Cards;

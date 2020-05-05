@@ -18,6 +18,7 @@ let SET_PRODUCTS = "SET_PRODUCTS"
 let SET_TOP = "SET_TOP"
 let SET_CURRENT_SECTION = "SET_CURRENT_SECTION"
 let SET_CURRENT_CATEGORY = "SET_CURRENT_CATEGORY"
+let SET_CURRENT_PRODUCT = "SET_CURRENT_RODUCT"
 
 
 
@@ -27,7 +28,8 @@ let InitialState = {
     currentSection: '',
     categories: [],
     products: [],
-    topProducts: []
+    topProducts: [],
+    currentProduct: false,
 
 }
 
@@ -69,7 +71,13 @@ const catalog_reducer = (state = InitialState, action) => {
                 ...state,
                 topProducts: action.products
             }
+        case SET_CURRENT_PRODUCT:
+            debugger
+            return {
 
+                ...state,
+                currentProduct: action.product
+            }
         default:
             return state
     }
@@ -101,6 +109,11 @@ export const setCurentSection = (name) => ({
 export const setCurentCategory = (name) => ({
     type: SET_CURRENT_CATEGORY,
     name
+})
+
+export const setCurrentProduct = (product) => ({
+    type: SET_CURRENT_PRODUCT,
+    product
 })
 
 export const setCatalogThunk = () => {

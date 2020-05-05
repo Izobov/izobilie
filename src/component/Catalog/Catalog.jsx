@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
 import s from './catalog.module.css'
-import Products from './Products/Products';
+import Cards from './Cards/Cards';
 
 import AddProduct from '../RedactorsMode/AddProduct';
+import SidebarContainer from "../Sidebar/SidebarContainer"
 
 
 
@@ -22,39 +23,38 @@ const Catalog = (props) => {
     }
 
 
-    let productsElements = props.products.map(item => <Products product={item} key={item.product_id} pushInBasket={props.pushInBasket} isAuth={props.isAuth}
-        onSubmit={props.onProductsSubmit} deleteProduct={props.deleteProduct} basket={props.basket} catalog={props.catalog} updateProduct={props.updateProduct} />)
-    return <main className={s.wrapper}>
-        <div className={s.header}>
+    let productsElements = props.products.map(item => <Cards product={item} key={item.product_id} pushInBasket={props.pushInBasket} isAuth={props.isAuth}
+        onSubmit={props.onProductsSubmit} deleteProduct={props.deleteProduct} basket={props.basket} catalog={props.catalog} updateProduct={props.updateProduct} CurrentProduct={props.CurrentProduct} />)
+    return <>
+        <SidebarContainer />
+        <main className={s.wrapper}>
 
-            <h2 >
-                {props.currentCategory}
+            <div className={s.header}>
 
-            </h2>
+                <h2 >
+                    {props.currentCategory}
 
-        </div>
+                </h2>
+                <h3>{props.currentSection}</h3>
 
-        <div className={s.title}>
+            </div>
+            <div className={s.main}>
+                {props.isAuth && <>
+                    <div className={s.newItem}>
+                        {addProduct ? <AddProduct SetImg={props.SetImg} Cancel={setAddProduct} onSubmit={onAddProductSubmit} catalog={props.catalog} currentCategory={props.currentCategory} currentSection={props.currentSection} /> :
+                            < div onClick={() => setAddProduct(true)}>
+                                <div className={s.circle}><span>+</span></div>
+                            </div>
+                        }
+                    </div>
+                </>}
+                {productsElements}
 
-
-            <h3>{props.currentSection}</h3>
-        </div>
-        <div className={s.main}>
-            {props.isAuth && <>
-                <div className={s.newItem}>
-                    {addProduct ? <AddProduct SetImg={props.SetImg} Cancel={setAddProduct} onSubmit={onAddProductSubmit} catalog={props.catalog} currentCategory={props.currentCategory} currentSection={props.currentSection} /> :
-                        < div onClick={() => setAddProduct(true)}>
-                            <div className={s.circle}><span>+</span></div>
-                        </div>
-                    }
-                </div>
-            </>}
-            {productsElements}
-
-        </div>
+            </div>
 
 
-    </main >
+        </main >
+    </>
 }
 
 export default Catalog;

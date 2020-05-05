@@ -24,13 +24,12 @@ class SidebarContainer extends React.Component {
   }
 
   onClick(params, name) {
+    debugger
 
     this.props.setProductsThunk(params);
     this.props.setCurentCategory(name);
-    if (params.sectionName) {
+    this.props.setCurentSection(params.sectionName || params.nestedSectionName)
 
-      this.props.setCurentSection(params.sectionName)
-    }
   }
 
   onSubmit(params) {
