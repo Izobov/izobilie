@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "defad5e8e7ac71297be245b95f421d8c",
+    "revision": "1c248dfa7d04f816d2bbaba5a3949bbd",
     "url": "/izobilie/index.html"
   },
   {
-    "revision": "00676a2d2fd7b32508f2",
+    "revision": "6e5a476deacb7df60bb1",
     "url": "/izobilie/static/css/2.0988ea1f.chunk.css"
   },
   {
-    "revision": "a4ad1dda4025d5a4c915",
-    "url": "/izobilie/static/css/main.8613f02a.chunk.css"
+    "revision": "9f18c725afe33d783abe",
+    "url": "/izobilie/static/css/main.efb78d49.chunk.css"
   },
   {
-    "revision": "00676a2d2fd7b32508f2",
-    "url": "/izobilie/static/js/2.7a4edc73.chunk.js"
+    "revision": "6e5a476deacb7df60bb1",
+    "url": "/izobilie/static/js/2.65d2d5fa.chunk.js"
   },
   {
     "revision": "73dd1405d79e31f707da18d53ccd162b",
-    "url": "/izobilie/static/js/2.7a4edc73.chunk.js.LICENSE.txt"
+    "url": "/izobilie/static/js/2.65d2d5fa.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a4ad1dda4025d5a4c915",
-    "url": "/izobilie/static/js/main.6e04558c.chunk.js"
+    "revision": "9f18c725afe33d783abe",
+    "url": "/izobilie/static/js/main.5d245e39.chunk.js"
   },
   {
     "revision": "50d0b126eee67367c30f",
@@ -56,10 +56,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/izobilie/static/media/bill4.d4840d02.png"
   },
   {
-    "revision": "1c136d6cc2819a73c4238ca26707b32e",
-    "url": "/izobilie/static/media/girl.1c136d6c.jpg"
-  },
-  {
     "revision": "b423aa5b0a0b80c488a7a643bb66fa54",
     "url": "/izobilie/static/media/im7.b423aa5b.jpg"
   },
@@ -82,13 +78,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b1db8a262f0ecec92483b17fc0601abe",
     "url": "/izobilie/static/media/izobilie4.b1db8a26.png"
-  },
-  {
-    "revision": "b1cabf8767e35b415745e810c2afb7f0",
-    "url": "/izobilie/static/media/man1.b1cabf87.jpg"
-  },
-  {
-    "revision": "69254a9a8dcc706b65ecae33725b5d13",
-    "url": "/izobilie/static/media/man2.69254a9a.jpg"
   }
 ]);

@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/izobilie/static/css/main.8613f02a.chunk.css",
-    "main.js": "/izobilie/static/js/main.6e04558c.chunk.js",
-    "main.js.map": "/izobilie/static/js/main.6e04558c.chunk.js.map",
+    "main.css": "/izobilie/static/css/main.efb78d49.chunk.css",
+    "main.js": "/izobilie/static/js/main.5d245e39.chunk.js",
+    "main.js.map": "/izobilie/static/js/main.5d245e39.chunk.js.map",
     "runtime-main.js": "/izobilie/static/js/runtime-main.24ebddd7.js",
     "runtime-main.js.map": "/izobilie/static/js/runtime-main.24ebddd7.js.map",
     "static/css/2.0988ea1f.chunk.css": "/izobilie/static/css/2.0988ea1f.chunk.css",
-    "static/js/2.7a4edc73.chunk.js": "/izobilie/static/js/2.7a4edc73.chunk.js",
-    "static/js/2.7a4edc73.chunk.js.map": "/izobilie/static/js/2.7a4edc73.chunk.js.map",
+    "static/js/2.65d2d5fa.chunk.js": "/izobilie/static/js/2.65d2d5fa.chunk.js",
+    "static/js/2.65d2d5fa.chunk.js.map": "/izobilie/static/js/2.65d2d5fa.chunk.js.map",
     "index.html": "/izobilie/index.html",
-    "precache-manifest.186133ead6d760f02fa31cfb7d1ca639.js": "/izobilie/precache-manifest.186133ead6d760f02fa31cfb7d1ca639.js",
+    "precache-manifest.a8f7c9c5b3a15ec6bdcb5f2effcf8f98.js": "/izobilie/precache-manifest.a8f7c9c5b3a15ec6bdcb5f2effcf8f98.js",
     "service-worker.js": "/izobilie/service-worker.js",
     "static/css/2.0988ea1f.chunk.css.map": "/izobilie/static/css/2.0988ea1f.chunk.css.map",
-    "static/css/main.8613f02a.chunk.css.map": "/izobilie/static/css/main.8613f02a.chunk.css.map",
-    "static/js/2.7a4edc73.chunk.js.LICENSE.txt": "/izobilie/static/js/2.7a4edc73.chunk.js.LICENSE.txt",
+    "static/css/main.efb78d49.chunk.css.map": "/izobilie/static/css/main.efb78d49.chunk.css.map",
+    "static/js/2.65d2d5fa.chunk.js.LICENSE.txt": "/izobilie/static/js/2.65d2d5fa.chunk.js.LICENSE.txt",
     "static/media/Logo.png": "/izobilie/static/media/Logo.a5efe846.png",
     "static/media/bank.png": "/izobilie/static/media/bank.847884c3.png",
     "static/media/basket.png": "/izobilie/static/media/basket.8c64ba33.png",
@@ -21,21 +21,18 @@
     "static/media/bill2.png": "/izobilie/static/media/bill2.74462ba3.png",
     "static/media/bill3.png": "/izobilie/static/media/bill3.7c6ec914.png",
     "static/media/bill4.png": "/izobilie/static/media/bill4.d4840d02.png",
-    "static/media/girl.jpg": "/izobilie/static/media/girl.1c136d6c.jpg",
     "static/media/im7.jpg": "/izobilie/static/media/im7.b423aa5b.jpg",
     "static/media/img11.jpg": "/izobilie/static/media/img11.2dcfdfcb.jpg",
     "static/media/img2.jpg": "/izobilie/static/media/img2.f795552b.jpg",
     "static/media/img8.jpg": "/izobilie/static/media/img8.62d897d4.jpg",
     "static/media/instagram.svg": "/izobilie/static/media/instagram.dca29619.svg",
-    "static/media/izobilie4.png": "/izobilie/static/media/izobilie4.b1db8a26.png",
-    "static/media/man1.jpg": "/izobilie/static/media/man1.b1cabf87.jpg",
-    "static/media/man2.jpg": "/izobilie/static/media/man2.69254a9a.jpg"
+    "static/media/izobilie4.png": "/izobilie/static/media/izobilie4.b1db8a26.png"
   },
   "entrypoints": [
     "static/js/runtime-main.24ebddd7.js",
     "static/css/2.0988ea1f.chunk.css",
-    "static/js/2.7a4edc73.chunk.js",
-    "static/css/main.8613f02a.chunk.css",
-    "static/js/main.6e04558c.chunk.js"
+    "static/js/2.65d2d5fa.chunk.js",
+    "static/css/main.efb78d49.chunk.css",
+    "static/js/main.5d245e39.chunk.js"
   ]
 }
