@@ -5,7 +5,7 @@ import d from "../Catalog/Cards/card.module.css";
 import 'swiper/css/swiper.css';
 import { connect } from 'react-redux';
 import Products from "../Catalog/Cards/Cards"
-import { getTopProducts } from "../../redux/catalog_reducer";
+import { getTopProducts, setCurrentProduct } from "../../redux/catalog_reducer";
 import { setBasketProducts } from "../../redux/basket_reducer";
 
 
@@ -33,6 +33,9 @@ const SliderTopProducts = (props) => {
 
     }
 
+    let setCurrentProduct = (product) => {
+        props.setCurrentProduct(product)
+    }
 
 
     const params = {
@@ -52,7 +55,7 @@ const SliderTopProducts = (props) => {
 
 
 
-        <Products product={i} key={i._id} pushInBasket={pushInBasket} catalog={props.catalog} basket={props.basket} />
+        <Products product={i} key={i._id} pushInBasket={pushInBasket} CurrentProduct={setCurrentProduct} catalog={props.catalog} basket={props.basket} />
 
 
     )
@@ -73,6 +76,7 @@ const SliderTopProducts = (props) => {
     } else { return <></> }
 }
 
+
 const mapStateToProps = (state) => {
     return {
         topProducts: state.catalog.topProducts,
@@ -81,4 +85,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getTopProducts, setBasketProducts })(SliderTopProducts)
+export default connect(mapStateToProps, { getTopProducts, setBasketProducts, setCurrentProduct })(SliderTopProducts)

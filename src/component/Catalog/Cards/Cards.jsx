@@ -85,7 +85,6 @@ const Cards = (props) => {
                         if (inputValue === 0) {
                             setValue(1)
                         }
-                        console.log(props.CurrrentProduct)
                         props.CurrentProduct(product)
                     }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
                 </NavLink>
