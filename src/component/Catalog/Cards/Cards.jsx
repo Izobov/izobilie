@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 
 
 const Cards = (props) => {
-    debugger
+
 
 
     let product = props.product

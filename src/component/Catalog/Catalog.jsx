@@ -5,6 +5,7 @@ import Cards from './Cards/Cards';
 
 import AddProduct from '../RedactorsMode/AddProduct';
 import SidebarContainer from "../Sidebar/SidebarContainer"
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -42,9 +43,12 @@ const Catalog = (props) => {
                 {props.isAuth && <>
                     <div className={s.newItem}>
                         {addProduct ? <AddProduct SetImg={props.SetImg} Cancel={setAddProduct} onSubmit={onAddProductSubmit} catalog={props.catalog} currentCategory={props.currentCategory} currentSection={props.currentSection} /> :
-                            < div onClick={() => setAddProduct(true)}>
-                                <div className={s.circle}><span>+</span></div>
-                            </div>
+                            <NavLink to="/productadd">
+
+                                < div>
+                                    <div className={s.circle}><span>+</span></div>
+                                </div>
+                            </NavLink>
                         }
                     </div>
                 </>}
