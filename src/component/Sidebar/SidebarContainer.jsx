@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
 import { setCatalogThunk, setCurentCategory, setCurentSection, insertCategory, deleteCategory, addSection, deleteSection, updateNestedSections } from "../../redux/catalog_reducer";
-import { setProductsThunk } from "../../redux/catalog_reducer";
+
 
 
 
@@ -24,9 +24,6 @@ class SidebarContainer extends React.Component {
   }
 
   onClick(params, name) {
-    debugger
-
-    this.props.setProductsThunk(params);
     this.props.setCurentCategory(name);
     this.props.setCurentSection(params.sectionName || params.nestedSectionName)
 
@@ -83,7 +80,6 @@ let mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   setCatalogThunk,
-  setProductsThunk,
   setCurentCategory,
   setCurentSection,
   insertCategory,

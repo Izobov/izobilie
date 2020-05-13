@@ -46,7 +46,7 @@ function App() {
                 () => < PayInfo />
               }
             />
-            <Route path='/catalog'
+            <Route path='/catalog/:action?/:name?'
               render={
                 () => < CatalogContainer />
               }

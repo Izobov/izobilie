@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Catalog from './Catalog';
 import { setProductsThunk, setCurentCategory, updateProducts, insertProduct, deleteProduct, setCurrentProduct } from '../../redux/catalog_reducer';
 import { setBasketProducts } from '../../redux/basket_reducer';
+import { compose } from "redux";
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -14,7 +16,6 @@ class CatalogContainer extends React.Component {
         this.onCategoryClick = this.onCategoryClick.bind(this);
 
         this.onProductsSubmit = this.onProductsSubmit.bind(this)
-        // this.pushInBasket = this.pushInBasket.bind(this)
 
 
         this.onAddProductSubmit = this.onAddProductSubmit.bind(this)
@@ -25,6 +26,19 @@ class CatalogContainer extends React.Component {
     }
 
 
+    componentDidMount() {
+        let action = this.props.match.params.action
+        let name = this.props.match.params.name
+        let params;
+        if (action === "section") {
+            params = { sectionName: name }
+        } else {
+            params = { nestedSection: name }
+        }
+
+        this.props.setProductsThunk(params)
+
+    }
 
 
     deleteProduct(params) {
@@ -60,17 +74,7 @@ class CatalogContainer extends React.Component {
         this.props.setCurrentProduct(product)
     }
 
-    // pushInBasket(product, count) {
-    //     if (count > 0) {
-    //         product.count = count;
 
-    //     } else {
-    //         product.count = 1
-    //     }
-    //     this.props.setBasketProducts(product)
-
-
-    // }
 
     render() {
 
@@ -98,9 +102,15 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, {
-    insertProduct, setProductsThunk, setCurentCategory,
-    updateProducts,
-    setBasketProducts, deleteProduct,
-    setCurrentProduct
-})(CatalogContainer)
+export default compose(
+    connect(mapStateToProps, {
+        insertProduct, setProductsThunk, setCurentCategory,
+        updateProducts,
+        setBasketProducts, deleteProduct,
+        setCurrentProduct,
+        setProductsThunk
+
+    }),
+    withRouter
+
+)(CatalogContainer)

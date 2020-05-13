@@ -32,44 +32,49 @@ const Sidebar = props => {
     {i.name}
     {i.sections && <div className={s.sectionsWrapper} key={i._id}>
       {i.sections.map(d =>
-        <NavLink to='/catalog'>
 
-          <div className={s.section}>
-            <div className={s.mainSection}>
-              {auth && <div className={s.delete} onClick={e => {
-                e.stopPropagation();
-                props.deleteSection(d.name, i._id)
-              }}>&#10006;</div>}
+
+        <div className={s.section}>
+          <div className={s.mainSection}>
+            {auth && <div className={s.delete} onClick={e => {
+              e.stopPropagation();
+              props.deleteSection(d.name, i._id)
+            }}>&#10006;</div>}
+            <NavLink to={"catalog/section/" + d.name}>
+
 
               <span onClick={() => props.onClick({ sectionName: d.name }, i.name)}>
                 {d.name}
               </span>
-            </div>
-            {d.nestedSection && d.nestedSection.nestedSections.map(sec =>
-              <div className={s.nested}>
-                <span className={s.secondSection} onClick={e => { e.stopPropagation(); props.onClick({ nestedSection: sec }, i.name) }}>-{sec} </span>
-                {auth &&
-                  <div className={s.deleteSection} onClick={(e) => { e.stopPropagation(); props.update(i.name, d.name, [...d.nestedSection.nestedSections.filter(i => i !== sec)]) }} >&#10006;</div>
-                }
-
-              </div>
-            )}
-
-            {auth && (d.name === redactorSection ?
-              <div className={s.inputWrapper2} >
-                <span>-{sectionInput}</span>
-                <input type="text" value={sectionInput} onChange={e => setSectionInput(e.target.value)} />
-                <div className={s.buttons}>
-                  <div className={s.cancel} onClick={(e) => { e.stopPropagation(); setSectionInput('Название'); setRedactorSection(false) }}>Отменить</div>
-                  <div className={s.add} onClick={(e) => { e.stopPropagation(); setRedactorSection(false); props.update(i.name, d.name, d.nestedSection ? [...d.nestedSection.nestedSections, sectionInput] : [sectionInput]) }}>Отправить</div>
-                </div>
-              </div>
-              :
-
-              <span className={s.secondSection} onClick={(e) => { e.stopPropagation(); setRedactorSection(d.name) }}>- добавить</span>)
-            }
+            </NavLink>
           </div>
-        </NavLink>
+          {d.nestedSection && d.nestedSection.nestedSections.map(sec =>
+            <div className={s.nested}>
+              <NavLink to={"catalog/nestedsection/" + sec}>
+                <span className={s.secondSection} onClick={e => { e.stopPropagation(); props.onClick({ nestedSection: sec }, i.name) }}>-{sec} </span>
+              </NavLink>
+              {auth &&
+                <div className={s.deleteSection} onClick={(e) => { e.stopPropagation(); props.update(i.name, d.name, [...d.nestedSection.nestedSections.filter(i => i !== sec)]) }} >&#10006;</div>
+              }
+
+            </div>
+          )}
+
+          {auth && (d.name === redactorSection ?
+            <div className={s.inputWrapper2} >
+              <span>-{sectionInput}</span>
+              <input type="text" value={sectionInput} onChange={e => setSectionInput(e.target.value)} />
+              <div className={s.buttons}>
+                <div className={s.cancel} onClick={(e) => { e.stopPropagation(); setSectionInput('Название'); setRedactorSection(false) }}>Отменить</div>
+                <div className={s.add} onClick={(e) => { e.stopPropagation(); setRedactorSection(false); props.update(i.name, d.name, d.nestedSection ? [...d.nestedSection.nestedSections, sectionInput] : [sectionInput]) }}>Отправить</div>
+              </div>
+            </div>
+            :
+
+            <span className={s.secondSection} onClick={(e) => { e.stopPropagation(); setRedactorSection(d.name) }}>- добавить</span>)
+          }
+        </div>
+
       )}
 
       {auth && (redactorMode ?
