@@ -72,7 +72,7 @@ const catalog_reducer = (state = InitialState, action) => {
                 topProducts: action.products
             }
         case SET_CURRENT_PRODUCT:
-            debugger
+
             return {
 
                 ...state,
@@ -182,7 +182,6 @@ export const deleteSection = (name, id) => {
 }
 
 export const updateNestedSections = (categoryName, sectionName, arr) => {
-    debugger
     return (dispatch) => {
         return SectionAPIStitch.updateSecondSection(categoryName, sectionName, arr).then(res => {
             dispatch(setCatalogThunk())
@@ -190,15 +189,7 @@ export const updateNestedSections = (categoryName, sectionName, arr) => {
     }
 
 }
-// export const updateCategory = (file, data) => {
-//     return (dispatch) => {
-//         return CategoryAPI.updateCategory(file, data).then(response => {
-//             // if (response.status === 200) {
-//             //     dispatch(setCategories(data.catalog_id))
-//             // }
-//         })
-//     }
-// }
+
 
 export const getTopProducts = () => {
     return (dispatch) => {

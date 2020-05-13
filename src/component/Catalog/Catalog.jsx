@@ -43,7 +43,7 @@ const Catalog = (props) => {
                 {props.isAuth && <>
                     <div className={s.newItem}>
                         {addProduct ? <AddProduct SetImg={props.SetImg} Cancel={setAddProduct} onSubmit={onAddProductSubmit} catalog={props.catalog} currentCategory={props.currentCategory} currentSection={props.currentSection} /> :
-                            <NavLink to="/productadd">
+                            <NavLink to="/productadd" onClick={() => props.CurrentProduct(false)}>
 
                                 < div>
                                     <div className={s.circle}><span>+</span></div>

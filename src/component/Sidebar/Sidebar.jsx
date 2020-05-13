@@ -47,7 +47,7 @@ const Sidebar = props => {
             </div>
             {d.nestedSection && d.nestedSection.nestedSections.map(sec =>
               <div className={s.nested}>
-                <span className={s.secondSection} onClick={e => { e.stopPropagation(); props.onClick({ nestedSectionName: sec }, i.name) }}>-{sec} </span>
+                <span className={s.secondSection} onClick={e => { e.stopPropagation(); props.onClick({ nestedSection: sec }, i.name) }}>-{sec} </span>
                 {auth &&
                   <div className={s.deleteSection} onClick={(e) => { e.stopPropagation(); props.update(i.name, d.name, [...d.nestedSection.nestedSections.filter(i => i !== sec)]) }} >&#10006;</div>
                 }

@@ -13,7 +13,7 @@ import OrdersContainer from './component/Orders/OrdersContainer';
 import Footer from './component/Footer/Footer';
 import HomePage from './component/HomePage/HomePage';
 import ProductContainer from "./component/Product/ProductContainer"
-import AddProduct from './component/RedactorsMode/AddProduct';
+import AddProductContainer from './component/RedactorsMode/AddProductContainer';
 
 
 
@@ -69,7 +69,7 @@ function App() {
               } />
             <Route path='/productadd'
               render={
-                () => < AddProduct />
+                () => < AddProductContainer />
               } />
           </div>
         </div>

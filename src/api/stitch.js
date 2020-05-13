@@ -93,7 +93,6 @@ export const SectionAPIStitch = {
         let updateOptions = {
             upsert: true
         }
-        debugger
 
 
         await sections.updateOne(query, update, updateOptions).then(res => { return res })

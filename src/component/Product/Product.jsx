@@ -75,12 +75,12 @@ const Product = (props) => {
         <div className={s.info}>
             <h2>{product.name}</h2>
             <div className={s.spanWrapper}>
-                <span>Цвет:</span>
+                <span>Цвет: </span>
                 <p> {product.color}</p>
 
             </div>
             <div className={s.spanWrapper}>
-                <span>Размер:</span>
+                <span>Размер: </span>
                 <p> {product.size}</p>
 
             </div>
@@ -95,8 +95,8 @@ const Product = (props) => {
 
             </div >
             <div className={s.spanWrapper}>
-                <span>Цена:</span>
-                <p>{product.price}</p>
+
+                <p className={s.price}>{product.price} руб</p>
             </div>
 
             <div>

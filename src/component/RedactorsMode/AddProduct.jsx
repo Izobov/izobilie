@@ -1,13 +1,12 @@
 import React from 'react'
-import s from '../Product/product.module.css'
+import s from './redactor.module.css'
 import { useState } from 'react'
 
 
+
+
+
 const AddProduct = (props) => {
-
-
-    const [inputValue, setValue] = useState(0);
-    const [redactorMode, setRedactorMode] = useState(false)
     const [nameInput, setNameInput] = useState("Название")
     const [inputImg, setInputImg] = useState()
     const [inputSize, setInputSize] = useState()
@@ -15,78 +14,101 @@ const AddProduct = (props) => {
     const [inputManufacturer, setManufacturer] = useState()
     const [inputPrice, setInputPrice] = useState(0.00)
     const [inputDescription, setDescription] = useState()
-    const [inputCategoryName, setCategoryName] = useState()
-    const [inputSectionName, setSectionName] = useState()
-    // let params = { name: name, categoryName: categoryName, sectionName: sectionName, size: size, color: color, price: price, img: img }
+    const [inputCategoryName, setCategoryName] = useState(props.currentCategory)
+    const [inputSectionName, setSectionName] = useState(props.currentSection)
+    const [inputNestedSection, setNestedSection] = useState()
+    let params = { name: nameInput, categoryName: inputCategoryName, sectionName: inputSectionName, nestedSection: inputNestedSection, size: inputSize, color: inputColor, price: inputPrice, img: inputImg, description: inputDescription, manufacturer: inputManufacturer, nestedSection: inputNestedSection }
 
-    // let categoryOptions = props.catalog.map(i => {
-    //     if (categoryName === i.name) {
+    let categoryOptions = props.catalog.map(i => {
+        return <option onClick={() => { FilterCatalog(i.name) }}>{i.name}</option>
+    })
 
-    //         return <option selected onClick={() => { setCategoryName(i.name) }}>{i.name}</option>
-    //     }
-    //     return <option onClick={() => { setCategoryName(i.name) }}>{i.name}</option>
-    // })
 
-    // let sectionsOptions = filteredCatalog.sections.map(i => {
-    //     if (sectionName === i.name) {
+    let filteredCatalog = props.catalog.filter(i => i.name === inputCategoryName);
+    let section = filteredCatalog[0].sections.find(i => i.name === inputSectionName)
+    let nestedSectionOptions
 
-    //         return <option selected onClick={() => { setSectionName(i.name) }}>{i.name}</option>
-    //     }
-    //     return <option onClick={() => { setSectionName(i.name) }}>{i.name}</option>
-    // })
+    if (section && section.nestedSection) {
+        nestedSectionOptions = section.nestedSection.nestedSections.map(i => {
+            return <option onClick={() => setNestedSection(i)}>{i}</option>
+        })
+    }
+
+    // let nestedSections= filteredCatalog[0]
+    function FilterCatalog(name) {
+        filteredCatalog = props.catalog.filter(i => i.name === name)
+        setCategoryName(name)
+        setSectionName(filteredCatalog[0].sections[0].name)
+    }
+    function Save() {
+        props.save(params, inputSectionName, inputCategoryName)
+    }
+
+    let sectionsOptions = filteredCatalog[0].sections.map(i => {
+        return <option onClick={() => { setSectionName(i.name) }}>{i.name}</option>
+    })
+
+
 
 
 
 
     return <div className={s.wrapper}>
-        <div>
+        <div className={s.imgWrapper}>
             <img src={inputImg} alt="" />
-            <input type="text" value={inputImg} onChange={e => setInputImg(e.target.value)} />
+            <input type="text" value={inputImg} onChange={e => setInputImg(e.target.value)} placeholder="ссылка на картинку" />
         </div>
         <div className={s.info}>
             <h2>{nameInput}</h2>
-            <input type="text" value={nameInput} onChange={e => setNameInput(e.target.value)} />
+            <input type="text" value={nameInput} onChange={e => setNameInput(e.target.value)} placeholder="Название" />
+
+            <select name="" id="">
+                {categoryOptions}
+
+            </select>
+            <select name="" id="">
+                {sectionsOptions}
+            </select>
+            {nestedSectionOptions &&
+                <select>
+                    <option selected> нет</option>
+                    {nestedSectionOptions}
+                </select>}
 
             <div className={s.spanWrapper}>
 
-                <p> {inputColor}</p>
+                <p>Цвет: {inputColor}</p>
                 <input type="text" value={inputColor} placeholder="Цвет" onChange={e => setInputColor(e.target.value)} />
 
 
             </div>
             <div className={s.spanWrapper}>
-                <p> {inputSize}</p>
+                <p>Размер:  {inputSize}</p>
                 <input type="text" value={inputSize} placeholder="Размер" onChange={e => setInputSize(e.target.value)} />
 
             </div>
             <div className={s.spanWrapper}>
 
-                <p>{inputManufacturer}</p>
+                <p>Производитель: {inputManufacturer}</p>
                 <input type="text" value={inputManufacturer} placeholder="Производитель" onChange={e => setManufacturer(e.target.value)} />
 
             </div>
             <div className={s.spanWrapper}>
-                <p>{inputDescription}</p>
-                <input type="text" value={inputDescription} placeholder="Описание" onChange={e => setDescription(e.target.value)} />
+                <p>Описание: {inputDescription}</p>
+                <textarea type="textarea" value={inputDescription} placeholder="Описание" onChange={e => setDescription(e.target.value)} cols="50" rows="10" />
+
             </div >
             <div className={s.spanWrapper}>
-                <p>{inputPrice}</p>
+                <p className={s.price}>{inputPrice} руб</p>
                 <input type="text" value={inputPrice} onChange={e => setInputPrice(e.target.value)} />
             </div>
 
             <div>
 
-                <div className={s.add} onClick={() => {
-                    if (inputValue === 0) {
-                        setValue(1)
-                    }
-                    props.pushInBasket(inputValue)
-                }}> Сохранить </div>
+                <div className={s.add} onClick={() => Save()}> Сохранить </div>
             </div>
         </div >
     </div >
-
-
 
 }
 

@@ -2,6 +2,8 @@
     padding: 150px 15px;
     display: flex;
     justify-content: center;
+    font-size: 1.2rem;
+    background-color: #f3f3f0
 }
 .wrapper img{
     /* width: 500px; */
@@ -9,6 +11,9 @@
 }
 .info{
     margin-left: 50px;
+    display: flex;
+flex-direction: column;
+justify-content: space-evenly;
 }
 
 .info h2 {
@@ -22,7 +27,8 @@
 .inputWrapper {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 10px;
 }
 .plusButton, .minusButton {
     width: 25px;
@@ -55,10 +61,17 @@
     background-color: #ae998d;
     border-radius: 5px;
     color: white;
-    margin: 0 auto;
     width:150px;
     height: 30px;
     margin-top: 15%;
     border: none;
     cursor: pointer;
+}
+.spanWrapper p {
+    margin-left: 10px;
+}
+.price{
+    font-size: 2rem;
+    color: rgb(184, 36, 36);
+    margin-left: 0 !important;
 }

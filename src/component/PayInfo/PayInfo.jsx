@@ -21,7 +21,7 @@ const PayInfo = (props) => {
             </div>
             <div className={s.payWay}>
                 <img src={card} alt="" />
-                <p>Вы также можете расплатиться картой MasterCard или Visa, также мы принимаем к оплате карты БЕЛКАРТ </p>
+                <p>Вы также можете расплатиться картой MasterCard или Visa</p>
 
             </div>
 
