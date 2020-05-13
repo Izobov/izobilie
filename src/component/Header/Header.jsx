@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 import s from './header.module.css'
 
 import logo1 from '../../img/logo/izobilie4.png'
-import logo2 from '../../img/logo/Logo.png'
+
 
 const Header = (props) => {
     return <header className={s.header}>

@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './redactor.module.css'
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -16,7 +17,7 @@ const AddProduct = (props) => {
     const [inputDescription, setDescription] = useState()
     const [inputCategoryName, setCategoryName] = useState(props.currentCategory)
     const [inputSectionName, setSectionName] = useState(props.currentSection)
-    const [inputNestedSection, setNestedSection] = useState()
+    const [inputNestedSection, setNestedSection] = useState('')
     let params = { name: nameInput, categoryName: inputCategoryName, sectionName: inputSectionName, nestedSection: inputNestedSection, size: inputSize, color: inputColor, price: inputPrice, img: inputImg, description: inputDescription, manufacturer: inputManufacturer, nestedSection: inputNestedSection }
 
     let categoryOptions = props.catalog.map(i => {
@@ -104,8 +105,10 @@ const AddProduct = (props) => {
             </div>
 
             <div>
+                <NavLink to="catalog">
 
-                <div className={s.add} onClick={() => Save()}> Сохранить </div>
+                    <div className={s.add} onClick={() => Save()}> Сохранить </div>
+                </NavLink>
             </div>
         </div >
     </div >

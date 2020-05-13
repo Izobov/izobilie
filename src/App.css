@@ -55,5 +55,15 @@
     max-width: 100%;
     margin: 0%;
   }
+  .swiper-container{
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  
+  .swiper-container{
+    max-height: 200px;
+  }
 }
 

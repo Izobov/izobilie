@@ -64,6 +64,14 @@
     background-color: #A6ADA6;
 }
 
+.header input {
+    margin: 0 15px;
+    width: 200px;
+border: 1px solid #e7e7e7;
+border-radius: 15px;
+padding: 5px 10px;}
+
+
 
 
 @media screen and (max-width: 870px) {
@@ -97,9 +105,16 @@
 @media screen and (max-width: 580px) {
     
     .logo img{
-        width: 50px;
+        width: 115px;
     }
     
+    .header input {
+        height: 20px;
+        width: 100px;
+    }
+    .add {
+        width: 60px;
+    }
     
     
 }
@@ -109,7 +124,7 @@
     
     
     .btn{
-        width: 50px;
+        width: 60px;
         height: 20px;
     }
     
@@ -118,14 +133,14 @@
 @media screen and (max-width: 344px){
 
     .logo img{
-        max-width: 30px;
+        max-width:115px;
     }
 }
 
 @media screen and (max-width: 320px) {
     
     .logo img{
-        max-width: 30px;
+        max-width: 115px;
     }
     
     

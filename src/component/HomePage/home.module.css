@@ -11,7 +11,7 @@
    
 }
 .slider {
-    max-height: 200px;
+    max-height: 300px;
     max-width: 100%;
 }
 
@@ -97,6 +97,7 @@
 
 @media screen and (max-width: 1280px) {
     
+    
     .sliderImg {
         height: 400px;
     }
@@ -129,6 +130,9 @@
     }
     .instImg img{
         width: 250px;
+    }
+    .slider {
+       max-height: 300px;
     }
 }
 
