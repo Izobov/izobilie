@@ -8,16 +8,17 @@ import { NavLink } from 'react-router-dom'
 
 
 const AddProduct = (props) => {
-    const [nameInput, setNameInput] = useState("Название")
-    const [inputImg, setInputImg] = useState()
-    const [inputSize, setInputSize] = useState()
-    const [inputColor, setInputColor] = useState()
-    const [inputManufacturer, setManufacturer] = useState()
-    const [inputPrice, setInputPrice] = useState(0.00)
-    const [inputDescription, setDescription] = useState()
-    const [inputCategoryName, setCategoryName] = useState(props.currentCategory)
-    const [inputSectionName, setSectionName] = useState(props.currentSection)
-    const [inputNestedSection, setNestedSection] = useState('')
+    let product = props.currentProduct
+    const [nameInput, setNameInput] = useState(product.name || "Название")
+    const [inputImg, setInputImg] = useState(product.img || "")
+    const [inputSize, setInputSize] = useState(product.size || "")
+    const [inputColor, setInputColor] = useState(product.color || '')
+    const [inputManufacturer, setManufacturer] = useState(product.manufacturer || "")
+    const [inputPrice, setInputPrice] = useState(product.price || 0.00)
+    const [inputDescription, setDescription] = useState(product.description || "")
+    const [inputCategoryName, setCategoryName] = useState(product.categoryName || props.currentCategory)
+    const [inputSectionName, setSectionName] = useState(product.sectionName || props.currentSection)
+    const [inputNestedSection, setNestedSection] = useState(product.nestedSections || '')
     let params = { name: nameInput, categoryName: inputCategoryName, sectionName: inputSectionName, nestedSection: inputNestedSection, size: inputSize, color: inputColor, price: inputPrice, img: inputImg, description: inputDescription, manufacturer: inputManufacturer, nestedSection: inputNestedSection }
 
     let categoryOptions = props.catalog.map(i => {
@@ -42,7 +43,15 @@ const AddProduct = (props) => {
         setSectionName(filteredCatalog[0].sections[0].name)
     }
     function Save() {
-        props.save(params, inputSectionName, inputCategoryName)
+        if (product) {
+            props.update(params, product._id)
+        } else {
+            props.save(params, inputSectionName, inputCategoryName)
+        }
+    }
+
+    function Delete() {
+        props.delete({ _id: product._id }, inputSectionName, inputCategoryName)
     }
 
     let sectionsOptions = filteredCatalog[0].sections.map(i => {
@@ -104,11 +113,16 @@ const AddProduct = (props) => {
                 <input type="text" value={inputPrice} onChange={e => setInputPrice(e.target.value)} />
             </div>
 
-            <div>
+            <div className={s.buttonsWrapper}>
                 <NavLink to="catalog">
 
                     <div className={s.add} onClick={() => Save()}> Сохранить </div>
                 </NavLink>
+                {product &&
+                    <NavLink to="catalog">
+                        <div className={s.delete} onClick={() => Delete()}> Удалить</div>
+                    </NavLink>
+                }
             </div>
         </div >
     </div >

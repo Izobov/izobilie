@@ -3,7 +3,7 @@ import {
     RemoteMongoClient,
     AnonymousCredential
 } from 'mongodb-stitch-browser-sdk';
-import { updateProducts } from '../redux/catalog_reducer';
+
 
 
 
@@ -36,7 +36,7 @@ export const CategoryAPIStitch = {
     async getCategory() {
 
         let data = await sections.find().asArray();
-        console.log(data)
+
 
         return category
             .find()
@@ -49,13 +49,13 @@ export const CategoryAPIStitch = {
 
                         let section = el.sections[i];
                         let nestedSection = data.find(item => { return item.categoryName === el.name && item.sectionName === section.name })
-                        console.log(nestedSection)
+
                         if (nestedSection) {
                             section.nestedSection = nestedSection
                         }
                     }
                 });
-                console.log(res)
+
                 return res;
             });
 

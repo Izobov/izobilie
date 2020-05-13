@@ -38,12 +38,6 @@
     justify-content: center;
 }
 
-.redactor input{
-    /* width: 200px; */
-    border: 1px solid #e7e7e7;
-    border-radius: 15px;
-    padding: 5px 10px;
-}
 
 .redactor .info{
     background-color: #f3f3f0;
@@ -93,18 +87,6 @@
     width: 100%;
     justify-content: center;
 }
-.plusButton, .minusButton {
-    width: 25px;
-    height: 25px;
-    font-weight: 800;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #f3f3f0;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
 
 
 
@@ -130,9 +112,6 @@
     background-color: #A6ADA6;
 }
 
-.delete:hover{
-    background-color:rgb(187, 111, 111) ;
-}
 
 
 

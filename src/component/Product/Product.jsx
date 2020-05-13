@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './product.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 
@@ -50,6 +50,13 @@ const Product = (props) => {
     let isInBasket = !!props.basket.find(el => {
         return el._id.toString() === product._id.toString()
     })
+
+    useEffect(() => {
+
+        if (!isInBasket) {
+            setValue(0)
+        }
+    }, [props.basket])
 
 
 
@@ -117,69 +124,6 @@ const Product = (props) => {
             </div>
         </div >
     </div >
-    {/* <div className={s.cardHover}>
-
-            {props.isAuth ? <div className={s.btn}>
-                <div className={s.add} onClick={() => setRedactorMode(true)}>Изменить</div>
-                <div className={`${s.add} ${s.delete}`} onClick={() => {
-                    props.deleteProduct({ _id: product._id })
-                }}>Удалить</div>
-
-            </div> :
-                <div>
-
-                    <div className={s.inputWrapper}>
-
-                        <div className={s.minusButton} onClick={() => decrment()} > -</div>
-                        <input type="number" className={s.input} min="0" value={inputValue} onChange={(e) => setValue(e.target.value)} />
-                        <div className={s.plusButton} onClick={() => setValue(inputValue + 1)}>+</div>
-                    </div>
-
-                    <div className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => {
-                        if (inputValue === 0) {
-                            setValue(1)
-                        }
-                        props.pushInBasket(product, inputValue)
-                    }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
-                </div>
-            }
-        </div> */}
-
-    {/* {redactorMode && <div className={`${s.cardFront} ${s.redactor}`} >
-            <img src={product.img} alt="" />
-            <div className={s.info}>
-
-
-                <input type="text" value={inputImg} onChange={e => setInputImg(e.target.value)} />
-                <input type="text" value={nameInput} onChange={e => setNameInput(e.target.value)} />
-                <select name="Category" id="">
-                    {categoryOptions}
-                </select>
-                {sectionsOptions.length > 0 && <select name="Sections" id="">
-                    <option selected onClick={() => setSectionName(null)}>нет</option>
-                    {sectionsOptions}
-                </select>}
-
-                <input type="text" value={inputSize} onChange={e => setInputSize(e.target.value)} />
-                <input type="text" value={inputColor} onChange={e => setInputColor(e.target.value)} />
-                <input type="text" className={s.price} value={inputPrice} onChange={e => { setInputPrice(e.target.value) }} />
-
-
-                <div>
-                    <div className={s.add} onClick={() => { setRedactorMode(false); update() }}>Ок</div>
-                    <div className={`${s.add} ${s.delete}`} onClick={() => setRedactorMode(false)}>Отменить</div>
-                </div>
-
-
-            </div>
-        </div>} */}
-
-
-
-
-
-
-
 
 }
 

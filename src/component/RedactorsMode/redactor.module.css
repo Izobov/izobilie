@@ -62,7 +62,7 @@ justify-content: space-evenly;
     appearance: textfield;
 }
 
-.add {
+.add,.delete {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,14 +70,26 @@ justify-content: space-evenly;
     border-radius: 5px;
     color: white;
     width:150px;
+    margin-right: 25px;
     height: 30px;
     margin-top: 15%;
     border: none;
     cursor: pointer;
 }
 
+.delete:hover{
+    background-color:rgb(187, 111, 111) ;
+}
+.add:hover {
+    cursor: pointer;
+    background-color: #A6ADA6;
+}
+
 .price{
     font-size: 2rem;
     color: rgb(184, 36, 36);
     margin-left: 0 !important;
+}
+.buttonsWrapper {
+    display: flex;
 }
