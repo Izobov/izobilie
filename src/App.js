@@ -36,7 +36,7 @@ function App() {
               }
             />
 
-            <Route path='/about'
+            <Route path='/about/:asd?'
               render={
                 () => < About />
               }

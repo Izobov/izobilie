@@ -27,6 +27,11 @@ class CatalogContainer extends React.Component {
 
 
     componentDidMount() {
+        this.setProducts()
+
+    }
+
+    setProducts() {
         let action = this.props.match.params.action
         let name = this.props.match.params.name
         let params;
@@ -35,8 +40,13 @@ class CatalogContainer extends React.Component {
         } else {
             params = { nestedSection: name }
         }
-
         this.props.setProductsThunk(params)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params !== this.props.match.params) {
+            this.setProducts()
+        }
 
     }
 

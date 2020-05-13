@@ -16,8 +16,6 @@ const Sidebar = props => {
   let [redactorSection, setRedactorSection] = useState(false)
   let [inputName, setInputName] = useState('Название раздела');
   let [img, setImg] = useState('')
-  let [showSidebar, setShowSidebar] = useState(false)
-  let [addSection, setAddSection] = useState(false)
   let [sectionInput, setSectionInput] = useState('Название')
 
 
@@ -40,7 +38,7 @@ const Sidebar = props => {
               e.stopPropagation();
               props.deleteSection(d.name, i._id)
             }}>&#10006;</div>}
-            <NavLink to={"catalog/section/" + d.name}>
+            <NavLink to={`/catalog/section/${d.name}`}>
 
 
               <span onClick={() => props.onClick({ sectionName: d.name }, i.name)}>
@@ -50,7 +48,7 @@ const Sidebar = props => {
           </div>
           {d.nestedSection && d.nestedSection.nestedSections.map(sec =>
             <div className={s.nested}>
-              <NavLink to={"catalog/nestedsection/" + sec}>
+              <NavLink to={`/catalog/nestedsection/${sec}`}>
                 <span className={s.secondSection} onClick={e => { e.stopPropagation(); props.onClick({ nestedSection: sec }, i.name) }}>-{sec} </span>
               </NavLink>
               {auth &&
