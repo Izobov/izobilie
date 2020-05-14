@@ -9,43 +9,16 @@ import { useState, useEffect } from 'react'
 
 
 const Product = (props) => {
-
-
     let product = props.currentProduct
 
-    let catalog = props.catalog
 
     const [inputValue, setValue] = useState(0);
-    const [redactorMode, setRedactorMode] = useState(false)
-    const [nameInput, setNameInput] = useState(product.name)
-    const [inputImg, setInputImg] = useState(product.img)
-    const [inputSize, setInputSize] = useState(product.size)
-    const [inputColor, setInputColor] = useState(product.color)
-    const [inputPrice, setInputPrice] = useState(product.price)
-    const [inputCategoryName, setCategoryName] = useState(product.categoryName)
-    const [inputSectionName, setSectionName] = useState(product.sectionName)
 
-    let categoryOptions = catalog.map(i => {
-        if (i.name === product.categoryName) {
 
-            return <option selected onClick={() => { setCategoryName(i.name) }}>{i.name}</option>
-        }
-        return <option onClick={() => { setCategoryName(i.name) }}>{i.name}</option>
-    })
-    let sectionsOptions = []
-    // let sectionsOptions = catalog.find(i => i.name === inputCategoryName).sections.map(i => {
-    //     if (i.name === product.sectionName) {
 
-    //         return <option selected onClick={() => { setSectionName(i.name) }}>{i.name}</option>
-    //     }
-    //     return <option onClick={() => { setSectionName(i.name) }}>{i.name}</option>
-    // })
 
-    let update = () => {
-        let price = +inputPrice
 
-        props.updateProduct({ name: nameInput, img: inputImg, size: inputSize, color: inputColor, price: price.toFixed(2), categoryName: inputCategoryName, sectionName: inputSectionName }, product._id)
-    }
+
 
     let isInBasket = !!props.basket.find(el => {
         return el._id.toString() === product._id.toString()
@@ -60,10 +33,7 @@ const Product = (props) => {
 
 
 
-    // const onSubmit = (values) => {
-    //     props.onSubmit(values);
-    //     setRedactorMode(false)
-    // }
+
 
 
 

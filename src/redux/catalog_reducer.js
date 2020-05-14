@@ -48,8 +48,7 @@ const catalog_reducer = (state = InitialState, action) => {
         case SET_CURRENT_CATEGORY:
             return {
                 ...state,
-                currentCategory: action.name,
-                currentSection: ''
+                currentCategory: action.name
             }
 
         case SET_CATEGORIES:
@@ -128,6 +127,15 @@ export const setCatalogThunk = () => {
 
 }
 
+export const setProductById = (params) => {
+    return async (dispatch) => {
+        await ProductAPIStitch.getProducts(params).then(res => {
+
+            return dispatch(setCurrentProduct(res[0]))
+
+        })
+    }
+}
 
 
 

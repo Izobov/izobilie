@@ -6,7 +6,7 @@
     background-color: #f3f3f0
 }
 .wrapper img{
-    /* width: 500px; */
+    
     height: 400px;
 }
 .info{
@@ -75,3 +75,25 @@ justify-content: space-evenly;
     color: rgb(184, 36, 36);
     margin-left: 0 !important;
 }
+
+
+
+@media screen and (max-width: 740px) {
+    .wrapper img{
+        height: 300px;
+    }
+}
+
+
+ @media screen and (max-width: 580px) {
+    .wrapper img{
+        height: 200px;
+    }
+}
+
+
+@media screen and (max-width: 440px) {
+    .wrapper img{
+        height: 150px;
+    }
+} 

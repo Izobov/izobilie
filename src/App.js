@@ -36,7 +36,7 @@ function App() {
               }
             />
 
-            <Route path='/about/:asd?'
+            <Route path='/about'
               render={
                 () => < About />
               }
@@ -46,7 +46,7 @@ function App() {
                 () => < PayInfo />
               }
             />
-            <Route path='/catalog/:action?/:name?'
+            <Route path='/catalog/:category?/:action?/:name?'
               render={
                 () => < CatalogContainer />
               }
@@ -63,7 +63,7 @@ function App() {
               render={
                 () => < OrdersContainer />
               } />
-            <Route path='/product'
+            <Route path='/product/:id?'
               render={
                 () => < ProductContainer />
               } />

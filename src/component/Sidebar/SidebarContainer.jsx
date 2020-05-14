@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
-import { setCatalogThunk, setCurentCategory, setCurentSection, insertCategory, deleteCategory, addSection, deleteSection, updateNestedSections } from "../../redux/catalog_reducer";
+import { setCatalogThunk, insertCategory, deleteCategory, addSection, deleteSection, updateNestedSections } from "../../redux/catalog_reducer";
 
 
 
@@ -9,8 +9,7 @@ import { setCatalogThunk, setCurentCategory, setCurentSection, insertCategory, d
 class SidebarContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+
     this.onDeleteCategory = this.onDeleteCategory.bind(this);
     this.addSection = this.addSection.bind(this);
     this.deleteSection = this.deleteSection.bind(this)
@@ -23,17 +22,6 @@ class SidebarContainer extends React.Component {
     this.props.setCatalogThunk();
   }
 
-  onClick(params, name) {
-    this.props.setCurentCategory(name);
-    this.props.setCurentSection(params.sectionName || params.nestedSectionName)
-
-  }
-
-  onSubmit(params) {
-
-    this.props.insertCategory(params)
-    // CatalogAPI.addCatalog(name);
-  }
 
   onDeleteCategory(params) {
 
@@ -58,8 +46,6 @@ class SidebarContainer extends React.Component {
 
       <Sidebar
         {...this.props}
-        onClick={this.onClick}
-        onSubmit={this.onSubmit}
         deleteCategory={this.onDeleteCategory}
         addSection={this.addSection}
         deleteSection={this.deleteSection}
@@ -80,8 +66,6 @@ let mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   setCatalogThunk,
-  setCurentCategory,
-  setCurentSection,
   insertCategory,
   deleteCategory,
   addSection,

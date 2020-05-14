@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setProductsThunk, setCurentCategory, updateProducts, insertProduct, deleteProduct, setCurrentProduct } from '../../redux/catalog_reducer';
+import { setProductsThunk, setCurentCategory, updateProducts, insertProduct, deleteProduct, setCurrentProduct, setProductById } from '../../redux/catalog_reducer';
 import { setBasketProducts } from '../../redux/basket_reducer';
 import Product from './Product';
 import SidebarContainer from '../Sidebar/SidebarContainer';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { BSON } from 'mongodb-stitch-browser-sdk';
+
 
 
 
@@ -27,7 +31,20 @@ class ProductContainer extends React.Component {
     }
 
 
+    async componentWillMount() {
+        let id = this.props.match.params.id
 
+        let objId = new BSON.ObjectId(id)
+
+
+
+        await this.props.setProductById({ _id: objId })
+
+
+
+
+
+    }
 
     deleteProduct(params) {
 
@@ -80,7 +97,9 @@ class ProductContainer extends React.Component {
 
         return <>
             <SidebarContainer />
-            <Product {...this.props} pushInBasket={this.pushInBasket} />
+            {this.props.currentProduct &&
+                <Product {...this.props} pushInBasket={this.pushInBasket} />
+            }
         </>
     }
 }
@@ -101,9 +120,13 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, {
-    insertProduct, setProductsThunk, setCurentCategory,
-    updateProducts,
-    setBasketProducts, deleteProduct,
-    setCurrentProduct
-})(ProductContainer)
+export default compose(
+    connect(mapStateToProps, {
+        insertProduct, setProductsThunk, setCurentCategory,
+        updateProducts,
+        setBasketProducts, deleteProduct,
+        setCurrentProduct,
+        setProductById
+    }),
+    withRouter
+)(ProductContainer)

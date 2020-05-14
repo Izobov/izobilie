@@ -31,7 +31,7 @@ const basket_reducer = (state = InitialState, action) => {
             })
 
             if (filter.length === 0) {
-                debugger
+
                 return {
                     ...state,
                     products: [...state.products, action.products],

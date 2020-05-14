@@ -1,6 +1,5 @@
 import React from 'react';
 import s from "./card.module.css"
-import { useState } from 'react'
 import { NavLink } from "react-router-dom";
 
 
@@ -15,7 +14,7 @@ const Cards = (props) => {
 
     let product = props.product
 
-    let catalog = props.catalog
+
 
     let isInBasket = !!props.basket.find(el => {
         return el._id.toString() === product._id.toString()
@@ -46,12 +45,8 @@ const Cards = (props) => {
                             props.CurrentProduct(product)
                         }}> Редактировать</div>
                     </NavLink> :
-                    <NavLink to="/product">
-                        <div className={isInBasket ? `${s.add} ${s.success}` : s.add} onClick={() => {
-
-
-                            props.CurrentProduct(product)
-                        }}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
+                    <NavLink to={`/product/${product._id}`}>
+                        <div className={isInBasket ? `${s.add} ${s.success}` : s.add}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
                     </NavLink>
                 }
             </div>
