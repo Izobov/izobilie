@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4ccdd88001a711e6aca4d039c81a16c9",
+    "revision": "090b1a4d8e9e36cd2b9f899c59d8d63f",
     "url": "/izobilie/index.html"
   },
   {
-    "revision": "1601db3782d83ec102e4",
+    "revision": "a7d15b3c842e5b718c9d",
     "url": "/izobilie/static/css/2.0988ea1f.chunk.css"
   },
   {
-    "revision": "6f965972f44ed07fcf80",
-    "url": "/izobilie/static/css/main.4208c937.chunk.css"
+    "revision": "c605696835524cea4a90",
+    "url": "/izobilie/static/css/main.000cfe90.chunk.css"
   },
   {
-    "revision": "1601db3782d83ec102e4",
-    "url": "/izobilie/static/js/2.781688aa.chunk.js"
+    "revision": "a7d15b3c842e5b718c9d",
+    "url": "/izobilie/static/js/2.9d33891c.chunk.js"
   },
   {
-    "revision": "73dd1405d79e31f707da18d53ccd162b",
-    "url": "/izobilie/static/js/2.781688aa.chunk.js.LICENSE.txt"
+    "revision": "fae81f9710d84e9e4799eda9ec82729c",
+    "url": "/izobilie/static/js/2.9d33891c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6f965972f44ed07fcf80",
-    "url": "/izobilie/static/js/main.d2dc987f.chunk.js"
+    "revision": "c605696835524cea4a90",
+    "url": "/izobilie/static/js/main.3535f167.chunk.js"
   },
   {
     "revision": "50d0b126eee67367c30f",
