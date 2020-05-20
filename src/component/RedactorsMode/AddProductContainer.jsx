@@ -26,7 +26,7 @@ class AddProductContainer extends React.Component {
     async componentWillMount() {
         let id = this.props.match.params.id
         let objId = new BSON.ObjectId(id)
-        debugger
+
         if (id) {
 
             await this.props.setProductById({ _id: objId })

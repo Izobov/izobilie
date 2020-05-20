@@ -9,7 +9,6 @@ import { NavLink } from 'react-router-dom'
 
 const AddProduct = (props) => {
     let product = props.currentProduct
-    debugger
 
     const [nameInput, setNameInput] = useState(product.name || "Название")
     const [inputImg, setInputImg] = useState(product.img || "")

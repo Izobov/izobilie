@@ -59,7 +59,7 @@ export const iniAuth = () => async (dispatch) => {
 }
 
 export const logout = () => async (dispatch) => {
-    debugger
+
     let res = await AuthAPIStitch.Logout()
     dispatch(logoutActionCreator())
 }

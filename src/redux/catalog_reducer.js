@@ -71,7 +71,7 @@ const catalog_reducer = (state = InitialState, action) => {
                 topProducts: action.products
             }
         case SET_CURRENT_PRODUCT:
-            debugger
+
             return {
 
                 ...state,
