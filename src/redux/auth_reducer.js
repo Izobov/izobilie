@@ -1,3 +1,5 @@
+import e from "cors"
+import { AuthAPIStitch } from "../api/stitch"
 
 let AUTH = "AUTH"
 let LOGOUT = 'LOGOUT'
@@ -17,28 +19,13 @@ let InitialState = {
 const auth_reducer = (state = InitialState, action) => {
     switch (action.type) {
         case AUTH:
+            return {
+                ...state,
+                isAuth: true,
+                error: false
 
-
-            let filter = state.logins.filter(i => {
-                return i.name === action.name && i.password === action.password
-            })
-
-            if (filter.length === 0) {
-
-                return {
-                    ...state,
-                    error: "Неверный логин или пароль"
-
-                }
-            } else {
-
-                return {
-                    ...state,
-                    isAuth: true,
-                    error: false
-
-                }
             }
+
 
         case LOGOUT:
             return {
@@ -51,11 +38,31 @@ const auth_reducer = (state = InitialState, action) => {
 }
 
 
-export const Auth = (name, password) => ({ type: AUTH, name, password })
-export const logout = () => ({ type: LOGOUT })
+export const Auth = () => ({ type: AUTH })
+export const logoutActionCreator = () => ({ type: LOGOUT })
+export const loginThuk = (email, password) => async (dispatch) => {
+    let res = await AuthAPIStitch.Login(email, password)
+    if (res.id.toString() === "5ebd53ff197003ddb11dc1a1") {
+        dispatch(Auth())
+
+    }
+}
+export const iniAuth = () => async (dispatch) => {
+    let res = await AuthAPIStitch.iniAuth()
+    if (res) { dispatch(Auth()) }
+
+    else return
 
 
 
+
+}
+
+export const logout = () => async (dispatch) => {
+    debugger
+    let res = await AuthAPIStitch.Logout()
+    dispatch(logoutActionCreator())
+}
 
 
 export default auth_reducer;

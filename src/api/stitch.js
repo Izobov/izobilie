@@ -1,8 +1,10 @@
 import {
     Stitch,
     RemoteMongoClient,
-    AnonymousCredential
+    AnonymousCredential,
+    UserPasswordCredential
 } from 'mongodb-stitch-browser-sdk';
+import { Auth, iniAuth, logout } from '../redux/auth_reducer';
 
 
 
@@ -20,15 +22,38 @@ let sections;
 
 export const DBconnect = async () => {
 
-    await client.auth
-        .loginWithCredential(new AnonymousCredential())
-        .then(user => {
-            category = db.collection("category");
-            products = db.collection("products");
-            orders = db.collection("orders");
-            sections = db.collection("sections")
+    await client.auth.user
 
-        });
+    debugger
+
+    category = db.collection("category");
+    products = db.collection("products");
+    orders = db.collection("orders");
+    sections = db.collection("sections")
+
+
+}
+
+export const AuthAPIStitch = {
+    async Login(username, pass) {
+
+        await client.auth.loginWithCredential(new UserPasswordCredential(username, pass))
+        return client.auth.user
+
+    },
+
+    iniAuth() {
+        if (client.auth.user.id === "5ebd53ff197003ddb11dc1a1") {
+
+            return true
+
+        } else { return false }
+    },
+
+    async Logout() {
+        await client.auth.loginWithCredential(new AnonymousCredential())
+        return false
+    }
 }
 
 export const CategoryAPIStitch = {

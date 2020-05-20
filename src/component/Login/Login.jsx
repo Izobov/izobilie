@@ -4,6 +4,7 @@ import { useState } from 'react'
 import s from './login.module.css'
 import { Auth } from '../../redux/auth_reducer';
 import { Redirect } from 'react-router-dom'
+import { AuthAPIStitch } from '../../api/stitch';
 
 
 
@@ -13,12 +14,11 @@ const Login = (props) => {
 
     const onSubmit = () => {
 
-        props.Auth(nameValue, passwordValue)
-
+        props.onLogin(nameValue, passwordValue)
 
     }
 
-    if (props.isAuth) { return <Redirect to='/' /> }
+
     return <div className={s.wrapper}>
 
         <h2>Добро пожаловать!</h2>
