@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SidebarContainer from '../Sidebar/SidebarContainer';
 import AddProduct from './AddProduct';
-import { setCurentSection, insertProduct, updateProducts, deleteProduct } from "../../redux/catalog_reducer"
+import { setCurentSection, insertProduct, updateProducts, deleteProduct, setProductById, setCurrentProduct } from "../../redux/catalog_reducer"
 import { withRouter, NavLink, Redirect } from 'react-router-dom';
 import { compose } from "redux";
+import { BSON } from 'mongodb-stitch-browser-sdk';
 
 
 
@@ -20,6 +21,16 @@ class AddProductContainer extends React.Component {
         this.save = this.save.bind(this)
         this.update = this.update.bind(this)
         this.delete = this.delete.bind(this)
+
+    }
+    async componentWillMount() {
+        let id = this.props.match.params.id
+        let objId = new BSON.ObjectId(id)
+        debugger
+        if (id) {
+
+            await this.props.setProductById({ _id: objId })
+        }
 
     }
 
@@ -39,7 +50,9 @@ class AddProductContainer extends React.Component {
 
         return <>
             <SidebarContainer />
-            <AddProduct  {...this.props} save={this.save} update={this.update} delete={this.delete} />
+            {this.props.currentProduct && this.props.match.params.id &&
+                <AddProduct  {...this.props} save={this.save} update={this.update} delete={this.delete} />}
+            {!this.props.match.params.id && <AddProduct  {...this.props} save={this.save} update={this.update} delete={this.delete} currentProduct={false} />}
 
         </>
     }
@@ -61,7 +74,7 @@ let mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, {
-        setCurentSection, insertProduct, updateProducts, deleteProduct
+        setCurentSection, insertProduct, updateProducts, deleteProduct, setProductById, setCurrentProduct
     }),
     withRouter
 )(AddProductContainer)

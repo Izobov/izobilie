@@ -71,7 +71,7 @@ const catalog_reducer = (state = InitialState, action) => {
                 topProducts: action.products
             }
         case SET_CURRENT_PRODUCT:
-
+            debugger
             return {
 
                 ...state,
@@ -127,14 +127,15 @@ export const setCatalogThunk = () => {
 
 }
 
-export const setProductById = (params) => {
-    return async (dispatch) => {
-        await ProductAPIStitch.getProducts(params).then(res => {
+export const setProductById = (params) => async (dispatch) => {
 
-            return dispatch(setCurrentProduct(res[0]))
+    await ProductAPIStitch.getProducts(params).then(res => {
 
-        })
-    }
+        dispatch(setCurrentProduct(res[0]))
+
+
+    })
+
 }
 
 

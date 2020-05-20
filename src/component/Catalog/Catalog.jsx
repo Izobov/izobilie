@@ -13,6 +13,7 @@ import { NavLink } from 'react-router-dom';
 const Catalog = (props) => {
     let productsElements = props.products.map(item => <Cards product={item} key={item.product_id} isAuth={props.isAuth}
         basket={props.basket} />)
+
     return <>
         <SidebarContainer />
         <main className={s.wrapper}>
@@ -30,7 +31,7 @@ const Catalog = (props) => {
                 {props.isAuth && <>
                     <div className={s.newItem}>
 
-                        <NavLink to="/productadd" onClick={() => props.CurrentProduct(false)}>
+                        <NavLink to="/productadd" >
 
                             < div>
                                 <div className={s.circle}><span>+</span></div>

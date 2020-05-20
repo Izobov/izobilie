@@ -34,6 +34,7 @@ class ProductContainer extends React.Component {
     async componentWillMount() {
         let id = this.props.match.params.id
 
+
         let objId = new BSON.ObjectId(id)
 
 

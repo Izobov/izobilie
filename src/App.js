@@ -73,7 +73,7 @@ class App extends React.Component {
                 render={
                   () => < ProductContainer />
                 } />
-              <Route path='/productadd'
+              <Route path='/productadd/:id?'
                 render={
                   () => < AddProductContainer />
                 } />

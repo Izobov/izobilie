@@ -24,8 +24,6 @@ export const DBconnect = async () => {
 
     await client.auth.user
 
-    debugger
-
     category = db.collection("category");
     products = db.collection("products");
     orders = db.collection("orders");

@@ -38,12 +38,8 @@ const Cards = (props) => {
             <span className={s.price}>{product.price}руб</span>
             <div className={s.buttonWrapper}>
                 {props.isAuth ?
-                    <NavLink to="productadd">
-                        <div className={s.add} onClick={() => {
-
-
-                            props.CurrentProduct(product)
-                        }}> Редактировать</div>
+                    <NavLink to={`/productadd/${product._id}`}>
+                        <div className={s.add} > Редактировать</div>
                     </NavLink> :
                     <NavLink to={`/product/${product._id}`}>
                         <div className={isInBasket ? `${s.add} ${s.success}` : s.add}>{isInBasket ? "Товар в корзине" : "В корзину"}</div>
@@ -51,7 +47,7 @@ const Cards = (props) => {
                 }
             </div>
         </div>
-    </div>
+    </div >
 
 
 
